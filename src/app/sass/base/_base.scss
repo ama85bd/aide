@@ -1,0 +1,55 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* rem is related with root font size where 1rem = 16px
+     so here we change it to 10px i.e 1rem=10px now
+     so we can change only one place when we need in media query
+     why 10px because it can calculate easily with 10px rather 
+     than calculating with 16px
+     --
+     here we should not use directly 10px
+     10/16*100 = 62.5% === 10px
+  */
+  font-size: 62.5%;
+
+  @include respond(mid-desktop) {
+    font-size: 55%;
+  }
+
+  @include respond(small-desktop) {
+    font-size: 50%;
+  }
+
+  @include respond(tab-land) {
+    //width <1200?
+    font-size: 42.25%; //1rem = 9px, 9/16*100 = 56.25%
+  }
+
+  @include respond(tab-port) {
+    //width <900?
+    font-size: 40%; //1rem = 8px, 8/16*100 = 50%
+  }
+
+  @include respond(phone) {
+    font-size: 30%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 0.5rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}

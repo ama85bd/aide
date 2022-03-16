@@ -1,0 +1,101 @@
+.topsearch {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  width: 90%;
+  margin: 0.5rem auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: rgba($color-white, 0.5);
+  border-radius: 6px;
+  padding: 0.8rem;
+  //   padding-left: 9rem;
+  font-size: $default-font-size;
+
+  @include respond(small-desktop) {
+    width: 88% !important;
+  }
+
+  @include respond(tab-land) {
+    width: 85% !important;
+  }
+
+  @include respond(tab-mid) {
+    width: 80% !important;
+  }
+
+  &__logobox {
+    text-align: left;
+    margin-top: 1rem;
+    display: block;
+  }
+
+  &__logo {
+    height: 3.5rem;
+    display: inline-block;
+  }
+
+  &__logo-text {
+    display: inline-block;
+    font-size: 1.4rem;
+  }
+
+  &__logo-Header {
+    color: $color-aide2;
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+
+  &__mid {
+    text-align: center;
+    margin-top: 0.3rem;
+    transition: all 2s;
+  }
+
+  // &__form {
+  //   width: 100%;
+  // }
+  &__forminput {
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: $color-grey-light-1;
+    padding: 0.8rem 2rem;
+    border-radius: 2rem;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    width: 100%;
+    border: 2px solid $color-grey-light-2;
+    box-shadow: 0 0.1rem 0.5rem rgba($color-black, 0.1);
+    overflow: hidden;
+  }
+
+  &__forminput:focus {
+    outline: none;
+    box-shadow: inset 0 0 0.2rem 0.2rem rgba($color-black, 0.2);
+  }
+
+  &__formlabel {
+    margin-left: -3rem;
+  }
+  // &__forminput:focus + &__formlabel {
+  //   visibility: hidden;
+  // }
+
+  &__right {
+    text-align: right;
+    display: block;
+  }
+  &__signinBtn {
+    display: inline-block;
+    font-size: 2.5rem;
+  }
+  &__signinIcon {
+    display: inline-block;
+    font-size: 3rem;
+  }
+  &--signinbtn {
+    background-color: $color-primary-dark;
+    border-radius: 100rem;
+    color: $color-white;
+    vertical-align: top;
+  }
+}
