@@ -762,8 +762,30 @@ body {
   position: fixed;
   height: 100vh;
   padding-right: 2rem;
-  border-right: 0.8rem solid #00ced1;
+  border-right: 0.8rem solid #009999;
   box-shadow: 0.6rem 0.2rem 0.6rem rgba(0, 0, 0, 0.3);
+}
+.sidebar__box {
+  border-radius: 1rem;
+  border: 1.5px solid #009999;
+  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.5);
+  text-align: center;
+  margin-top: 1rem;
+  width: 7rem;
+  height: 6rem;
+  color: #009999;
+}
+.sidebar__box:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+.sidebar__icon {
+  padding-top: 0.3rem;
+  font-size: 4rem;
+}
+.sidebar__text {
+  font-weight: 900;
+  font-size: 1.1rem;
+  margin-top: -0.5rem;
 }
 
 .story {
