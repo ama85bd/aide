@@ -1,5 +1,4 @@
 import React from 'react';
-import './SidebarMenuList.css';
 import {
   IoFunnelOutline,
   IoReorderFourOutline,
@@ -11,7 +10,7 @@ import {
   IoHeartOutline,
   IoCalendarOutline,
 } from 'react-icons/io5';
-
+import './SidebarMenuList.css';
 interface ISidebarMenuList {
   handleCategoryExpand?: any;
   handleFilterExpand?: any;
@@ -26,7 +25,6 @@ interface ISidebarMenuList {
   menuActive?: any;
   sidebarRef?: any;
 }
-
 const SidebarMenuList = ({
   handleCategoryExpand,
   handleFilterExpand,
@@ -41,6 +39,15 @@ const SidebarMenuList = ({
   menuActive,
   sidebarRef,
 }: ISidebarMenuList) => {
+  // const calculateTotalOrderAmount = cartItem => {
+  //     let total = 0
+  //     cartItem.map(item => {
+  //         total += item.cartQuantity * item.SellPrice
+  //     })
+
+  //     return total
+  // }
+
   return (
     <div className='sidebar ' ref={sidebarRef}>
       <button
@@ -51,12 +58,11 @@ const SidebarMenuList = ({
         }
         onClick={handleCategoryExpand}
       >
-        <IoReorderFourOutline
+        <IoFunnelOutline
           className={
             menuActive === 'category' ? 'menuBar_item_inner_active' : ' icon '
           }
         />
-        {/* <SortIcon className={menuActive === 'category' ? "menuBar_item_inner_active" : " icon "} /> */}
         <span
           className={
             menuActive === 'category'
@@ -76,7 +82,11 @@ const SidebarMenuList = ({
         }
         onClick={handleFilterExpand}
       >
-        {/* <FilterAltOutlinedIcon className={menuActive === 'filter' ? "menuBar_item_inner_active" : " icon "} /> */}
+        <IoReorderFourOutline
+          className={
+            menuActive === 'filter' ? 'menuBar_item_inner_active' : ' icon '
+          }
+        />
         <span
           className={
             menuActive === 'filter'
@@ -131,7 +141,12 @@ const SidebarMenuList = ({
                         </p>
                     </div>
                     </> :
-                    <><ShoppingBagOutlinedIcon className={menuActive === 'shopping' ? "menuBar_item_inner_active" : " icon "} /> */}
+                    <> */}
+        <IoCogOutline
+          className={
+            menuActive === 'shopping' ? 'menuBar_item_inner_active' : ' icon '
+          }
+        />
         <span
           className={
             menuActive === 'shopping'
@@ -152,7 +167,11 @@ const SidebarMenuList = ({
         }
         onClick={handleContactUsExpand}
       >
-        {/* <WifiCalling3OutlinedIcon className={menuActive === 'contact' ? "menuBar_item_inner_active" : " icon "} /> */}
+        <IoBagHandleOutline
+          className={
+            menuActive === 'contact' ? 'menuBar_item_inner_active' : ' icon '
+          }
+        />
         <span
           className={
             menuActive === 'contact'
@@ -196,7 +215,11 @@ const SidebarMenuList = ({
         }
         onClick={handleMoreServiceExpand}
       >
-        {/* <GridViewOutlinedIcon className={menuActive === 'service' ? "menuBar_item_inner_active" : " icon "} /> */}
+        <IoCallOutline
+          className={
+            menuActive === 'service' ? 'menuBar_item_inner_active' : ' icon '
+          }
+        />
         <span
           className={
             menuActive === 'service'
@@ -216,7 +239,11 @@ const SidebarMenuList = ({
         }
         onClick={handleMyFavoriteExpand}
       >
-        {/* <FavoriteBorderOutlinedIcon className={menuActive === 'favorite' ? "menuBar_item_inner_active" :" icon "}/> */}
+        <IoChatbubbleEllipsesOutline
+          className={
+            menuActive === 'favorite' ? 'menuBar_item_inner_active' : ' icon '
+          }
+        />
         <span
           className={
             menuActive === 'favorite'
@@ -236,7 +263,11 @@ const SidebarMenuList = ({
         }
         onClick={handleScheduleShoppingExpand}
       >
-        {/* <DateRangeOutlinedIcon className={menuActive === 'schedule' ? "menuBar_item_inner_active" : " icon "} /> */}
+        <IoAppsOutline
+          className={
+            menuActive === 'schedule' ? 'menuBar_item_inner_active' : ' icon '
+          }
+        />
         <span
           className={
             menuActive === 'schedule'
@@ -256,7 +287,11 @@ const SidebarMenuList = ({
         }
         onClick={handleProfileExpand}
       >
-        {/* <AccountBoxOutlinedIcon className={menuActive === 'profile' ? "menuBar_item_inner_active" : " icon "} /> */}
+        <IoHeartOutline
+          className={
+            menuActive === 'profile' ? 'menuBar_item_inner_active' : ' icon '
+          }
+        />
         <span
           className={
             menuActive === 'profile'

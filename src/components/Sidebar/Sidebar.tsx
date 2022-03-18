@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Category from './Category/Category';
+import Category from '../Category/Category';
 // import Filter from './Filter/Filter';
 // import OfferZone from './OfferZone/OfferZone';
 // import LiveChat from './LiveChat/LiveChat';
@@ -11,16 +11,20 @@ import SidebarMenuList from './SidebarMenuList';
 // import ContactUs from './ContactUs/ContactUs';
 // import Profile from './Profile/Profile';
 import './Sidebar.css';
-
+// import { setOpenModal } from '../../actions/otherActions';
+// import { handleTheClickEvent } from '../../actions/clickEventAction';
+// import { CLOSE_MY_FAVOURITE, CLOSE_SCHEDULE_SHOPPING, CLOSE_SHOPPING_BAG } from '../../constants/clickEventConstant';
 interface ISidebar {
-  isFavourite?: boolean;
-  setIsFavourite?: boolean;
+  isFavourite?: any;
+  setIsFavourite?: any;
   setOverlay?: any;
+  filterExpand?: any;
+  setFilterExpand?: any;
   filterFullPage?: any;
   setFilterFullPage?: any;
 }
 
-function Sidebar2({
+function Sidebar({
   isFavourite,
   setIsFavourite,
   setOverlay,
@@ -40,6 +44,7 @@ function Sidebar2({
   const [scheduleShoppingExpand, setScheduleShoppingExpand] = useState(false);
   const [profileExpand, setProfileExpand] = useState(false);
   const [menuActive, setMenuActive] = useState('');
+  // const clickEventReducer = useSelector((state) => state.clickEventReducer)
   // const isShoppingOpen = clickEventReducer.isShoppingOpen
   // const isMyFavOpen = clickEventReducer.isMyFavOpen
   // const isShoppingBagOpen = clickEventReducer.isShoppingBagOpen
@@ -68,28 +73,17 @@ function Sidebar2({
 
   function handleClickOutside(event: any) {
     if (
-      sidebarRef.current &&
-      !sidebarRef.current.contains(event.target) &&
-      categoryRef.current &&
-      !categoryRef.current.contains(event.target) &&
-      filterRef.current &&
-      !filterRef.current.contains(event.target) &&
-      offerRef.current &&
-      !offerRef.current.contains(event.target) &&
-      shoppingBagRef.current &&
-      !shoppingBagRef.current.contains(event.target) &&
-      contactRef.current &&
-      !contactRef.current.contains(event.target) &&
-      chatRef.current &&
-      !chatRef.current.contains(event.target) &&
-      serviceRef.current &&
-      !serviceRef.current.contains(event.target) &&
-      favoriteRef.current &&
-      !favoriteRef.current.contains(event.target) &&
-      scheduleRef.current &&
-      !scheduleRef.current.contains(event.target) &&
-      profileRef.current &&
-      !profileRef.current.contains(event.target)
+      !sidebarRef.current?.contains(event.target) &&
+      !categoryRef.current?.contains(event.target) &&
+      !filterRef.current?.contains(event.target) &&
+      !offerRef.current?.contains(event.target) &&
+      !shoppingBagRef.current?.contains(event.target) &&
+      !contactRef.current?.contains(event.target) &&
+      !chatRef.current?.contains(event.target) &&
+      !serviceRef.current?.contains(event.target) &&
+      !favoriteRef.current?.contains(event.target) &&
+      !scheduleRef.current?.contains(event.target) &&
+      !profileRef.current?.contains(event.target)
     ) {
       setCategoryExpand(false);
       setFilterExpand(false);
@@ -123,6 +117,10 @@ function Sidebar2({
       setMoreServiceExpand(false);
       setShoppingBagExpand(false);
 
+      // dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
+      // dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
+      // dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
+
       setMyFavoriteExpand(false);
       setScheduleShoppingExpand(false);
       setProfileExpand(false);
@@ -146,6 +144,10 @@ function Sidebar2({
       setMyFavoriteExpand(false);
       setScheduleShoppingExpand(false);
       setProfileExpand(false);
+
+      // dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
+      // dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
+      // dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
     }
   };
   const handleOfferZoneExpand = () => {
@@ -166,6 +168,10 @@ function Sidebar2({
       setMyFavoriteExpand(false);
       setScheduleShoppingExpand(false);
       setProfileExpand(false);
+
+      // dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
+      // dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
+      // dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
     }
   };
   const handleShoppingBagExpand = () => {
@@ -186,6 +192,9 @@ function Sidebar2({
       setScheduleShoppingExpand(false);
       setProfileExpand(false);
       setMyFavoriteExpand(false);
+
+      // dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
+      // dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
     }
   };
   const handleContactUsExpand = () => {
@@ -206,6 +215,10 @@ function Sidebar2({
       setMyFavoriteExpand(false);
       setScheduleShoppingExpand(false);
       setProfileExpand(false);
+
+      // dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
+      // dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
+      // dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
     }
   };
   const handleLiveChatExpand = () => {
@@ -226,6 +239,10 @@ function Sidebar2({
       setMyFavoriteExpand(false);
       setScheduleShoppingExpand(false);
       setProfileExpand(false);
+
+      // dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
+      // dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
+      // dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
     }
   };
   const handleMoreServiceExpand = () => {
@@ -246,6 +263,10 @@ function Sidebar2({
       setMyFavoriteExpand(false);
       setScheduleShoppingExpand(false);
       setProfileExpand(false);
+
+      // dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
+      // dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
+      // dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
     }
   };
   const handleMyFavoriteExpand = () => {
@@ -266,6 +287,9 @@ function Sidebar2({
       setLiveChatExpand(false);
       setShoppingBagExpand(false);
       setProfileExpand(false);
+
+      // dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
+      // dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
     }
   };
   const handleScheduleShoppingExpand = () => {
@@ -286,6 +310,9 @@ function Sidebar2({
       setShoppingBagExpand(false);
       setMyFavoriteExpand(false);
       setProfileExpand(false);
+
+      // dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
+      // dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
     }
   };
   const handleProfileExpand = () => {
@@ -307,6 +334,9 @@ function Sidebar2({
       //     setLiveChatExpand(false)
       //     setShoppingBagExpand(false)
       //     setMyFavoriteExpand(false)
+      //     dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
+      //     dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
+      //     dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
       // } else {
       //     if (modalStatus) {
       //         dispatch(setOpenModal(false))
@@ -320,9 +350,9 @@ function Sidebar2({
 
   // useEffect(() => {
 
-  //     // isShoppingOpen && handleScheduleShoppingExpand()
-  //     // isMyFavOpen && handleMyFavoriteExpand()
-  //     // isShoppingBagOpen && handleShoppingBagExpand()
+  //     isShoppingOpen && handleScheduleShoppingExpand()
+  //     isMyFavOpen && handleMyFavoriteExpand()
+  //     isShoppingBagOpen && handleShoppingBagExpand()
 
   // }, [isShoppingOpen, isMyFavOpen, isShoppingBagOpen])
 
@@ -418,4 +448,4 @@ function Sidebar2({
   );
 }
 
-export default Sidebar2;
+export default Sidebar;

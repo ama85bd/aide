@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto+Condensed&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&family=Playfair+Display&family=Roboto+Condensed&display=swap');
+.body {
+  /* font-family: "Segoe UI", Helvetica, "Droid Sans", Arial, "lucida grande",
+    tahoma, verdana, arial, sans-serif !important;  */
+  /* font-family: 'Playfair Display', serif !important; */
+  font-family: 'Oswald', sans-serif !important;
+  /* font-family: Roboto,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,sans-serif; */
+  /* font-family: Roboto, Helvetica, Tahoma, Arial, Microsoft YaHei; */
+}
