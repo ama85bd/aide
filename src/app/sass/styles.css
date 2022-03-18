@@ -250,18 +250,19 @@ body {
 .btn, .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 1rem 1rem;
+  padding: 0.6rem 0.6rem;
   display: inline-block;
   border-radius: 10rem;
   transition: all 0.2s;
   position: relative;
   font-size: 1.2rem;
+  margin-top: 0.5rem;
   border: none;
   cursor: pointer;
 }
 .btn:hover {
   transform: translateY(-0.3rem);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
   color: #fff;
 }
 .btn:hover::after {
@@ -765,27 +766,46 @@ body {
   border-right: 0.8rem solid #009999;
   box-shadow: 0.6rem 0.2rem 0.6rem rgba(0, 0, 0, 0.3);
 }
+.sidebar__expand {
+  width: 300px;
+  height: 100vh;
+  background-color: red;
+  z-index: 1;
+}
+.sidebar--iconbtn, .sidebar--iconbtn:link, .sidebar--iconbtn:visited {
+  text-decoration: none;
+}
+.sidebar__mainbox {
+  margin-top: 3.5rem;
+  z-index: 3;
+}
 .sidebar__box {
   border-radius: 1rem;
   border: 1.5px solid #009999;
   box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.5);
   text-align: center;
-  margin-top: 1rem;
-  width: 7rem;
-  height: 6rem;
+  margin-top: 0.8rem;
+  width: 6.8rem;
+  height: 5.8rem;
   color: #009999;
 }
 .sidebar__box:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 .sidebar__icon {
-  padding-top: 0.3rem;
-  font-size: 4rem;
+  padding-top: 0.2rem;
+  font-size: 2.8rem;
 }
 .sidebar__text {
   font-weight: 900;
-  font-size: 1.1rem;
-  margin-top: -0.5rem;
+  font-size: 0.95rem;
+  margin: auto;
+}
+.sidebar__modal-insite {
+  top: 0;
+  left: 20rem;
+  height: 20rem;
+  width: 30rem;
 }
 
 .story {
@@ -873,8 +893,9 @@ body {
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 6px;
-  padding: 0.8rem;
+  padding: 0.6rem;
   font-size: 1.6rem;
+  z-index: 3;
 }
 @media (max-width: 84.375em) {
   .topsearch {
@@ -944,7 +965,7 @@ body {
 }
 .topsearch__signinIcon {
   display: inline-block;
-  font-size: 3rem;
+  font-size: 2.7rem;
 }
 .topsearch--signinbtn {
   background-color: #28b485;

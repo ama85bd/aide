@@ -1,0 +1,102 @@
+/* Brand Styling */
+.brand_container {
+  overflow-y: scroll;
+  /* overflow-x: hidden; */
+  border-radius: 10px;
+  /* box-shadow: 0 0 8px #dbdbdb; */
+  /* margin: 0.5rem; */
+  height: 85%;
+  position: absolute;
+  /* top: 11%; */
+  left: 0px;
+  right: 0px;
+}
+
+/* .category__color {
+    background: #009688;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+  } */
+
+.single_brand {
+  margin: 0.5rem;
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  display: flex;
+  /* flex-direction: row; */
+  padding: 0.3rem;
+}
+.brand {
+  margin: 0.5rem;
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  display: flex;
+  /* flex-direction: row; */
+  padding: 0.3rem;
+}
+
+.single_brand > img {
+  max-width: 100%;
+  /* margin: 0.5rem; */
+  overflow: hidden;
+}
+
+.brand_info {
+  position: relative;
+  width: 100%;
+}
+.brand_title {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.3rem;
+}
+
+.brand_title > h3:hover {
+  color: lightseagreen;
+}
+
+.brand_title > h3 {
+  font-weight: 600;
+  color: #222222;
+}
+
+.brand_title > h1 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: -0.0015em;
+  color: #9b9b9b;
+}
+
+.brand_info > .love_react {
+  position: absolute;
+  bottom: 35px;
+  right: 2px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  /* box-shadow: 0 0 8px #dbdbdb; */
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background: #ffffff;
+}
+
+.brand_container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.brand_container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
