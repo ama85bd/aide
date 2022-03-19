@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
 import Sidebar from '../components/Sidebar/Sidebar';
-import 'animate.css';
+// import 'animate.css';
 import { useEffect } from 'react';
-import 'react-loading-skeleton/dist/skeleton.css';
+// import 'react-loading-skeleton/dist/skeleton.css';
 
 function App() {
   const [filterExpand, setFilterExpand] = useState(false);
