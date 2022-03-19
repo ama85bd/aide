@@ -14,7 +14,7 @@
 @import 'components/feature-box';
 @import 'components/form';
 @import 'components/popup';
-@import 'components/sidebar';
+@import 'components/sidebarmenulist';
 @import 'components/story';
 @import 'components/topsearch';
 
@@ -25,6 +25,7 @@
 
 @import 'pages/home';
 @import 'pages/mainbody';
+@import 'pages/category';
 
 .navbar {
   width: 100%;

@@ -47,7 +47,12 @@ html {
 
 body {
   box-sizing: border-box;
-  padding: 0.5rem;
+  padding: 0;
+
+  button {
+    border: none;
+    background: none;
+  }
 
   @include respond(tab-port) {
     padding: 0;

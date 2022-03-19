@@ -1,16 +1,21 @@
-import React from 'react';
-import SideBar from './SideBar';
+import React, { useState } from 'react';
+import Sidebar from './Sidebar';
+import SideBarMenuList from './SideBarMenuList';
 import TopSearchBar from './TopSearchBar';
 
 function Layout() {
+  const [overlay, setOverlay] = useState(false);
+  const overlayScreen = overlay ? 'h-screen overflow-y-hidden pr-4' : '';
   return (
-    <div className='row mainBody'>
-      <div className='col-1-of-9 mainBody__left'>
-        <SideBar />
-      </div>
-      <div className='col-8-of-9 mainBody__right'>
+    <div className={`mainBody ${overlayScreen}`}>
+      <Sidebar setOverlay={setOverlay} />
+      <div className='page_container'>
         <TopSearchBar />
       </div>
+      <div style={{ marginTop: '20rem' }}>
+        <h1>HIIII</h1>
+      </div>
+      {overlay ? <div className='overlay_on_home_screen'></div> : <div></div>}
     </div>
   );
 }
