@@ -2,14 +2,14 @@
   &,
   &:link,
   &:visited {
-    text-transform: uppercase;
+    // text-transform: uppercase;
     text-decoration: none;
-    padding: 1rem 1rem;
+    padding: 0.7rem 1rem;
     display: inline-block;
     border-radius: 10rem;
     transition: all 0.2s;
     position: relative;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 
     //Change for the <button> element
     border: none;
@@ -17,22 +17,22 @@
   }
 
   &:hover {
-    transform: translateY(-0.3rem);
-    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    // transform: translateY(-0.3rem);
+    // box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
     color: $color-white;
 
     &::after {
-      transform: scaleX(1.4) scaleY(1.6);
+      // transform: scaleX(1.4) scaleY(1.6);
       opacity: 0;
     }
   }
 
-  &:active,
-  &:focus {
-    outline: none;
-    transform: translateY(-0.1rem);
-    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
-  }
+  // &:active,
+  // &:focus {
+  //   outline: none;
+  //   transform: translateY(-0.1rem);
+  //   box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  // }
 
   &--white {
     background-color: $color-white;

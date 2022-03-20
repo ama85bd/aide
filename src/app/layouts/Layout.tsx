@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Sidebar from './Sidebar';
+import Sidebar from './SideBar';
 import SideBarMenuList from './SideBarMenuList';
 import TopSearchBar from './TopSearchBar';
 

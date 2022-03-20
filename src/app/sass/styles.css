@@ -252,30 +252,21 @@ body {
 }
 
 .btn, .btn:link, .btn:visited {
-  text-transform: uppercase;
   text-decoration: none;
-  padding: 1rem 1rem;
+  padding: 0.7rem 1rem;
   display: inline-block;
   border-radius: 10rem;
   transition: all 0.2s;
   position: relative;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   border: none;
   cursor: pointer;
 }
 .btn:hover {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   color: #fff;
 }
 .btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
-}
-.btn:active, .btn:focus {
-  outline: none;
-  transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 .btn--white {
   background-color: #fff;
@@ -991,10 +982,25 @@ body {
   font-size: 2.7rem;
 }
 .topsearch--signinbtn {
-  background-color: #28b485;
-  border-radius: 100rem;
+  position: relative;
+  width: 7.2rem;
+  height: 2.9rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  border-radius: 2.4rem;
+  text-decoration: none;
+  margin-top: 0.4rem;
+  border: 1px solid #777;
+  background: #009999;
   color: #fff;
+  border: none;
   vertical-align: top;
+}
+.topsearch--signinbtn:hover {
+  text-decoration: none;
+  color: #fff;
 }
 
 .footer {
@@ -1481,8 +1487,16 @@ body {
   align-items: center;
   cursor: pointer;
 }
+.sidebarDrawer__arrowDiv:hover {
+  background: rgba(153, 153, 153, 0.4);
+  border-radius: 50%;
+}
 .sidebarDrawer--arrow {
   color: #777;
+  font-size: 1.8rem;
+}
+.sidebarDrawer__arrowDiv:hover .sidebarDrawer--arrow {
+  color: #009999;
 }
 .sidebarDrawer__titleHeader {
   font-style: normal;
@@ -1522,11 +1536,19 @@ body {
   color: #777;
   border: 1px solid #777;
 }
+.sidebarDrawer__sidebarButton:hover {
+  text-decoration: none;
+  color: #777;
+}
 .sidebarDrawer__selectedButton {
   background: #009999;
   color: #fff;
   border: none;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.sidebarDrawer__selectedButton:hover {
+  text-decoration: none;
+  color: #fff;
 }
 
 .navbar {

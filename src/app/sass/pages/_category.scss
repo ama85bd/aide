@@ -31,9 +31,17 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    &:hover {
+      background: rgba($color-grey-dark-2, 0.4);
+      border-radius: 50%;
+    }
   }
   &--arrow {
     color: $color-grey-dark;
+    font-size: 1.8rem;
+  }
+  &__arrowDiv:hover &--arrow {
+    color: $color-aide;
   }
   &__titleHeader {
     font-style: normal;
@@ -72,11 +80,19 @@
     margin-right: 0.2rem;
     color: $color-grey-dark;
     border: 1px solid $color-grey-dark;
+    &:hover {
+      text-decoration: none;
+      color: $color-grey-dark;
+    }
   }
   &__selectedButton {
     background: $color-aide;
     color: $color-white;
     border: none;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    &:hover {
+      text-decoration: none;
+      color: $color-white;
+    }
   }
 }
