@@ -12,7 +12,7 @@ const cancelSource = axios.CancelToken.source();
 //request handle
 function handleRequest(config: AxiosRequestConfig) {
   //get jwt
-  const token = window.localStorage.getItem('jwt-aide');
+  const token = window.localStorage.getItem('commonJWT-aide');
   if (token) config.headers.Authorization = `Bearer ${token}`;
   //cancel token to cancel request for any interrupted in api call
   config.cancelToken = cancelSource.token;

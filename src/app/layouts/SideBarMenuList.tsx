@@ -82,7 +82,10 @@ function SideBarMenuList({
       </button>
       <a href='#' className='sidebar--iconbtn'>
         <div className='sidebar__box'>
-          <IoFunnelOutline className='sidebar__icon' />
+          <IoFunnelOutline
+            style={{ marginTop: '.5rem', marginBottom: '.2rem' }}
+            className='sidebar__icon'
+          />
 
           <p className='sidebar__text'>Filter</p>
         </div>
@@ -135,11 +138,13 @@ function SideBarMenuList({
       <a href='#' className='sidebar--iconbtn'>
         <div className='sidebar__box'>
           <IoHeartOutline
-            style={{ fontSize: '3.3rem' }}
+            style={{ fontSize: '2.7rem', marginBottom: '-.3rem' }}
             className='sidebar__icon'
           />
-
-          <p className='sidebar__text'>My Favourite</p>
+          <p className='sidebar__text'>My</p>
+          <p className='sidebar__text' style={{ marginTop: '-5px' }}>
+            Favourite
+          </p>
         </div>
       </a>
       <a href='#' className='sidebar--iconbtn'>

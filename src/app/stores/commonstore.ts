@@ -13,10 +13,7 @@ export default class CommonStore {
       () => this.commonToken,
       (commonToken) => {
         if (commonToken) {
-          window.localStorage.setItem(
-            'commonJWT-aide',
-            JSON.stringify(commonToken)
-          );
+          window.localStorage.setItem('commonJWT-aide', commonToken.token);
         } else {
           window.localStorage.removeItem('commonJWT-aide');
         }
@@ -30,6 +27,5 @@ export default class CommonStore {
   //https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/#jwt_persist
   @action setCommonToken = (commonToken: any | null) => {
     this.commonToken = commonToken;
-    console.log('commonToken', commonToken);
   };
 }

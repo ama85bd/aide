@@ -1,13 +1,13 @@
 .sidebarDrawer {
   &__container {
     position: fixed;
-    left: 5.5%;
+    left: 4.5%;
     top: 0px;
     background: $color-grey-light-2;
     padding-top: 1rem;
     height: 100vh;
     border-right: 8px solid $color-aide;
-    // z-index: 7777;
+    animation: 0.5s ease-in alternate swingRight;
     &--out {
       position: fixed;
       left: -24.5%;
@@ -16,6 +16,7 @@
       padding-top: 1rem;
       height: 100vh;
       border-right: 8px solid $color-aide;
+      animation: 0.9s ease-in alternate swingLeft;
     }
   }
   &__title {
@@ -95,4 +96,89 @@
       color: $color-white;
     }
   }
+  &__contentWrapper {
+    overflow: hidden;
+  }
+}
+
+.categoryBar {
+  &__searchbar {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  &__inputSearch {
+    background: $color-grey-light-1;
+    border: none;
+    border-radius: 2rem;
+    padding: 3%;
+    width: 95%;
+  }
+}
+
+.categoryList {
+  &__wrapper {
+  }
+
+  &__listContainer {
+    overflow-y: scroll;
+    position: relative;
+    width: 100%;
+    border-radius: 0 0 1rem 1rem;
+    padding: 0 !important;
+    height: 73vh;
+    transition: 0.5s;
+  }
+
+  &__color {
+    display: block;
+    margin: 0.4rem;
+    padding: 0.4rem;
+    padding-left: 0.8rem;
+    background: $color-aide;
+    color: $color-white;
+    border-radius: 5px;
+    cursor: pointer;
+    /* font-family: "Century Gothic"; */
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+    color: $color-grey-dark-2;
+    border-bottom: 1px solid $color-grey-light-2;
+  }
+
+  &__colorNormal {
+    display: block;
+    margin: 0.4rem;
+    padding: 0.4rem;
+    padding-left: 0.8rem;
+    background: $color-white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    /* font-family: "Century Gothic"; */
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+    color: $color-grey-dark-2;
+    border-bottom: 1px solid $color-grey-light-2;
+    &:hover {
+      background: $color-aide;
+      color: $color-white;
+      border-radius: 5px;
+    }
+  }
+}
+&__color &__innerDiv {
+  color: $color-white;
+}
+.sidebar_details_body {
+  background: #fff;
+  box-shadow: 0 1px 6px rgb(0 0 0 / 25%);
+  border-radius: 10px;
+  margin: 15px;
+  height: 88vh;
+  overflow: auto;
+  overflow-y: hidden;
 }

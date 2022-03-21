@@ -93,7 +93,10 @@ function Sidebar({
       setOverlay(false);
       setMenuActive('');
     } else {
-      setOverlay(true);
+      setTimeout(() => {
+        setOverlay(true);
+      }, 400);
+
       setMenuActive('category');
       setCategoryExpand(true);
       setFilterExpand(false);

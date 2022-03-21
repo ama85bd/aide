@@ -13,37 +13,42 @@ import { RootStoreContext } from '../stores/rootStore';
 import { toJS } from 'mobx';
 
 function TopSearchBar() {
-  const [remainingLifeData, setRemainingLifeData] = useState([] as any[]);
-  const [tokens, setToken] = useState<any>();
-  const rootStore = useContext(RootStoreContext);
-  const { getCommonToken } = rootStore.userStore;
-  const { commonToken } = rootStore.commonStore;
+  // const [remainingLifeData, setRemainingLifeData] = useState([] as any[]);
+  // const [tokens, setToken] = useState<any>();
+  // const rootStore = useContext(RootStoreContext);
+  // const { getCommonToken } = rootStore.userStore;
+  // const { commonToken } = rootStore.commonStore;
 
-  // console.log('product', remainingLifeData);
-  console.log('commonToken', toJS(commonToken));
-  // console.log('token', tokens);
+  // console.log('all cat', remainingLifeData);
+  // console.log('commonToken', toJS(commonToken));
+  // // console.log('token', tokens);
 
-  let general_user: any = {
-    Username: process.env.REACT_APP_GENERAL_USERNAME,
-    Password: process.env.REACT_APP_GENERAL_PASSWORD,
-    grant_type: process.env.REACT_APP_GENERAL_GRANT_TYPE,
-  };
-  useEffect(() => {
-    //call API to get remaining life data
-    const getRemainingLifeData = async () => {
-      await Product.getProductCategoryMenu({}).then((e) => {
-        setRemainingLifeData(e.OBJ);
-      });
-    };
-    const getToken = async () => {
-      await Auth.getGeneralUserToken(qs.stringify(general_user)).then((e) => {
-        setToken(e.access_token);
-      });
-    };
-    getCommonToken();
-    trackPromise(getRemainingLifeData());
-    // trackPromise(getToken());
-  }, []);
+  // let general_user: any = {
+  //   Username: process.env.REACT_APP_GENERAL_USERNAME,
+  //   Password: process.env.REACT_APP_GENERAL_PASSWORD,
+  //   grant_type: process.env.REACT_APP_GENERAL_GRANT_TYPE,
+  // };
+  // useEffect(() => {
+  //   //call API to get remaining life data
+  //   // const getRemainingLifeData = async () => {
+  //   //   await Product.getProductCategoryMenu({}).then((e) => {
+  //   //     setRemainingLifeData(e.OBJ);
+  //   //   });
+  //   // };
+  //   const getToken = async () => {
+  //     await Auth.getGeneralUserToken(qs.stringify(general_user)).then((e) => {
+  //       setToken(e.access_token);
+  //     });
+  //   };
+  //   const getAllCat = async () => {
+  //     await Product.getAllCategory({}).then((e) => {
+  //       setRemainingLifeData(e.OBJ);
+  //     });
+  //   };
+  //   getCommonToken();
+  //   trackPromise(getAllCat());
+  //   // trackPromise(getToken());
+  // }, []);
 
   return (
     <div className=' topsearch'>

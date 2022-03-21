@@ -5,11 +5,11 @@
   justify-content: center;
   // height: 100vh;
   z-index: 1000;
-  border-right: 0.8rem solid $color-aide;
-  box-shadow: 0.6rem 0.2rem 0.6rem rgba($color-black, 0.3);
-  padding-right: 1rem;
   background: $color-grey-light-2;
   transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  padding-right: 1rem;
+  border-right: 0.8rem solid $color-aide;
+  box-shadow: 0.6rem 0.2rem 0.6rem rgba($color-black, 0.3);
 
   &__mainbox {
     width: 100%;
@@ -32,8 +32,8 @@
       // padding: 1px;
       text-align: center;
       margin-top: 0.8rem;
-      width: 6.8rem;
-      height: 5.8rem;
+      width: 5.5rem;
+      height: 5.5rem;
       color: $color-aide;
       background: $color-white;
 
@@ -50,6 +50,10 @@
       color: $color-white;
       background: $color-aide;
     }
+  }
+
+  &--iconbtn:active & {
+    border-color: transparent;
   }
 
   &--iconbtn--active &__icon {
@@ -76,7 +80,7 @@
 
   &__icon {
     padding-top: 0.2rem;
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     color: $color-aide;
     // margin-top: 0.15rem;
   }

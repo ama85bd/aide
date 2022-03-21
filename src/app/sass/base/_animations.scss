@@ -1,0 +1,47 @@
+@keyframes animShow {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes swingRight {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  from {
+    transform: translateX(-24.5%);
+    left: -24.5%;
+  }
+  to {
+    left: 4.2%;
+    transform: translateX(4.2%);
+  }
+}
+@keyframes swingLeft {
+  0% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+  from {
+    transform: translateX(4.2%);
+    left: 4.2%;
+  }
+
+  to {
+    left: -24.5%;
+    transform: translateX(-24.5%);
+  }
+}

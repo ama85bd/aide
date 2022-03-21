@@ -16,6 +16,98 @@ $breakpoint argument choices:
 
 1em = 16px
 */
+@-webkit-keyframes animShow {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes animShow {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes swingRight {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  from {
+    transform: translateX(-24.5%);
+    left: -24.5%;
+  }
+  to {
+    left: 4.2%;
+    transform: translateX(4.2%);
+  }
+}
+@keyframes swingRight {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  from {
+    transform: translateX(-24.5%);
+    left: -24.5%;
+  }
+  to {
+    left: 4.2%;
+    transform: translateX(4.2%);
+  }
+}
+@-webkit-keyframes swingLeft {
+  0% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+  from {
+    transform: translateX(4.2%);
+    left: 4.2%;
+  }
+  to {
+    left: -24.5%;
+    transform: translateX(-24.5%);
+  }
+}
+@keyframes swingLeft {
+  0% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+  from {
+    transform: translateX(4.2%);
+    left: 4.2%;
+  }
+  to {
+    left: -24.5%;
+    transform: translateX(-24.5%);
+  }
+}
 *,
 *::after,
 *::before {
@@ -70,6 +162,8 @@ html {
 body {
   box-sizing: border-box;
   padding: 0;
+  -webkit-animation: animShow 0.5s forwards;
+          animation: animShow 0.5s forwards;
 }
 body button {
   border: none;
@@ -759,11 +853,11 @@ body {
   display: flex;
   justify-content: center;
   z-index: 1000;
-  border-right: 0.8rem solid #009999;
-  box-shadow: 0.6rem 0.2rem 0.6rem rgba(0, 0, 0, 0.3);
-  padding-right: 1rem;
   background: #eee;
   transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  padding-right: 1rem;
+  border-right: 0.8rem solid #009999;
+  box-shadow: 0.6rem 0.2rem 0.6rem rgba(0, 0, 0, 0.3);
 }
 .sidebar__mainbox {
   width: 100%;
@@ -781,8 +875,8 @@ body {
   box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.5);
   text-align: center;
   margin-top: 0.8rem;
-  width: 6.8rem;
-  height: 5.8rem;
+  width: 5.5rem;
+  height: 5.5rem;
   color: #009999;
   background: #fff;
 }
@@ -796,6 +890,9 @@ body {
 .sidebar--iconbtn--active {
   color: #fff;
   background: #009999;
+}
+.sidebar--iconbtn:active .sidebar {
+  border-color: transparent;
 }
 .sidebar--iconbtn--active .sidebar__icon {
   color: #fff;
@@ -813,7 +910,7 @@ body {
 }
 .sidebar__icon {
   padding-top: 0.2rem;
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   color: #009999;
 }
 .sidebar__text {
@@ -1455,14 +1552,29 @@ body {
   height: 100vh;
 }
 
+.pl-5 {
+  padding-left: 1.25rem;
+}
+
+.full_height {
+  height: 85vh;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
 .sidebarDrawer__container {
   position: fixed;
-  left: 5.5%;
+  left: 4.5%;
   top: 0px;
   background: #eee;
   padding-top: 1rem;
   height: 100vh;
   border-right: 8px solid #009999;
+  -webkit-animation: 0.5s ease-in alternate swingRight;
+          animation: 0.5s ease-in alternate swingRight;
 }
 .sidebarDrawer__container--out {
   position: fixed;
@@ -1472,6 +1584,8 @@ body {
   padding-top: 1rem;
   height: 100vh;
   border-right: 8px solid #009999;
+  -webkit-animation: 0.9s ease-in alternate swingLeft;
+          animation: 0.9s ease-in alternate swingLeft;
 }
 .sidebarDrawer__title {
   display: flex;
@@ -1549,6 +1663,83 @@ body {
 .sidebarDrawer__selectedButton:hover {
   text-decoration: none;
   color: #fff;
+}
+.sidebarDrawer__contentWrapper {
+  overflow: hidden;
+}
+
+.categoryBar__searchbar {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+.categoryBar__inputSearch {
+  background: #f7f7f7;
+  border: none;
+  border-radius: 2rem;
+  padding: 3%;
+  width: 95%;
+}
+
+.categoryList__listContainer {
+  overflow-y: scroll;
+  position: relative;
+  width: 100%;
+  border-radius: 0 0 1rem 1rem;
+  padding: 0 !important;
+  height: 73vh;
+  transition: 0.5s;
+}
+.categoryList__color {
+  display: block;
+  margin: 0.4rem;
+  padding: 0.4rem;
+  padding-left: 0.8rem;
+  background: #009999;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  /* font-family: "Century Gothic"; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  color: #999;
+  border-bottom: 1px solid #eee;
+}
+.categoryList__color > .categoryList__innerDiv {
+  color: #fff;
+}
+.categoryList__colorNormal {
+  display: block;
+  margin: 0.4rem;
+  padding: 0.4rem;
+  padding-left: 0.8rem;
+  background: #fff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  /* font-family: "Century Gothic"; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  color: #999;
+  border-bottom: 1px solid #eee;
+}
+.categoryList__colorNormal:hover {
+  background: #009999;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.sidebar_details_body {
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin: 15px;
+  height: 88vh;
+  overflow: auto;
+  overflow-y: hidden;
 }
 
 .navbar {
