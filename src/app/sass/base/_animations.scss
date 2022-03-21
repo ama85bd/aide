@@ -26,15 +26,15 @@
   }
 }
 @keyframes swingLeft {
-  0% {
-    opacity: 1;
-  }
-  45% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
+  // 0% {
+  //   opacity: 1;
+  // }
+  // 45% {
+  //   opacity: 1;
+  // }
+  // 100% {
+  //   opacity: 1;
+  // }
   from {
     transform: translateX(4.2%);
     left: 4.2%;

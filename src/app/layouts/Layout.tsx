@@ -20,9 +20,7 @@ function Layout() {
       <div className='page_container'>
         <TopSearchBar />
       </div>
-      <div style={{ marginTop: '20rem' }}>
-        <h1>HIIII</h1>
-      </div>
+      <div style={{ marginTop: '20rem' }}>{/* <h1>HIIII</h1> */}</div>
       {overlay ? <div className='overlay_on_home_screen'></div> : <div></div>}
     </div>
   );

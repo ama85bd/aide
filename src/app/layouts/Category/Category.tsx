@@ -6,6 +6,7 @@ import { trackPromise } from 'react-promise-tracker';
 import Product from '../../api/product';
 import CategoryList from './CategoryList';
 import SubCategoryOne from './SubCategoryOne';
+import qs from 'qs';
 
 const Category = ({
   categoryExpand,
@@ -30,6 +31,12 @@ const Category = ({
   const [allCategories, setAllCategories] = useState<any>([]);
   const [allCategoriesLoading, setAllCategoriesLoading] = useState(true);
   const [allCategoriesError, setAllCategoriesError] = useState(null);
+
+  const cusId: any = {
+    CustomerId: 1,
+  };
+  const [allBrand, setBrand] = useState<any>([]);
+  console.log('allBrand', allBrand);
 
   const parentCategories =
     allCategories &&
@@ -125,6 +132,18 @@ const Category = ({
       });
       setAllCategoriesLoading(false);
     };
+    const getAllsetBrand = async () => {
+      // setAllCategoriesLoading(true);
+      await Product.getAllBrand({}).then((e) => {
+        setBrand(e.OBJ);
+      });
+      // await Product.getAllBrand(qs.stringify(cusId)).then((e) => {
+      //   setBrand(e.OBJ);
+      // });
+      // setAllCategoriesLoading(false);
+    };
+
+    trackPromise(getAllsetBrand());
     trackPromise(getAllCat());
   }, []);
 

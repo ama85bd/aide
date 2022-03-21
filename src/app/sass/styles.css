@@ -71,15 +71,6 @@ $breakpoint argument choices:
   }
 }
 @-webkit-keyframes swingLeft {
-  0% {
-    opacity: 1;
-  }
-  45% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
   from {
     transform: translateX(4.2%);
     left: 4.2%;
@@ -90,15 +81,6 @@ $breakpoint argument choices:
   }
 }
 @keyframes swingLeft {
-  0% {
-    opacity: 1;
-  }
-  45% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
   from {
     transform: translateX(4.2%);
     left: 4.2%;
@@ -1706,9 +1688,6 @@ ul {
   line-height: 1.7rem;
   color: #999;
   border-bottom: 1px solid #eee;
-}
-.categoryList__color > .categoryList__innerDiv {
-  color: #fff;
 }
 .categoryList__colorNormal {
   display: block;
