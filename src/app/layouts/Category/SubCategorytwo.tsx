@@ -1,72 +1,58 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import { IoCaretForwardSharp, IoCaretBackSharp } from 'react-icons/io5';
 
-const SubCategoryOne = ({
-  setOpenDropRightTwo,
-  marginRightOne,
-  firstChildCategories,
-  setSelectedFirstChildCatId,
-  setSelectedFirstChildCatName,
-  selectedFirstChildCatId,
+const SubCategorytwo = ({
+  setOpenDropRightThree,
+  marginRightTwo,
+  secondChildCategories,
+  setSelectedSecondChildCatId,
+  setSelectedSecondChildCatName,
+  selectedSecondChildCatId,
   handleCategoryExpand,
-  openDropRightTwo,
-  showDisplay,
-  setShowDisplayTwo,
-}: // handleSubCategoryOne
-any) => {
+  openDropRightThree,
+  setShowDisplayThree,
+  showDisplayTwo,
+}: any) => {
   const [fixedColor, setFixedColor] = useState('');
 
   const colorFixed = (id: any) => {
     // console.log(id);
     setFixedColor(id);
   };
-
+  // const p = firstChildCategories.length > 0 ? 'block': 'hidden'
   return (
     <div
-      className={`sidebar_details_body mx-1 mr-0  ${marginRightOne}`}
-      style={{ display: `${showDisplay}` }}
+      className={`sidebar_details_body mx-1 mr-0 ${marginRightTwo} `}
+      style={{ display: `${showDisplayTwo}` }}
     >
-      <div className='categoryList__wrapper '>
-        <ul
-          className='categoryList__listContainer  '
-          // style={{ height: '100vh' }}
-        >
-          {firstChildCategories?.length > 0 &&
-            firstChildCategories.map((category: any) => {
+      <div className='sidebar_details_content_wrapper'>
+        <div className='categoryList__wrapper'>
+          <ul className='categoryList__container   ' style={{ paddingLeft: 0 }}>
+            {secondChildCategories?.map((category: any) => {
               return (
                 <>
                   <Link
-                    key={category.Id}
                     to={`/category/${
                       category.CatName
                         ? category.CatName.split(' ').join('-')
                         : category.CatName
                     }/${category.Id}`}
-                    onMouseOver={() => {
-                      setOpenDropRightTwo(!openDropRightTwo);
-                      setSelectedFirstChildCatId(category.Id);
-                      setSelectedFirstChildCatName(category.CatName);
-                      colorFixed(category.Id);
-                      setShowDisplayTwo('inherit');
-                      // handleSubCategoryOne()
-                    }}
                   >
                     <li
                       className={
-                        fixedColor === category.Id && openDropRightTwo
+                        fixedColor === category.Id && openDropRightThree
                           ? 'categoryList__color'
                           : 'categoryList__colorNormal'
                       }
-                      // onMouseOver={() => {
-                      //   setOpenDropRightTwo(!openDropRightTwo);
-                      //   setSelectedFirstChildCatId(category.Id);
-                      //   setSelectedFirstChildCatName(category.CatName);
-                      //   // colorFixed(category.Id)
-                      //   setShowDisplayTwo('flex');
-                      //   // handleSubCategoryOne()
-                      // }}
+                      onMouseOver={() => {
+                        setOpenDropRightThree(!openDropRightThree);
+                        setSelectedSecondChildCatId(category.Id);
+                        setSelectedSecondChildCatName(category.CatName);
+                        colorFixed(category.Id);
+                        setShowDisplayThree('inherit');
+                        // handleSubCategoryTwo()
+                      }}
                     >
                       {category.HasChild ? (
                         <div
@@ -86,9 +72,8 @@ any) => {
                           >
                             {category.CatName}
                           </p>
-
-                          {selectedFirstChildCatId === category.Id &&
-                          openDropRightTwo ? (
+                          {selectedSecondChildCatId === category.Id &&
+                          openDropRightThree ? (
                             <IoCaretBackSharp />
                           ) : (
                             <IoCaretForwardSharp />
@@ -104,10 +89,11 @@ any) => {
                 </>
               );
             })}
-        </ul>
+          </ul>
+        </div>
       </div>
     </div>
   );
 };
 
-export default SubCategoryOne;
+export default SubCategorytwo;

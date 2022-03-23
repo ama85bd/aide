@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import Product from '../api/product';
 import Category from './Category/Category';
 import SidebarMenuList from './SideBarMenuList';
 
@@ -10,6 +11,9 @@ interface ISidebar {
   setFilterExpand?: any;
   filterFullPage?: any;
   setFilterFullPage?: any;
+  allCat?: any;
+  setAllCategories?: any;
+  // getAllCat?: () => void;
 }
 
 function Sidebar({
@@ -18,7 +22,10 @@ function Sidebar({
   setOverlay,
   filterFullPage,
   setFilterFullPage,
+  setAllCategories,
+  allCat,
 }: ISidebar) {
+  console.log('allCat', allCat);
   const [categoryExpand, setCategoryExpand] = useState(false);
   const [filterExpand, setFilterExpand] = useState(false);
   const [offerZoneExpand, setOfferZoneExpand] = useState(false);
@@ -30,6 +37,12 @@ function Sidebar({
   const [scheduleShoppingExpand, setScheduleShoppingExpand] = useState(false);
   const [profileExpand, setProfileExpand] = useState(false);
   const [menuActive, setMenuActive] = useState('');
+  const [showDisplay, setShowDisplay] = useState('none');
+  const [showDisplayTwo, setShowDisplayTwo] = useState('none');
+  const [showDisplayThree, setShowDisplayThree] = useState('none');
+  const [allCategoriesLoading, setAllCategoriesLoading] = useState(false);
+  // const [allCategories, setAllCategories] = useState<any>([]);
+
   // const clickEventReducer = useSelector((state) => state.clickEventReducer)
   // const isShoppingOpen = clickEventReducer.isShoppingOpen
   // const isMyFavOpen = clickEventReducer.isMyFavOpen
@@ -83,9 +96,21 @@ function Sidebar({
       setProfileExpand(false);
       setOverlay(false);
       setMenuActive('');
+      setAllCategories('');
+      setShowDisplay('none');
+      setShowDisplayTwo('none');
+      setShowDisplayThree('none');
     }
   }
   document.addEventListener('mousedown', handleClickOutside);
+
+  // const getAllCat = async () => {
+  //   setAllCategoriesLoading(true);
+  //   await Product.getAllCategory({}).then((e) => {
+  //     setAllCategories(e.OBJ);
+  //   });
+  //   setAllCategoriesLoading(false);
+  // };
 
   const handleCategoryExpand = () => {
     if (categoryExpand) {
@@ -96,7 +121,7 @@ function Sidebar({
       setTimeout(() => {
         setOverlay(true);
       }, 400);
-
+      // setShowDisplay('block');
       setMenuActive('category');
       setCategoryExpand(true);
       setFilterExpand(false);
@@ -381,6 +406,14 @@ function Sidebar({
         categoryExpand={categoryExpand}
         handleCategoryExpand={handleCategoryExpand}
         categoryRef={categoryRef}
+        allCat={allCat}
+        allCategoriesLoading={allCategoriesLoading}
+        showDisplay={showDisplay}
+        setShowDisplay={setShowDisplay}
+        showDisplayTwo={showDisplayTwo}
+        setShowDisplayTwo={setShowDisplayTwo}
+        showDisplayThree={showDisplayThree}
+        setShowDisplayThree={setShowDisplayThree}
       />
     </div>
   );

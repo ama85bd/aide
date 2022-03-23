@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CategorySkeleton } from '../../customs/Skeleton';
 
-import { IoArrowForward, IoArrowBackOutline } from 'react-icons/io5';
+import { IoCaretForwardSharp, IoCaretBackSharp } from 'react-icons/io5';
 
 interface ICategoryList {
   setOpenDropRightOne?: any;
@@ -19,6 +19,8 @@ interface ICategoryList {
   isCategorySelected?: any;
   setIsCategorySelected?: any;
   firstChildCategories?: any;
+  setShowDisplay?: any;
+  setShowDisplayTwo?: any;
 }
 
 function CategoryList({
@@ -35,14 +37,14 @@ function CategoryList({
   isCategorySelected,
   setIsCategorySelected,
   firstChildCategories,
+  setShowDisplay,
+  setShowDisplayTwo,
 }: ICategoryList) {
   const [fixedColor, setFixedColor] = useState('');
   const colorFixed = (id: any) => {
-    console.log('ID', id);
+    // console.log('ID', id);
     setFixedColor(id);
   };
-  console.log('fixedColor', fixedColor);
-  console.log(parentCategories);
 
   return (
     <div className='categoryList__wrapper'>
@@ -56,59 +58,94 @@ function CategoryList({
         />
       </form>
 
-      <ul
-        key={parentCategories.Id}
-        className='categoryList__listContainer full_height  '
-      >
+      <ul key={parentCategories.Id} className='categoryList__listContainer '>
         {parentCategories &&
           parentCategories.map((category: any) => {
             return (
               <>
-                <li
-                  className={
-                    fixedColor === category.Id && openDropRightOne
-                      ? 'categoryList__color'
-                      : 'categoryList__colorNormal'
-                  }
-                  onClick={() => {
+                <Link
+                  key={category.Id}
+                  to={`/category/${
+                    category.CatName
+                      ? category.CatName.split(' ').join('-')
+                      : category.CatName
+                  }/${category.Id}`}
+                  onClick={handleCategoryExpand}
+                  onMouseOver={() => {
                     setOpenDropRightOne(!openDropRightOne);
                     setSelectedParentCatId(category.Id);
                     setSelectedParentCatName(category.CatName);
                     setIsCategorySelected(!isCategorySelected);
                     colorFixed(category.Id);
+                    setShowDisplay('inherit');
+                    setShowDisplayTwo('none');
                   }}
+                  className={
+                    fixedColor === category.Id && openDropRightOne
+                      ? 'categoryList__color'
+                      : 'categoryList__colorNormal'
+                  }
                 >
-                  {category && category.HasChild ? (
-                    <div
-                      className='categoryList__innerDiv'
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                      }}
-                    >
-                      <p>{category.CatName}</p>
-                      {selectedParentCatId === category.Id &&
-                      openDropRightOne ? (
-                        <IoArrowBackOutline />
-                      ) : (
-                        <IoArrowForward />
-                      )}
-                    </div>
-                  ) : (
-                    <Link
-                      to={`/category/${
-                        category.CatName
-                          ? category.CatName.split(' ').join('-')
-                          : category.CatName
-                      }/${category.Id}`}
-                    >
-                      <button onClick={handleCategoryExpand}>
-                        {category.CatName}
-                      </button>
-                    </Link>
-                  )}
-                </li>
+                  <li
+
+                  // onMouseOver={() => {
+                  //   setOpenDropRightOne(!openDropRightOne);
+                  //   setSelectedParentCatId(category.Id);
+                  //   setSelectedParentCatName(category.CatName);
+                  //   setIsCategorySelected(!isCategorySelected);
+                  //   colorFixed(category.Id);
+                  //   setShowDisplay('flex');
+                  // }}
+
+                  // onMouseLeave={() => {
+                  //   setOpenDropRightOne(false);
+                  //   setSelectedParentCatId(null);
+                  //   setSelectedParentCatName('');
+                  //   setIsCategorySelected(false);
+                  //   colorFixed(null);
+                  // }}
+                  >
+                    {category.HasChild ? (
+                      <div
+                        className='categoryList__innerDiv'
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                        }}
+                      >
+                        <p
+                          style={{
+                            width: '90%',
+                            height: '100%',
+                            marginBottom: 0,
+                          }}
+                        >
+                          {category.CatName}
+                        </p>
+                        {selectedParentCatId === category.Id &&
+                        openDropRightOne ? (
+                          <IoCaretBackSharp />
+                        ) : (
+                          <IoCaretForwardSharp />
+                        )}
+                      </div>
+                    ) : (
+                      <div
+                        className='categoryList__innerDiv'
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                        }}
+                      >
+                        <button onClick={handleCategoryExpand}>
+                          {category.CatName}
+                        </button>
+                      </div>
+                    )}
+                  </li>
+                </Link>
               </>
             );
           })}

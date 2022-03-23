@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 // import './Category.css';
 import { IoArrowForward, IoArrowBackOutline } from 'react-icons/io5';
 import { trackPromise } from 'react-promise-tracker';
@@ -7,12 +7,28 @@ import Product from '../../api/product';
 import CategoryList from './CategoryList';
 import SubCategoryOne from './SubCategoryOne';
 import qs from 'qs';
+import { RootStoreContext } from '../../stores/rootStore';
+import SubCategorytwo from './SubCategorytwo';
+import SubCategoryThree from './SubCategoryThree';
 
 const Category = ({
   categoryExpand,
   handleCategoryExpand,
   categoryRef,
-}: any) => {
+  allCat: allCategories,
+  showDisplay,
+  setShowDisplay,
+  showDisplayTwo,
+  setShowDisplayTwo,
+  showDisplayThree,
+  setShowDisplayThree,
+}: // allCategories,
+// allCategoriesLoading,
+// openDropRightOne,
+// setOpenDropRightOne,
+// openDropRightTwo,
+// setOpenDropRightTwo,
+any) => {
   const [selecter, setSelecter] = useState('Category');
   const [isCategorySelected, setIsCategorySelected] = useState(false);
   const [selectedParentCatId, setSelectedParentCatId] = useState(null);
@@ -28,7 +44,7 @@ const Category = ({
   const [openDropRightOne, setOpenDropRightOne] = useState(false);
   const [openDropRightTwo, setOpenDropRightTwo] = useState(false);
   const [openDropRightThree, setOpenDropRightThree] = useState(false);
-  const [allCategories, setAllCategories] = useState<any>([]);
+  // const [allCategories, setAllCategories] = useState<any>([]);
   const [allCategoriesLoading, setAllCategoriesLoading] = useState(true);
   const [allCategoriesError, setAllCategoriesError] = useState(null);
 
@@ -36,20 +52,25 @@ const Category = ({
     CustomerId: 1,
   };
   const [allBrand, setBrand] = useState<any>([]);
-  console.log('allBrand', allBrand);
 
-  const parentCategories =
+  // const rootStore = useContext(RootStoreContext);
+  // const { allCategories, getAllCat } = rootStore.commonStore;
+  // console.log('allCategories', allCategories);
+  const parentCategories: any =
     allCategories &&
     allCategories.length > 0 &&
     allCategories.filter((catItem: any) => catItem.ParentCatId === 0);
-
+  // console.log(
+  //   'parentCategories',
+  //   parentCategories.map((x: any) => x.Id)
+  // );
   const categories = categoryTitle
     ? parentCategories.filter((catItem: any) =>
         catItem.CatName.toLowerCase().includes(categoryTitle.toLowerCase())
       )
     : parentCategories;
 
-  const firstChildCategories =
+  const firstChildCategories: any =
     allCategories.length > 0 &&
     openDropRightOne &&
     allCategories.filter(
@@ -62,7 +83,7 @@ const Category = ({
       )
     : firstChildCategories;
 
-  const secondChildCategories =
+  const secondChildCategories: any =
     openDropRightOne &&
     allCategories.length > 0 &&
     allCategories.filter(
@@ -75,7 +96,7 @@ const Category = ({
       )
     : secondChildCategories;
 
-  const thirdChildCategories =
+  const thirdChildCategories: any =
     openDropRightOne &&
     allCategories.length > 0 &&
     allCategories.filter(
@@ -124,28 +145,32 @@ const Category = ({
     }
   };
 
-  useEffect(() => {
-    const getAllCat = async () => {
-      setAllCategoriesLoading(true);
-      await Product.getAllCategory({}).then((e) => {
-        setAllCategories(e.OBJ);
-      });
-      setAllCategoriesLoading(false);
-    };
-    const getAllsetBrand = async () => {
-      // setAllCategoriesLoading(true);
-      await Product.getAllBrand({}).then((e) => {
-        setBrand(e.OBJ);
-      });
-      // await Product.getAllBrand(qs.stringify(cusId)).then((e) => {
-      //   setBrand(e.OBJ);
-      // });
-      // setAllCategoriesLoading(false);
-    };
+  // useEffect(() => {
+  //   getAllCat();
+  // }, []);
 
-    trackPromise(getAllsetBrand());
-    trackPromise(getAllCat());
-  }, []);
+  // useEffect(() => {
+  //   const getAllCat = async () => {
+  //     setAllCategoriesLoading(true);
+  //     await Product.getAllCategory({}).then((e) => {
+  //       setAllCategories(e.OBJ);
+  //     });
+  //     setAllCategoriesLoading(false);
+  //   };
+  //   const getAllsetBrand = async () => {
+  //     // setAllCategoriesLoading(true);
+  //     await Product.getAllBrand({}).then((e) => {
+  //       setBrand(e.OBJ);
+  //     });
+  //     // await Product.getAllBrand(qs.stringify(cusId)).then((e) => {
+  //     //   setBrand(e.OBJ);
+  //     // });
+  //     // setAllCategoriesLoading(false);
+  //   };
+
+  //   trackPromise(getAllsetBrand());
+  //   trackPromise(getAllCat());
+  // }, []);
 
   const margin =
     openDropRightOne || openDropRightTwo || openDropRightThree ? 'mr-0' : '';
@@ -176,7 +201,10 @@ const Category = ({
             <p className='sidebarDrawer__titleHeader'> Category</p>
           </div>
           {openDropRightOne && firstChildCatItems.length > 0 && (
-            <div className={`sidebarDrawer__title ml-0 ${width}`}>
+            <div
+              className={`sidebarDrawer__title ml-0 ${width}`}
+              style={{ display: `${showDisplay}` }}
+            >
               <div
                 className='sidebarDrawer__arrowDiv'
                 onClick={handleSubCategoryOne}
@@ -192,7 +220,10 @@ const Category = ({
           {openDropRightTwo &&
             secondChildCatItems.length > 0 &&
             firstChildCatItems.length > 0 && (
-              <div className={`sidebarDrawer__title ml-0 ${width}`}>
+              <div
+                className={`sidebarDrawer__title ml-0 ${width}`}
+                style={{ display: `${showDisplayTwo}` }}
+              >
                 <div
                   className='sidebarDrawer__arrowDiv'
                   onClick={handleSubCategoryTwo}
@@ -208,7 +239,10 @@ const Category = ({
           {openDropRightThree &&
             thirdChildCatItems.length > 0 &&
             firstChildCatItems.length > 0 && (
-              <div className={`sidebarDrawer__title ml-0 ${width}`}>
+              <div
+                className={`sidebarDrawer__title ml-0 ${width}`}
+                style={{ display: `${showDisplayThree}` }}
+              >
                 <div
                   className='sidebarDrawer__arrowDiv'
                   onClick={() => setOpenDropRightThree(false)}
@@ -223,7 +257,10 @@ const Category = ({
         </div>
 
         <div className=' flex '>
-          <div className={`sidebarDrawer__body `}>
+          <div
+            className={`sidebarDrawer__body  ${p} ${margin}  `}
+            style={{ marginRight: '.2rem' }}
+          >
             <div className='sidebarDrawer__itemSelector'>
               <a
                 href=''
@@ -268,6 +305,7 @@ const Category = ({
               {selecter === 'Category' ? (
                 <div>
                   <CategoryList
+                    key={allCategories.Id}
                     setOpenDropRightOne={setOpenDropRightOne}
                     selectedParentCatId={selectedParentCatId}
                     setSelectedParentCatId={setSelectedParentCatId}
@@ -281,6 +319,8 @@ const Category = ({
                     handleCategoryExpand={handleCategoryExpand}
                     isCategorySelected={isCategorySelected}
                     setIsCategorySelected={setIsCategorySelected}
+                    setShowDisplay={setShowDisplay}
+                    setShowDisplayTwo={setShowDisplayTwo}
                   />
                 </div>
               ) : selecter === 'Brand' ? (
@@ -304,36 +344,42 @@ const Category = ({
               secondChildCategories={secondChildCatItems}
               selectedFirstChildCatId={selectedFirstChildCatId}
               handleCategoryExpand={handleCategoryExpand}
+              showDisplay={showDisplay}
+              setShowDisplay={setShowDisplay}
+              setShowDisplayTwo={setShowDisplayTwo}
               // handleSubCategoryOne={handleSubCategoryOne}
             />
           )}
 
-          {
-            // openDropRightTwo &&
-            // secondChildCatItems?.length > 0 && firstChildCatItems?.length > 0 &&
-            // <SubCategoryTwo
-            //   setOpenDropRightThree={setOpenDropRightThree}
-            //   marginRightTwo={marginRightTwo}
-            //   secondChildCategories={secondChildCatItems}
-            //   setSelectedSecondChildCatId={setSelectedSecondChildCatId}
-            //   setSelectedSecondChildCatName={setSelectedSecondChildCatName}
-            //   thirdChildCategories={thirdChildCatItems}
-            //   selectedSecondChildCatId={selectedSecondChildCatId}
-            //   openDropRightThree={openDropRightThree}
-            //   handleCategoryExpand={handleCategoryExpand}
-            //   // handleSubCategoryTwo={handleSubCategoryTwo}
-            // />
-          }
+          {openDropRightTwo &&
+            secondChildCatItems?.length > 0 &&
+            firstChildCatItems?.length > 0 && (
+              <SubCategorytwo
+                setOpenDropRightThree={setOpenDropRightThree}
+                marginRightTwo={marginRightTwo}
+                secondChildCategories={secondChildCatItems}
+                setSelectedSecondChildCatId={setSelectedSecondChildCatId}
+                setSelectedSecondChildCatName={setSelectedSecondChildCatName}
+                thirdChildCategories={thirdChildCatItems}
+                selectedSecondChildCatId={selectedSecondChildCatId}
+                openDropRightThree={openDropRightThree}
+                handleCategoryExpand={handleCategoryExpand}
+                showDisplayTwo={showDisplayTwo}
+                setShowDisplayThree={setShowDisplayThree}
+                // handleSubCategoryTwo={handleSubCategoryTwo}
+              />
+            )}
 
-          {
-            // openDropRightThree &&
-            // thirdChildCatItems?.length > 0 && firstChildCatItems?.length > 0 &&
-            // <SubCategoryThree
-            //   marginRightThree={marginRightThree}
-            //   thirdChildCategories={thirdChildCatItems}
-            //   handleCategoryExpand={handleCategoryExpand}
-            // />
-          }
+          {openDropRightThree &&
+            thirdChildCatItems?.length > 0 &&
+            firstChildCatItems?.length > 0 && (
+              <SubCategoryThree
+                marginRightThree={marginRightThree}
+                thirdChildCategories={thirdChildCatItems}
+                handleCategoryExpand={handleCategoryExpand}
+                showDisplayThree={showDisplayThree}
+              />
+            )}
         </div>
       </div>
     </>

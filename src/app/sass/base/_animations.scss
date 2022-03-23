@@ -17,12 +17,12 @@
     opacity: 1;
   }
   from {
-    transform: translateX(-24.5%);
-    left: -24.5%;
+    transform: translateX(-24%);
+    left: -24%;
   }
   to {
-    left: 4.2%;
-    transform: translateX(4.2%);
+    left: 4%;
+    transform: translateX(4%);
   }
 }
 @keyframes swingLeft {
@@ -36,12 +36,12 @@
   //   opacity: 1;
   // }
   from {
-    transform: translateX(4.2%);
-    left: 4.2%;
+    transform: translateX(4%);
+    left: 4%;
   }
 
   to {
-    left: -24.5%;
-    transform: translateX(-24.5%);
+    left: -24%;
+    transform: translateX(-24%);
   }
 }

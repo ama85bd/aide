@@ -1,5 +1,13 @@
 import { RootStore } from './rootStore';
-import { observable, action, reaction, makeObservable, toJS } from 'mobx';
+import {
+  observable,
+  action,
+  reaction,
+  makeObservable,
+  toJS,
+  runInAction,
+} from 'mobx';
+import Product from '../api/product';
 
 export default class CommonStore {
   rootStore: RootStore;
@@ -27,5 +35,18 @@ export default class CommonStore {
   //https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/#jwt_persist
   @action setCommonToken = (commonToken: any | null) => {
     this.commonToken = commonToken;
+  };
+
+  // get all cetagory
+  @observable allCategories: Array<any> = [];
+  @action getAllCat = async () => {
+    try {
+      const allCat = await Product.getAllCategory({});
+      runInAction(() => {
+        this.allCategories = allCat.OBJ;
+      });
+    } catch (error) {
+      throw error;
+    }
   };
 }
