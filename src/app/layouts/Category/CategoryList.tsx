@@ -71,15 +71,6 @@ function CategoryList({
                       : category.CatName
                   }/${category.Id}`}
                   onClick={handleCategoryExpand}
-                  onMouseOver={() => {
-                    setOpenDropRightOne(!openDropRightOne);
-                    setSelectedParentCatId(category.Id);
-                    setSelectedParentCatName(category.CatName);
-                    setIsCategorySelected(!isCategorySelected);
-                    colorFixed(category.Id);
-                    setShowDisplay('inherit');
-                    setShowDisplayTwo('none');
-                  }}
                   className={
                     fixedColor === category.Id && openDropRightOne
                       ? 'categoryList__color'
@@ -112,6 +103,15 @@ function CategoryList({
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'space-between',
+                        }}
+                        onMouseOver={() => {
+                          setOpenDropRightOne(!openDropRightOne);
+                          setSelectedParentCatId(category.Id);
+                          setSelectedParentCatName(category.CatName);
+                          setIsCategorySelected(!isCategorySelected);
+                          colorFixed(category.Id);
+                          setShowDisplay('inherit');
+                          setShowDisplayTwo('none');
                         }}
                       >
                         <p

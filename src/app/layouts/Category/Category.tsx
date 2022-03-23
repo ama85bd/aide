@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useContext, useEffect, useState } from 'react';
 // import './Category.css';
-import { IoArrowForward, IoArrowBackOutline } from 'react-icons/io5';
+import { IoArrowForward, IoArrowBackCircleOutline } from 'react-icons/io5';
 import { trackPromise } from 'react-promise-tracker';
 import Product from '../../api/product';
 import CategoryList from './CategoryList';
@@ -196,7 +196,7 @@ any) => {
               className='sidebarDrawer__arrowDiv'
               onClick={() => handleCategoryExpand()}
             >
-              <IoArrowBackOutline className='sidebarDrawer--arrow' />
+              <IoArrowBackCircleOutline className='sidebarDrawer--arrow' />
             </div>
             <p className='sidebarDrawer__titleHeader'> Category</p>
           </div>
@@ -209,7 +209,7 @@ any) => {
                 className='sidebarDrawer__arrowDiv'
                 onClick={handleSubCategoryOne}
               >
-                <IoArrowBackOutline className='sidebarDrawer--arrow' />
+                <IoArrowBackCircleOutline className='sidebarDrawer--arrow' />
               </div>
 
               <p className='sidebarDrawer__titleHeader'>
@@ -228,7 +228,7 @@ any) => {
                   className='sidebarDrawer__arrowDiv'
                   onClick={handleSubCategoryTwo}
                 >
-                  <IoArrowBackOutline className='sidebarDrawer--arrow' />
+                  <IoArrowBackCircleOutline className='sidebarDrawer--arrow' />
                 </div>
 
                 <p className='sidebarDrawer__titleHeader'>
@@ -247,7 +247,7 @@ any) => {
                   className='sidebarDrawer__arrowDiv'
                   onClick={() => setOpenDropRightThree(false)}
                 >
-                  <IoArrowBackOutline className='sidebarDrawer--arrow' />
+                  <IoArrowBackCircleOutline className='sidebarDrawer--arrow' />
                 </div>
                 <p className='sidebarDrawer__titleHeader'>
                   {selectedSecondChildCatName}
@@ -347,6 +347,7 @@ any) => {
               showDisplay={showDisplay}
               setShowDisplay={setShowDisplay}
               setShowDisplayTwo={setShowDisplayTwo}
+              setShowDisplayThree={setShowDisplayThree}
               // handleSubCategoryOne={handleSubCategoryOne}
             />
           )}

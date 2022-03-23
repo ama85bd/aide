@@ -14,6 +14,7 @@ const SubCategoryOne = ({
   openDropRightTwo,
   showDisplay,
   setShowDisplayTwo,
+  setShowDisplayThree,
 }: // handleSubCategoryOne
 any) => {
   const [fixedColor, setFixedColor] = useState('');
@@ -50,6 +51,7 @@ any) => {
                       setSelectedFirstChildCatName(category.CatName);
                       colorFixed(category.Id);
                       setShowDisplayTwo('inherit');
+                      setShowDisplayThree('none');
                       // handleSubCategoryOne()
                     }}
                   >
