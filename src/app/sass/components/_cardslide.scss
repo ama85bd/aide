@@ -1,0 +1,78 @@
+.cardSlide {
+  &__mainBOdy {
+    position: relative;
+    width: 101.7%;
+    background: transparent;
+    height: 30vh;
+    border-radius: 1rem;
+    box-shadow: 0 0.1rem 0.5rem rgb(0 0 0 / 20%);
+    left: -1.9rem !important;
+    margin-top: -2rem;
+  }
+  &__secondary {
+    padding: 1.5rem;
+  }
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__heading {
+    color: $color-black;
+    font-size: 2.2rem;
+    font-weight: 500;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: row;
+    &--buttonSeeAll {
+      background: $color-aide;
+      color: $color-white;
+      font-size: 1.4rem;
+      height: 2.6rem;
+      padding: 0.1rem 2rem;
+      border-radius: 5rem;
+      margin-top: 0.6rem;
+      //   &:hover {
+      //     background: $color-white;
+      //     color: $color-aide;
+      //   }
+    }
+    &--nextPreButton {
+      margin-left: 2rem;
+      margin-right: 1rem;
+      font-size: 2rem;
+    }
+    &--arrowButton {
+      box-shadow: 0 0.1rem 0.5rem rgb(0 0 0 / 20%);
+      height: 2.5rem;
+      cursor: pointer;
+      &:not(:last-child) {
+        margin-right: 0.5rem;
+      }
+      &:hover {
+        background: $color-aide;
+        color: $color-white;
+      }
+    }
+  }
+  &__bottom {
+  }
+}
+.slick-track {
+  top: -3.3rem !important;
+}
+/* the slides */
+.slick-slide {
+  margin-left: -2rem;
+}
+
+/* the parent */
+.slick-list {
+  margin-left: 2rem;
+}
+.slick-prev,
+.slick-next {
+  display: none !important;
+}

@@ -1,4 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
+import FeatureSlider from '../../features/slideCarousel/FeatureSlider';
+import SlideCarousel from '../../features/slideCarousel/SlideCarousel';
 import Product from '../api/product';
 import { RootStoreContext } from '../stores/rootStore';
 import Sidebar from './SideBar';
@@ -14,7 +16,6 @@ function Layout() {
   const rootStore = useContext(RootStoreContext);
   const { getCommonToken } = rootStore.userStore;
   const { allCategories, getAllCat } = rootStore.commonStore;
-  console.log('allCategories', allCategories);
 
   // useEffect(() => {
   //   setAllCategories('');
@@ -43,6 +44,9 @@ function Layout() {
       />
       <div className='page_container'>
         <TopSearchBar />
+
+        <SlideCarousel />
+        <FeatureSlider />
       </div>
       <div style={{ marginTop: '20rem' }}>{/* <h1>HIIII</h1> */}</div>
       {overlay ? (

@@ -11,6 +11,7 @@ import qs from 'qs';
 import { IAuthToken, IGeneralUser } from '../models/baseModel';
 import { RootStoreContext } from '../stores/rootStore';
 import { toJS } from 'mobx';
+import { Link } from 'react-router-dom';
 
 function TopSearchBar() {
   // const [remainingLifeData, setRemainingLifeData] = useState([] as any[]);
@@ -54,15 +55,18 @@ function TopSearchBar() {
     <div className=' topsearch'>
       <div className='row'>
         <div className='col-1-of-4-topserch topsearch__logobox'>
-          <img
-            src='../assets/aide-logo.jpeg'
-            alt='Logo'
-            className='topsearch__logo'
-          />
-          <p className='topsearch__logo-text'>
-            <span className='topsearch__logo-Header'>aide</span>
-            &nbsp; Enjoy Peach in Shoping
-          </p>
+          <Link style={{ textDecoration: 'none' }} to='/'>
+            <img
+              src='../assets/aide-logo.jpeg'
+              alt='Logo'
+              className='topsearch__logo'
+            />
+
+            <p className='topsearch__logo-text'>
+              <span className='topsearch__logo-Header'>aide</span>
+              &nbsp; Enjoy Peach in Shoping
+            </p>
+          </Link>
         </div>
         <div className='col-2-of-4 topsearch__mid'>
           <form action='#' className='topsearch__form'>

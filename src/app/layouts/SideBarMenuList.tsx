@@ -31,6 +31,9 @@ interface ISidebarMenuList {
   handleProfileExpand?: any;
   menuActive?: any;
   sidebarRef?: any;
+  setShowDisplay?: any;
+  setShowDisplayTwo?: any;
+  setShowDisplayThree?: any;
 }
 
 function SideBarMenuList({
@@ -46,6 +49,9 @@ function SideBarMenuList({
   handleProfileExpand,
   menuActive,
   sidebarRef,
+  setShowDisplay,
+  setShowDisplayTwo,
+  setShowDisplayThree,
 }: ISidebarMenuList) {
   //   // //modal controller
   //   const [modal, setModal] = useState(false);
@@ -65,7 +71,12 @@ function SideBarMenuList({
             ? 'sidebar--iconbtn  sidebar--iconbtn--active '
             : ' sidebar--iconbtn '
         }
-        onClick={handleCategoryExpand}
+        onClick={() => {
+          handleCategoryExpand();
+          setShowDisplay('none');
+          setShowDisplayTwo('none');
+          setShowDisplayThree('none');
+        }}
       >
         {/* <div
             className={

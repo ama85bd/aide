@@ -25,7 +25,6 @@ function Sidebar({
   setAllCategories,
   allCat,
 }: ISidebar) {
-  console.log('allCat', allCat);
   const [categoryExpand, setCategoryExpand] = useState(false);
   const [filterExpand, setFilterExpand] = useState(false);
   const [offerZoneExpand, setOfferZoneExpand] = useState(false);
@@ -41,6 +40,7 @@ function Sidebar({
   const [showDisplayTwo, setShowDisplayTwo] = useState('none');
   const [showDisplayThree, setShowDisplayThree] = useState('none');
   const [allCategoriesLoading, setAllCategoriesLoading] = useState(false);
+  const [selecter, setSelecter] = useState('Category');
   // const [allCategories, setAllCategories] = useState<any>([]);
 
   // const clickEventReducer = useSelector((state) => state.clickEventReducer)
@@ -100,6 +100,7 @@ function Sidebar({
       setShowDisplay('none');
       setShowDisplayTwo('none');
       setShowDisplayThree('none');
+      setSelecter('Category');
     }
   }
   document.addEventListener('mousedown', handleClickOutside);
@@ -400,6 +401,9 @@ function Sidebar({
         handleProfileExpand={handleProfileExpand}
         menuActive={menuActive}
         sidebarRef={sidebarRef}
+        setShowDisplay={setShowDisplay}
+        setShowDisplayTwo={setShowDisplayTwo}
+        setShowDisplayThree={setShowDisplayThree}
       />
 
       <Category
@@ -414,6 +418,9 @@ function Sidebar({
         setShowDisplayTwo={setShowDisplayTwo}
         showDisplayThree={showDisplayThree}
         setShowDisplayThree={setShowDisplayThree}
+        selecter={selecter}
+        setSelecter={setSelecter}
+        setAllCategories={setAllCategories}
       />
     </div>
   );

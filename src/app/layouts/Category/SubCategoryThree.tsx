@@ -6,6 +6,9 @@ const SubCategoryThree = ({
   thirdChildCategories,
   handleCategoryExpand,
   showDisplayThree,
+  setShowDisplay,
+  setShowDisplayTwo,
+  setShowDisplayThree,
 }: any) => {
   // const listAllCategory = useSelector((state) => state.listAllCategory)
   // const allCategories = listAllCategory.allCategories
@@ -29,7 +32,14 @@ const SubCategoryThree = ({
                       }/${category.Id}`}
                     >
                       <li className=' categoryList__colorNormal'>
-                        <button onClick={handleCategoryExpand}>
+                        <button
+                          onClick={() => {
+                            handleCategoryExpand();
+                            setShowDisplay('none');
+                            setShowDisplayTwo('none');
+                            setShowDisplayThree('none');
+                          }}
+                        >
                           {category.CatName}
                         </button>
                       </li>

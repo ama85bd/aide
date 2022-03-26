@@ -15,6 +15,7 @@ const SubCategoryOne = ({
   showDisplay,
   setShowDisplayTwo,
   setShowDisplayThree,
+  setShowDisplay,
 }: // handleSubCategoryOne
 any) => {
   const [fixedColor, setFixedColor] = useState('');
@@ -97,7 +98,14 @@ any) => {
                           )}
                         </div>
                       ) : (
-                        <button onClick={handleCategoryExpand}>
+                        <button
+                          onClick={() => {
+                            handleCategoryExpand();
+                            setShowDisplay('none');
+                            setShowDisplayTwo('none');
+                            setShowDisplayThree('none');
+                          }}
+                        >
                           {category.CatName}
                         </button>
                       )}

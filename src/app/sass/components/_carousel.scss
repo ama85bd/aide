@@ -1,0 +1,132 @@
+.mainSlider {
+  &__body {
+    width: 101.7%;
+    height: 45vh;
+    margin-top: 7rem;
+    // border-radius: 1rem;
+    // box-shadow: 0 1px 6px rgb(0 0 0 / 25%);
+  }
+  &__slideText {
+    background: $color-grey-light-2 !important;
+    height: 40vh;
+    width: 25% !important;
+    background-image: url(../../../public/assets/aide-slide-bg.png) !important;
+    background-repeat: no-repeat !important;
+  }
+}
+
+.carousel .slider-wrapper {
+  width: inherit;
+  border-radius: 1rem;
+
+  //   border: 1px solid $color-aide;
+}
+
+.carousel {
+  text-align: center;
+}
+.carousel .slide .legend {
+  //   background: transparent !important;
+  opacity: 1 !important;
+  left: 45% !important;
+  bottom: 0 !important;
+  border-radius: 0 !important;
+}
+.carousel .slide img {
+  height: 40vh !important;
+}
+.carousel .slide {
+  height: 40vh !important;
+}
+.carousel.carousel-slider {
+  left: -1.9rem !important;
+  border-radius: 1rem;
+  box-shadow: 0 0.1rem 0.5rem rgb(0 0 0 / 50%);
+}
+.opacity-70 {
+  opacity: 0.7;
+}
+.pl-6 {
+  padding-left: 1.5rem;
+}
+.-mr-12 {
+  margin-right: -3rem;
+}
+.mt-16 {
+  margin-top: 5.2rem;
+  width: 110%;
+}
+.relative {
+  position: relative;
+}
+.landing_slider_description {
+  background: rgba(255, 255, 255, 0.603);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
+}
+.landing_slider_heading {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3rem;
+  line-height: 3rem;
+  color: $color-grey-dark;
+}
+.landing_slider_heading_span {
+  color: $color-aide;
+  font-weight: 700;
+}
+.landing_slider_heading2 {
+  /* font-family: Poppins; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.7rem;
+  line-height: 2.7rem;
+  color: $color-grey-dark;
+}
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
+.pr-3 {
+  padding-right: 0.75rem;
+}
+.mt-10 {
+  margin-top: 4.5rem;
+}
+.landing_slider_heading3 {
+  /* font-family: Roboto; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.9rem;
+  line-height: 1.8rem;
+  color: $color-black;
+}
+.add-location {
+  display: block !important;
+  margin-left: 65rem !important;
+  background: none !important;
+  width: 150% !important;
+  height: 40vh;
+  &__text {
+    font-size: 2.5rem !important;
+    line-height: 4rem;
+    margin-top: 2rem !important;
+    font-weight: 500;
+  }
+}
+.addLocation-btn {
+  display: inline-block !important;
+  background: $color-white;
+  color: $color-aide;
+  padding: 0.3rem 1.2rem;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-top: 5rem;
+  border-radius: 1rem;
+  transition: all 0.5s;
+  &:hover {
+    background: $color-aide;
+    color: $color-white;
+  }
+}

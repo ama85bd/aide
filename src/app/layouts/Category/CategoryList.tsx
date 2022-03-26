@@ -21,6 +21,7 @@ interface ICategoryList {
   firstChildCategories?: any;
   setShowDisplay?: any;
   setShowDisplayTwo?: any;
+  setShowDisplayThree?: any;
 }
 
 function CategoryList({
@@ -39,6 +40,7 @@ function CategoryList({
   firstChildCategories,
   setShowDisplay,
   setShowDisplayTwo,
+  setShowDisplayThree,
 }: ICategoryList) {
   const [fixedColor, setFixedColor] = useState('');
   const colorFixed = (id: any) => {
@@ -139,7 +141,14 @@ function CategoryList({
                           justifyContent: 'space-between',
                         }}
                       >
-                        <button onClick={handleCategoryExpand}>
+                        <button
+                          onClick={() => {
+                            handleCategoryExpand();
+                            setShowDisplay('none');
+                            setShowDisplayTwo('none');
+                            setShowDisplayThree('none');
+                          }}
+                        >
                           {category.CatName}
                         </button>
                       </div>

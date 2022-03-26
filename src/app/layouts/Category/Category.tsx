@@ -10,6 +10,8 @@ import qs from 'qs';
 import { RootStoreContext } from '../../stores/rootStore';
 import SubCategorytwo from './SubCategorytwo';
 import SubCategoryThree from './SubCategoryThree';
+import BrandList from './BrandList';
+import CompanyList from './CompanyList';
 
 const Category = ({
   categoryExpand,
@@ -22,6 +24,9 @@ const Category = ({
   setShowDisplayTwo,
   showDisplayThree,
   setShowDisplayThree,
+  selecter,
+  setSelecter,
+  setAllCategories,
 }: // allCategories,
 // allCategoriesLoading,
 // openDropRightOne,
@@ -29,7 +34,7 @@ const Category = ({
 // openDropRightTwo,
 // setOpenDropRightTwo,
 any) => {
-  const [selecter, setSelecter] = useState('Category');
+  // const [selecter, setSelecter] = useState('Category');
   const [isCategorySelected, setIsCategorySelected] = useState(false);
   const [selectedParentCatId, setSelectedParentCatId] = useState(null);
   const [selectedParentCatName, setSelectedParentCatName] = useState('');
@@ -48,22 +53,11 @@ any) => {
   const [allCategoriesLoading, setAllCategoriesLoading] = useState(true);
   const [allCategoriesError, setAllCategoriesError] = useState(null);
 
-  const cusId: any = {
-    CustomerId: 1,
-  };
-  const [allBrand, setBrand] = useState<any>([]);
-
-  // const rootStore = useContext(RootStoreContext);
-  // const { allCategories, getAllCat } = rootStore.commonStore;
-  // console.log('allCategories', allCategories);
   const parentCategories: any =
     allCategories &&
     allCategories.length > 0 &&
     allCategories.filter((catItem: any) => catItem.ParentCatId === 0);
-  // console.log(
-  //   'parentCategories',
-  //   parentCategories.map((x: any) => x.Id)
-  // );
+
   const categories = categoryTitle
     ? parentCategories.filter((catItem: any) =>
         catItem.CatName.toLowerCase().includes(categoryTitle.toLowerCase())
@@ -321,14 +315,13 @@ any) => {
                     setIsCategorySelected={setIsCategorySelected}
                     setShowDisplay={setShowDisplay}
                     setShowDisplayTwo={setShowDisplayTwo}
+                    setShowDisplayThree={setShowDisplayThree}
                   />
                 </div>
               ) : selecter === 'Brand' ? (
-                ''
+                <BrandList handleCategoryExpand={handleCategoryExpand} />
               ) : (
-                // <BrandList handleCategoryExpand={handleCategoryExpand} />
-                ''
-                // <CompanyList handleCategoryExpand={handleCategoryExpand} />
+                <CompanyList handleCategoryExpand={handleCategoryExpand} />
               )}
             </div>
           </div>
@@ -367,6 +360,9 @@ any) => {
                 handleCategoryExpand={handleCategoryExpand}
                 showDisplayTwo={showDisplayTwo}
                 setShowDisplayThree={setShowDisplayThree}
+                setAllCategories={setAllCategories}
+                setShowDisplayTwo={setShowDisplayTwo}
+                setShowDisplay={setShowDisplay}
                 // handleSubCategoryTwo={handleSubCategoryTwo}
               />
             )}
@@ -379,6 +375,9 @@ any) => {
                 thirdChildCategories={thirdChildCatItems}
                 handleCategoryExpand={handleCategoryExpand}
                 showDisplayThree={showDisplayThree}
+                setShowDisplay={setShowDisplay}
+                setShowDisplayTwo={setShowDisplayTwo}
+                setShowDisplayThree={setShowDisplayThree}
               />
             )}
         </div>

@@ -13,6 +13,9 @@ const SubCategorytwo = ({
   openDropRightThree,
   setShowDisplayThree,
   showDisplayTwo,
+  setAllCategories,
+  setShowDisplayTwo,
+  setShowDisplay,
 }: any) => {
   const [fixedColor, setFixedColor] = useState('');
 
@@ -38,6 +41,7 @@ const SubCategorytwo = ({
                         ? category.CatName.split(' ').join('-')
                         : category.CatName
                     }/${category.Id}`}
+                    // onClick={setAllCategories('')}
                   >
                     <li
                       className={
@@ -80,7 +84,14 @@ const SubCategorytwo = ({
                           )}
                         </div>
                       ) : (
-                        <button onClick={handleCategoryExpand}>
+                        <button
+                          onClick={() => {
+                            handleCategoryExpand();
+                            setShowDisplay('none');
+                            setShowDisplayTwo('none');
+                            setShowDisplayThree('none');
+                          }}
+                        >
                           {category.CatName}
                         </button>
                       )}

@@ -1,40 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import Product from '../../api/product';
-import SingleBrand from './SingleBrand';
+import SingleCompany from './SingleCompany';
 import qs from 'qs';
+import Product from '../../api/product';
 import { trackPromise } from 'react-promise-tracker';
 
-interface IBrandList {
-  handleCategoryClose?: any;
-  handleCategoryExpand?: any;
-}
-
-function BrandList({ handleCategoryClose, handleCategoryExpand }: IBrandList) {
-  const [brandTitle, setBrandTitle] = useState('');
+function CompanyList({ handleCategoryExpand }: any) {
+  const [companyTitle, setCompanyTitle] = useState('');
+  const [allCompany, setAllCompanies] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-
-  const [allBrands, setAllBrands] = useState<any>(null);
+  //   const companyId = window.localStorage.getItem('company_id');
+  //   const compId: any = {
+  //     Id: companyId ? companyId : 0,
+  //   };
   const clientId = window.localStorage.getItem('client_id');
   const cusId: any = {
     CustomerId: clientId ? clientId : 0,
   };
-
   const handleRemoveFavoriteBrand = (e: any) => {
     return null;
   };
-
-  const brands =
-    brandTitle && allBrands
-      ? allBrands?.filter((brand: any) =>
-          brand.BrandName.toLowerCase().includes(brandTitle.toLowerCase())
-        )
-      : allBrands;
-
   useEffect(() => {
     const getAllsetBrand = async () => {
       setLoading(true);
       await Product.getAllBrand(qs.stringify(cusId)).then((e) => {
-        setAllBrands(e.OBJ);
+        setAllCompanies(e.OBJ);
       });
       setLoading(false);
     };
@@ -42,32 +31,37 @@ function BrandList({ handleCategoryClose, handleCategoryExpand }: IBrandList) {
     trackPromise(getAllsetBrand());
   }, []);
 
+  const companies =
+    allCompany && companyTitle
+      ? allCompany.filter((company: any) =>
+          company.CompanyName.toLowerCase().includes(companyTitle.toLowerCase())
+        )
+      : allCompany;
   return (
-    <div className=' categoryList__wrapper'>
+    <div className='categoryList__wrapper'>
       <form className='categoryBar__searchbar'>
         <input
           className='categoryBar__inputSearch pl-5'
           type='text'
           placeholder='Search'
-          value={brandTitle}
-          onChange={(e) => setBrandTitle(e.target.value)}
+          value={companyTitle}
+          onChange={(e) => setCompanyTitle(e.target.value)}
         />
       </form>
-
       <ul className='categoryList__listContainer full_height'>
         <div className='categoryList__brandContainer'>
-          {brands &&
-            brands.map((brand: any) => {
+          {companies &&
+            companies.map((company: any) => {
               return (
-                <SingleBrand
+                <SingleCompany
                   color='white'
-                  logo={brand.logo}
-                  title={brand.BrandName}
-                  brandId={brand.Id}
-                  subtitle={brand.subtitle}
-                  handleCategoryClose={handleCategoryClose}
+                  key={company.id}
+                  compId={company.id}
+                  logo={company.logo}
+                  title={company.CompanyName}
+                  subtitle={company.slug}
+                  IsFavorite={company.IsFavorite}
                   handleCategoryExpand={handleCategoryExpand}
-                  IsFavorite={brand.IsFavorite}
                   handleRemoveFavoriteBrand={handleRemoveFavoriteBrand}
                 />
               );
@@ -78,4 +72,4 @@ function BrandList({ handleCategoryClose, handleCategoryExpand }: IBrandList) {
   );
 }
 
-export default BrandList;
+export default CompanyList;
