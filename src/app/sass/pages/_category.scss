@@ -209,11 +209,12 @@
     box-shadow: $box-shadow;
     border-radius: 8px;
     display: flex;
-    padding: 0.3rem;
+    padding: 0.5rem;
     img {
-      max-width: 100%;
+      max-width: 90%;
       overflow: hidden;
       margin-right: 0.8rem;
+      height: 7rem;
     }
   }
   &__brandInfo {
@@ -223,29 +224,42 @@
   &__brandTitle {
     display: flex;
     flex-direction: column;
-    margin-top: 0.8rem;
+    margin-top: 1.1rem;
     margin-bottom: -0.2rem;
+    width: 80%;
     h1 {
       font-family: Roboto;
       font-style: normal;
       font-weight: normal;
-      font-size: 1rem;
-      line-height: 1.1rem;
+      font-size: 1.2rem;
+      line-height: 1.4rem;
       letter-spacing: -0.0015em;
       color: $color-grey-dark-2;
+      // &:hover {
+      //   color: $color-aide;
+      // }
     }
     h3 {
-      font-weight: 600;
+      font-weight: 500;
       color: $color-grey-dark-3;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       &:hover {
         color: $color-aide;
       }
     }
   }
+
+  &__brandList {
+  }
+  &__brandList:hover &__brandListText {
+    background-color: #fff;
+  }
+  &__brandList &__brandListText:hover {
+    color: $color-aide;
+  }
   &__favorite {
     position: absolute;
-    // bottom: 0.09rem;
+    bottom: 2.9rem;
     font-size: 1.7rem;
     right: 2px;
     width: 3.6rem;
@@ -256,11 +270,14 @@
   }
 
   &__favoriteIcon {
+    path {
+      stroke-width: 1.5rem;
+    }
     &:hover {
       background: $color-white;
       path {
-        stroke: $color-aide;
-        stroke-width: 3rem;
+        fill: gold;
+        stroke-width: 0;
       }
     }
   }
@@ -276,6 +293,22 @@
   overflow: auto;
   overflow-y: hidden;
 }
+
+ul#brandListText {
+  list-style: none;
+  width: 110%;
+  /* margin-left: -2rem; */
+  padding: 0;
+}
+
+ul#brandListText li {
+  display: inline-block;
+}
+
+ul#brandListText li:not(:last-child):after {
+  content: ', ';
+}
+
 // .cat-link {
 //   &,
 //   &:link,

@@ -70,17 +70,60 @@ export const featureSliderItems = [
 
 function FeatureSlider() {
   const sliderRef = useRef<Slider>(null);
-  const settings = {
-    // className: 'center',
-    centerMode: true,
-    infinite: true,
-    centerPadding: '60px',
-    slidesToShow: 4,
+  var settings = {
+    dots: true,
+    infinite: false,
     speed: 500,
-    rows: 1,
-    slidesPerRow: 1,
-    autoplay: true,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1324,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
+  // const settings = {
+  //   // className: 'center',
+  //   // centerMode: true,
+  //   infinite: true,
+  //   // centerPadding: '60px',
+  //   slidesToShow: 4,
+  //   speed: 500,
+  //   rows: 1,
+  //   // slidesPerRow: 1,
+  //   autoplay: true,
+  // };
 
   useEffect(() => {}, []);
   return (

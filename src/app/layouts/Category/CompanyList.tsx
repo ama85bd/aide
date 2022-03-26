@@ -7,6 +7,7 @@ import { trackPromise } from 'react-promise-tracker';
 function CompanyList({ handleCategoryExpand }: any) {
   const [companyTitle, setCompanyTitle] = useState('');
   const [allCompany, setAllCompanies] = useState<any>(null);
+  console.log('allCompany', allCompany);
   const [loading, setLoading] = useState(true);
   //   const companyId = window.localStorage.getItem('company_id');
   //   const compId: any = {
@@ -22,7 +23,7 @@ function CompanyList({ handleCategoryExpand }: any) {
   useEffect(() => {
     const getAllsetBrand = async () => {
       setLoading(true);
-      await Product.getAllBrand(qs.stringify(cusId)).then((e) => {
+      await Product.getAllCompany(qs.stringify(cusId)).then((e) => {
         setAllCompanies(e.OBJ);
       });
       setLoading(false);
@@ -55,11 +56,12 @@ function CompanyList({ handleCategoryExpand }: any) {
               return (
                 <SingleCompany
                   color='white'
-                  key={company.id}
-                  compId={company.id}
+                  key={company.Id}
+                  compId={company.Id}
                   logo={company.logo}
                   title={company.CompanyName}
                   subtitle={company.slug}
+                  brandList={company.BrandList}
                   IsFavorite={company.IsFavorite}
                   handleCategoryExpand={handleCategoryExpand}
                   handleRemoveFavoriteBrand={handleRemoveFavoriteBrand}

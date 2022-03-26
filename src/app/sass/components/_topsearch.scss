@@ -40,6 +40,9 @@
   &__logo-text {
     display: inline-block;
     font-size: 1.2rem;
+    &:hover {
+      color: $color-grey-dark;
+    }
   }
 
   &__logo-Header {
