@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import FeatureSlider from '../../features/slideCarousel/FeatureSlider';
 import SlideCarousel from '../../features/slideCarousel/SlideCarousel';
+import TopCategory from '../../features/slideCarousel/TopCategory';
 import Product from '../api/product';
 import { RootStoreContext } from '../stores/rootStore';
 import Sidebar from './SideBar';
@@ -42,11 +43,13 @@ function Layout() {
         allCat={allCat}
         setAllCategories={setAllCategories}
       />
-      <div className='page_container'>
+      <div>
         <TopSearchBar />
-
+      </div>
+      <div className='page_container'>
         <SlideCarousel />
         <FeatureSlider />
+        <TopCategory />
       </div>
       <div style={{ marginTop: '20rem' }}>{/* <h1>HIIII</h1> */}</div>
       {overlay ? (

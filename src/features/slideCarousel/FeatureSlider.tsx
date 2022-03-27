@@ -72,17 +72,19 @@ function FeatureSlider() {
   const sliderRef = useRef<Slider>(null);
   var settings = {
     dots: true,
-    infinite: false,
+    // centerMode: true,
+    infinite: true,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    autoplay: true,
+    // slidesToShow: 4,
+    slidesToScroll: 2,
     initialSlide: 0,
     responsive: [
       {
         breakpoint: 1324,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 5,
+          slidesToScroll: 2,
           infinite: true,
           dots: true,
         },
@@ -90,7 +92,16 @@ function FeatureSlider() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 4,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 720,
+        settings: {
+          slidesToShow: 3,
           slidesToScroll: 2,
           infinite: true,
           dots: true,
@@ -99,7 +110,7 @@ function FeatureSlider() {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 3,
           slidesToScroll: 1,
           initialSlide: 1,
         },
@@ -107,7 +118,7 @@ function FeatureSlider() {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -152,6 +163,9 @@ function FeatureSlider() {
         <div className='cardSlide__bottom'>
           <Slider
             ref={sliderRef}
+            slidesToShow={
+              featureSliderItems.length > 5 ? 5 : featureSliderItems.length
+            }
             {...settings}
             customPaging={(i) => (
               <div
@@ -168,26 +182,20 @@ function FeatureSlider() {
             )}
           >
             {featureSliderItems.map((item) => (
-              <div
-                style={{
-                  width: 500,
-                  objectFit: 'contain',
-                  borderRadius: 10,
-                  outline: 'none',
-                }}
-                className='featurerSliderImg px-2'
-              >
-                <img
-                  style={{
-                    width: 500,
-                    objectFit: 'none',
-                    outline: 'none',
-                    borderRadius: 10,
-                    boxShadow: '0px 4px 8px grb(0 0 0/(25%)',
-                  }}
-                  src={item.image}
-                  alt={item.title}
-                />
+              <div>
+                <div className='cardSlide__featurerSlider'>
+                  <img
+                    style={{
+                      width: '100%',
+                      objectFit: 'none',
+                      outline: 'none',
+                      borderRadius: 8,
+                      boxShadow: '0px 4px 8px grb(0 0 0/(25%)',
+                    }}
+                    src={item.image}
+                    alt={item.title}
+                  />
+                </div>
               </div>
             ))}
           </Slider>

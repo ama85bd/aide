@@ -37,6 +37,7 @@
       height: 5.5rem;
       color: $color-aide;
       background: $color-white;
+      transition: all 0.2s;
 
       &:not(:last-child) {
         margin-bottom: 0.5rem;

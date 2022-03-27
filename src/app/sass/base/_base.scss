@@ -17,6 +17,8 @@ html {
      10/16*100 = 62.5% === 10px
   */
   font-size: 62.5%;
+  overflow: scroll;
+  overflow-x: hidden;
 
   @include respond(mid-desktop) {
     font-size: 55%;
@@ -44,7 +46,14 @@ html {
     font-size: 75%;
   }
 }
-
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+// /* Optional: show position indicator in red */
+// ::-webkit-scrollbar-thumb {
+//   background: #ff0000;
+// }
 body {
   box-sizing: border-box;
   padding: 0;

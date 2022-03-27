@@ -53,51 +53,51 @@ function TopSearchBar() {
 
   return (
     <div className=' topsearch'>
-      <div className='row'>
-        <div className='col-1-of-4-topserch topsearch__logobox'>
-          <Link style={{ textDecoration: 'none' }} to='/'>
-            <img
-              src='../assets/aide-logo.jpeg'
-              alt='Logo'
-              className='topsearch__logo'
-            />
+      {/* <div className='row'> */}
+      <div className='topsearch__logobox'>
+        <Link style={{ textDecoration: 'none' }} to='/'>
+          <img
+            src='../assets/aide-logo.jpeg'
+            alt='Logo'
+            className='topsearch__logo'
+          />
 
-            <p className='topsearch__logo-text'>
-              <span className='topsearch__logo-Header'>aide</span>
-              &nbsp; Enjoy Peach in Shoping
-            </p>
-          </Link>
-        </div>
-        <div className='col-2-of-4 topsearch__mid'>
-          <form action='#' className='topsearch__form'>
-            <div className='topsearch__formgroup'>
-              <input
-                type='text'
-                className='topsearch__forminput'
-                placeholder='Search your products (Example: Mustard Oil, Sorishar Tel, সরিষার
+          <p className='topsearch__logo-text'>
+            <span className='topsearch__logo-Header'>aide</span>
+            &nbsp; Enjoy Peach in Shoping
+          </p>
+        </Link>
+      </div>
+      <div className=' topsearch__mid'>
+        <form action='#' className='topsearch__form'>
+          <div className='topsearch__formgroup'>
+            <input
+              type='text'
+              className='topsearch__forminput'
+              placeholder='Search your products (Example: Mustard Oil, Sorishar Tel, সরিষার
                   তেল)'
-                id='search'
-              />
-              <label htmlFor='search' className='topsearch__formlabel'>
-                <FontAwesomeIcon icon={faSearch} />
-              </label>
-            </div>
-          </form>
+              id='search'
+            />
+            <label htmlFor='search' className='topsearch__formlabel'>
+              <FontAwesomeIcon icon={faSearch} />
+            </label>
+          </div>
+        </form>
+      </div>
+      <div className=' topsearch__right'>
+        <div className='topsearch__signinBtn'>
+          <FontAwesomeIcon icon={faBell} />
+          &nbsp;
+          <a href='#' className='btn topsearch--signinbtn'>
+            Sign In
+          </a>
         </div>
-        <div className='col-1-of-4-topserch topsearch__right'>
-          <div className='topsearch__signinBtn'>
-            <FontAwesomeIcon icon={faBell} />
-            &nbsp;
-            <a href='#' className='btn topsearch--signinbtn'>
-              Sign In
-            </a>
-          </div>
-          <div className='topsearch__signinIcon'>
-            &nbsp;
-            <FontAwesomeIcon icon={faUserCircle} />
-          </div>
+        <div className='topsearch__signinIcon'>
+          &nbsp;
+          <FontAwesomeIcon icon={faUserCircle} />
         </div>
       </div>
+      {/* </div> */}
     </div>
     // <div className='topsearch'>
     //   {/* <Navbar className='navbar-expand-lg fixed-top bg-primary topsearch--card topsearch--navbar'> */}

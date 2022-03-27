@@ -1,6 +1,4 @@
 import React from 'react';
-import FooterPage from '../../features/Footer';
-import HomePage from '../../features/HomePage';
 import Layout from './Layout';
 import TopSearchBar from './TopSearchBar';
 

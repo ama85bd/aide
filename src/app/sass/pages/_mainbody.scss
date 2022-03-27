@@ -8,12 +8,20 @@
     rgba($color-grey-light-1, 0.4),
     rgba($color-grey-light-2, 0.6)
   );
+  // overflow: hidden;
+  // position: relative;
 }
 .page_container {
-  margin-left: 7%;
-  width: 92%;
-  display: flex;
-  flex-direction: column;
+  margin-left: 5.8%;
+  width: 93.5%;
+  // overflow: hidden;
+  // display: flex;
+  // flex-direction: column;
+  // -ms-overflow-style: none; /* IE and Edge */
+  // scrollbar-width: none; /* Firefox */
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
 }
 .overlay_on_home_screen {
   width: 100%;
@@ -106,4 +114,11 @@ textarea {
 }
 .w-22 {
   width: 5.5rem !important;
+}
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
 }
