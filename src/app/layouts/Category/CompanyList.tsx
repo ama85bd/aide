@@ -3,6 +3,7 @@ import SingleCompany from './SingleCompany';
 import qs from 'qs';
 import Product from '../../api/product';
 import { trackPromise } from 'react-promise-tracker';
+import LoadingBox from '../../common/LoadingBox';
 
 function CompanyList({ handleCategoryExpand }: any) {
   const [companyTitle, setCompanyTitle] = useState('');
@@ -20,16 +21,18 @@ function CompanyList({ handleCategoryExpand }: any) {
   const handleRemoveFavoriteBrand = (e: any) => {
     return null;
   };
-  useEffect(() => {
-    const getAllsetBrand = async () => {
-      setLoading(true);
-      await Product.getAllCompany(qs.stringify(cusId)).then((e) => {
-        setAllCompanies(e.OBJ);
-      });
-      setLoading(false);
-    };
 
-    trackPromise(getAllsetBrand());
+  const getAllCompany = async () => {
+    setLoading(true);
+    const res = await Product.getAllCompany(qs.stringify(cusId));
+
+    if (res.IsSuccess) {
+      setAllCompanies(res.OBJ);
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
+    getAllCompany();
   }, []);
 
   const companies =
@@ -49,27 +52,31 @@ function CompanyList({ handleCategoryExpand }: any) {
           onChange={(e) => setCompanyTitle(e.target.value)}
         />
       </form>
-      <ul className='categoryList__listContainer full_height'>
-        <div className='categoryList__brandContainer'>
-          {companies &&
-            companies.map((company: any) => {
-              return (
-                <SingleCompany
-                  color='white'
-                  key={company.Id}
-                  compId={company.Id}
-                  logo={company.logo}
-                  title={company.CompanyName}
-                  subtitle={company.slug}
-                  brandList={company.BrandList}
-                  IsFavorite={company.IsFavorite}
-                  handleCategoryExpand={handleCategoryExpand}
-                  handleRemoveFavoriteBrand={handleRemoveFavoriteBrand}
-                />
-              );
-            })}
-        </div>
-      </ul>
+      {loading ? (
+        <LoadingBox></LoadingBox>
+      ) : (
+        <ul className='categoryList__listContainer full_height'>
+          <div className='categoryList__brandContainer'>
+            {companies &&
+              companies.map((company: any) => {
+                return (
+                  <SingleCompany
+                    color='white'
+                    key={company.Id}
+                    compId={company.Id}
+                    logo={company.logo}
+                    title={company.CompanyName}
+                    subtitle={company.slug}
+                    brandList={company.BrandList}
+                    IsFavorite={company.IsFavorite}
+                    handleCategoryExpand={handleCategoryExpand}
+                    handleRemoveFavoriteBrand={handleRemoveFavoriteBrand}
+                  />
+                );
+              })}
+          </div>
+        </ul>
+      )}
     </div>
   );
 }

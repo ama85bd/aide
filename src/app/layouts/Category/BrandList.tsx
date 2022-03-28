@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Product from '../../api/product';
 import SingleBrand from './SingleBrand';
 import qs from 'qs';
-import { trackPromise } from 'react-promise-tracker';
+import LoadingBox from '../../common/LoadingBox';
 
 interface IBrandList {
   handleCategoryClose?: any;
@@ -30,16 +30,18 @@ function BrandList({ handleCategoryClose, handleCategoryExpand }: IBrandList) {
         )
       : allBrands;
 
-  useEffect(() => {
-    const getAllsetBrand = async () => {
-      setLoading(true);
-      await Product.getAllBrand(qs.stringify(cusId)).then((e) => {
-        setAllBrands(e.OBJ);
-      });
-      setLoading(false);
-    };
+  const getAllBrand = async () => {
+    setLoading(true);
+    const res = await Product.getAllBrand(qs.stringify(cusId));
 
-    trackPromise(getAllsetBrand());
+    if (res.IsSuccess) {
+      setAllBrands(res.OBJ);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getAllBrand();
   }, []);
 
   return (
@@ -53,27 +55,30 @@ function BrandList({ handleCategoryClose, handleCategoryExpand }: IBrandList) {
           onChange={(e) => setBrandTitle(e.target.value)}
         />
       </form>
-
-      <ul className='categoryList__listContainer full_height'>
-        <div className='categoryList__brandContainer'>
-          {brands &&
-            brands.map((brand: any) => {
-              return (
-                <SingleBrand
-                  color='white'
-                  logo={brand.logo}
-                  title={brand.BrandName}
-                  brandId={brand.Id}
-                  subtitle={brand.subtitle}
-                  handleCategoryClose={handleCategoryClose}
-                  handleCategoryExpand={handleCategoryExpand}
-                  IsFavorite={brand.IsFavorite}
-                  handleRemoveFavoriteBrand={handleRemoveFavoriteBrand}
-                />
-              );
-            })}
-        </div>
-      </ul>
+      {loading ? (
+        <LoadingBox></LoadingBox>
+      ) : (
+        <ul className='categoryList__listContainer full_height'>
+          <div className='categoryList__brandContainer'>
+            {brands &&
+              brands.map((brand: any) => {
+                return (
+                  <SingleBrand
+                    color='white'
+                    logo={brand.logo}
+                    title={brand.BrandName}
+                    brandId={brand.Id}
+                    subtitle={brand.subtitle}
+                    handleCategoryClose={handleCategoryClose}
+                    handleCategoryExpand={handleCategoryExpand}
+                    IsFavorite={brand.IsFavorite}
+                    handleRemoveFavoriteBrand={handleRemoveFavoriteBrand}
+                  />
+                );
+              })}
+          </div>
+        </ul>
+      )}
     </div>
   );
 }

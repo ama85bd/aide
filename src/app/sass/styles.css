@@ -745,7 +745,7 @@ body {
   background: white;
   display: inline-block;
   width: 100%;
-  padding: 3px 0px;
+  padding: 3px 1px 3px 2px;
   z-index: 10;
   opacity: 0.85;
   color: #777;
@@ -758,7 +758,7 @@ body {
 .topcategory__topcategorySlider:hover .topcategory__catname {
   color: #fff !important;
   background-color: #04bebe;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 0.5rem 0.5rem;
 }
 
 .topsearch {
@@ -827,6 +827,7 @@ body {
 }
 .topsearch__forminput:focus {
   outline: none;
+  color: #000;
   border: 1px solid #999;
 }
 .topsearch__formlabel {
@@ -1000,6 +1001,15 @@ a:focus,
 a:active {
   text-decoration: none;
   color: inherit;
+}
+
+.loading {
+  display: block !important;
+  margin: 0;
+  padding: 2rem;
+  font-size: 1.5rem;
+  margin-left: 30%;
+  color: #009999;
 }
 
 .sidebarDrawer__container {

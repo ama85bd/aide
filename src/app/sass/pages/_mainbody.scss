@@ -123,3 +123,11 @@ a:active {
   text-decoration: none;
   color: inherit;
 }
+.loading {
+  display: block !important;
+  margin: 0;
+  padding: 2rem;
+  font-size: 1.5rem;
+  margin-left: 30%;
+  color: $color-aide;
+}

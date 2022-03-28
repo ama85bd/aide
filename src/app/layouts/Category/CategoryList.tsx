@@ -56,7 +56,7 @@ function CategoryList({
           type='text'
           placeholder='Search'
           value={categoryTitle}
-          onChange={(e) => setCategoryTitle(e.target.value)}
+          // onChange={(e) => setCategoryTitle(e.target.value)}
         />
       </form>
 

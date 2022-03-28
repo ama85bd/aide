@@ -81,7 +81,7 @@
     background: white;
     display: inline-block;
     width: 100%;
-    padding: 3px 0px;
+    padding: 3px 1px 3px 2px;
     z-index: 10;
     opacity: 0.85;
     color: $color-grey-dark;
@@ -95,6 +95,6 @@
   &__topcategorySlider:hover &__catname {
     color: #fff !important;
     background-color: #04bebe;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 0.5rem 0.5rem;
   }
 }
