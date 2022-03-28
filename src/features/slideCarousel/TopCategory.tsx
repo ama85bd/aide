@@ -110,9 +110,9 @@ function TopCategory() {
               <h2 className='topcategory__heading'>Top Category</h2>
             </div>
             <div className='topcategory__right'>
-              <div className='topcategory__right--buttonSeeAll'>
-                <button>See All</button>
-              </div>
+              <button>
+                <div className='topcategory__right--buttonSeeAll'>See All</div>
+              </button>
               <div className='topcategory__right--nextPreButton'>
                 <IoChevronBackSharp
                   className='topcategory__right--arrowButton'

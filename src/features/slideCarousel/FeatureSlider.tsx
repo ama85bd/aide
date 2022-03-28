@@ -145,9 +145,9 @@ function FeatureSlider() {
             <h2 className='cardSlide__heading'>Special Features</h2>
           </div>
           <div className='cardSlide__right'>
-            <div className='cardSlide__right--buttonSeeAll'>
-              <button>See All</button>
-            </div>
+            <button>
+              <div className='cardSlide__right--buttonSeeAll'>See All</div>
+            </button>
             <div className='cardSlide__right--nextPreButton'>
               <IoChevronBackSharp
                 className='cardSlide__right--arrowButton'

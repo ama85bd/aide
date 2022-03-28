@@ -78,6 +78,15 @@ function CategoryList({
                       ? 'categoryList__color'
                       : 'categoryList__colorNormal'
                   }
+                  onMouseOver={() => {
+                    setOpenDropRightOne(!openDropRightOne);
+                    setSelectedParentCatId(category.Id);
+                    setSelectedParentCatName(category.CatName);
+                    setIsCategorySelected(!isCategorySelected);
+                    colorFixed(category.Id);
+                    setShowDisplay('inherit');
+                    setShowDisplayTwo('none');
+                  }}
                 >
                   <li
 
@@ -105,15 +114,6 @@ function CategoryList({
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'space-between',
-                        }}
-                        onMouseOver={() => {
-                          setOpenDropRightOne(!openDropRightOne);
-                          setSelectedParentCatId(category.Id);
-                          setSelectedParentCatName(category.CatName);
-                          setIsCategorySelected(!isCategorySelected);
-                          colorFixed(category.Id);
-                          setShowDisplay('inherit');
-                          setShowDisplayTwo('none');
                         }}
                       >
                         <p
