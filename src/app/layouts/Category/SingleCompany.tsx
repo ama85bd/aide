@@ -16,25 +16,32 @@ function SingleCompany({
   handleCategoryExpand,
   handleRemoveFavoriteBrand,
 }: any) {
-  // const dispatch = useDispatch();
   console.log('brandList', brandList);
   return (
     <div
       className='categoryList__singleBrand'
       style={{
         cursor: 'pointer',
+        height: '9.5rem',
       }}
     >
-      <img src={logo} alt='' className=' w-22 ' />
+      <img
+        src={logo}
+        alt=''
+        style={{ height: '5.6rem', width: '6rem', paddingTop: '.6rem' }}
+      />
 
-      <div className='categoryList__brandInfo ml-3'>
+      <div className='categoryList__brandInfo'>
         <Link
           to={`/brand/${title ? title.split(' ').join('-') : title}/${compId}`}
           onClick={handleCategoryExpand}
         >
           <div className='categoryList__brandTitle'>
             <h3>{title}</h3>
-            <div className='categoryList__brandList'>
+            <div
+              style={{ marginLeft: '-0.4rem' }}
+              className='categoryList__brandList'
+            >
               <h1>
                 <ul id='brandListText'>
                   {brandList.slice(0, 5).map((x: any) => {

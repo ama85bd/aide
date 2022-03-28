@@ -394,7 +394,7 @@ body {
   background: inherit;
   height: 30vh;
   border-radius: 1rem;
-  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0.1rem 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
   margin-top: -2rem;
   overflow: hidden;
 }
@@ -449,7 +449,7 @@ body {
   width: 25rem;
   position: relative;
   border-radius: 8px;
-  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.5);
+  box-shadow: 0.1rem 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
 }
 
 .slick-prev,
@@ -495,7 +495,7 @@ body {
 
 .carousel.carousel-slider {
   border-radius: 1rem;
-  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.5);
+  box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.5);
 }
 
 .opacity-70 {
@@ -680,7 +680,7 @@ body {
   margin-top: 2rem !important;
   margin-bottom: 2rem !important;
   border-radius: 1rem;
-  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0.1rem 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
   margin-top: -2rem;
   overflow: hidden;
 }
@@ -736,7 +736,7 @@ body {
   width: 16rem;
   position: relative;
   border-radius: 8px;
-  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.5);
+  box-shadow: 0.1rem 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
 }
 .topcategory__catname {
   text-align: center;
@@ -872,7 +872,7 @@ body {
   flex-direction: row;
   position: relative;
   z-index: 90;
-  background-image: linear-gradient(to right, rgba(247, 247, 247, 0.4), rgba(238, 238, 238, 0.6));
+  background: #eee;
 }
 
 .page_container {

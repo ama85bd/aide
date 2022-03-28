@@ -3,11 +3,12 @@
   flex-direction: row;
   position: relative;
   z-index: 90;
-  background-image: linear-gradient(
-    to right,
-    rgba($color-grey-light-1, 0.4),
-    rgba($color-grey-light-2, 0.6)
-  );
+  background: $color-grey-light-2;
+  // background-image: linear-gradient(
+  //   to right,
+  //   rgba($color-grey-light-1, 0.4),
+  //   rgba($color-grey-light-2, 0.6)
+  // );
   // overflow: hidden;
   // position: relative;
 }

@@ -33,7 +33,7 @@ function SingleBrand({
           cursor: 'pointer',
         }}
       >
-        <img src={logo} alt='' width={100} />
+        <img src={logo} alt='brand' width={100} />
 
         <div className='categoryList__brandInfo ml-3'>
           <Link
