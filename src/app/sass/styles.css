@@ -392,14 +392,14 @@ body {
 .cardSlide__mainBOdy {
   position: relative;
   background: inherit;
-  height: 30vh;
+  height: 28vh;
   border-radius: 1rem;
   box-shadow: 0.1rem 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
   margin-top: -2rem;
   overflow: hidden;
 }
 .cardSlide__secondary {
-  padding: 1.5rem;
+  padding: 1rem;
 }
 .cardSlide__top {
   display: flex;
@@ -442,19 +442,42 @@ body {
   color: #fff;
 }
 .cardSlide__bottom {
-  margin-top: 2rem;
+  margin-top: 0.5rem;
 }
 .cardSlide__featurerSlider {
   transition: 0.5s all;
-  width: 25rem;
+  width: 32rem;
   position: relative;
   border-radius: 8px;
-  box-shadow: 0.1rem 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
+}
+
+/* the slides */
+.slick-slide {
+  margin-left: 0.5rem;
+}
+
+/* the parent */
+.slick-list {
+  margin-left: -0.5rem;
 }
 
 .slick-prev,
 .slick-next {
   display: none !important;
+}
+
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: auto;
+}
+
+.style {
+  padding: 0;
+  width: 100%;
+  max-height: 30rem;
 }
 
 .mainSlider__body {
@@ -676,7 +699,7 @@ body {
 .topcategory__mainBOdy {
   position: relative;
   background: inherit;
-  height: 24vh;
+  height: 25.5vh;
   margin-top: 2rem !important;
   margin-bottom: 2rem !important;
   border-radius: 1rem;
@@ -685,7 +708,7 @@ body {
   overflow: hidden;
 }
 .topcategory__secondary {
-  padding: 1.5rem;
+  padding: 1rem;
 }
 .topcategory__top {
   display: flex;
@@ -729,11 +752,11 @@ body {
   color: #fff;
 }
 .topcategory__bottom {
-  margin-top: 2rem;
+  margin-top: 1.4rem;
 }
 .topcategory__topcategorySlider {
   transition: 0.5s all;
-  width: 16rem;
+  width: 20rem;
   position: relative;
   border-radius: 8px;
   box-shadow: 0.1rem 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
@@ -745,11 +768,11 @@ body {
   background: white;
   display: inline-block;
   width: 100%;
-  padding: 3px 1px 3px 2px;
+  padding: 4px 1.5px 4px 2.5px;
   z-index: 10;
   opacity: 0.85;
   color: #777;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 500;
   border-bottom-right-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
@@ -759,6 +782,7 @@ body {
   color: #fff !important;
   background-color: #04bebe;
   border-radius: 0 0 0.5rem 0.5rem;
+  opacity: 1;
 }
 
 .topsearch {

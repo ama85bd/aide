@@ -3,9 +3,9 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { IoChevronBackSharp, IoChevronForwardSharp } from 'react-icons/io5';
-import offer1 from '../images/offer1.png';
-import offer2 from '../images/offer2.png';
-import offer3 from '../images/offer3.png';
+import offer1 from '../images/of3.jpg';
+import offer2 from '../images/of3.jpg';
+import offer3 from '../images/of3.jpg';
 
 export const featureSliderItems = [
   {
@@ -71,31 +71,35 @@ export const featureSliderItems = [
 function FeatureSlider() {
   const sliderRef = useRef<Slider>(null);
   var settings = {
-    dots: true,
-    // centerMode: true,
+    dots: false,
+    centerMode: false,
+    // centerPadding: '10px',
     infinite: true,
     speed: 500,
+    variableWidth: true,
+    // adaptiveHeight: true,
+    // arrows: true,
     autoplay: true,
-    // slidesToShow: 4,
+    slidesToShow: 4,
     slidesToScroll: 2,
     initialSlide: 0,
     responsive: [
       {
         breakpoint: 1324,
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 4,
           slidesToScroll: 2,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 2,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -104,7 +108,7 @@ function FeatureSlider() {
           slidesToShow: 3,
           slidesToScroll: 2,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -163,23 +167,25 @@ function FeatureSlider() {
         <div className='cardSlide__bottom'>
           <Slider
             ref={sliderRef}
-            slidesToShow={
-              featureSliderItems.length > 5 ? 5 : featureSliderItems.length
-            }
+            className='style'
+            // slidesToShow={
+            //   featureSliderItems.length > 4 ? 4 : featureSliderItems.length
+            // }
+
             {...settings}
-            customPaging={(i) => (
-              <div
-                style={{
-                  position: 'absolute',
-                  width: '100%',
-                  top: '-10px',
-                  opacity: 0,
-                  outline: 'none',
-                }}
-              >
-                {i}
-              </div>
-            )}
+            // customPaging={(i) => (
+            //   <div
+            //     style={{
+            //       position: 'absolute',
+            //       width: '100%',
+            //       top: '-10px',
+            //       opacity: 0,
+            //       outline: 'none',
+            //     }}
+            //   >
+            //     {i}
+            //   </div>
+            // )}
           >
             {featureSliderItems.map((item) => (
               <div>
@@ -187,7 +193,9 @@ function FeatureSlider() {
                   <img
                     style={{
                       width: '100%',
-                      objectFit: 'none',
+                      maxHeight: '30rem',
+                      // minHeight: '40rem',
+                      objectFit: 'cover',
                       outline: 'none',
                       borderRadius: 8,
                       boxShadow: '0px 4px 8px grb(0 0 0/(25%)',
@@ -202,60 +210,6 @@ function FeatureSlider() {
         </div>
       </div>
     </div>
-
-    // <div style={{ width: '99.7%', background: '#F4F4F4' }}>
-    //   <h2>Multiple Rows</h2>
-    //   <Slider {...settings}>
-    //     <div>
-    //       <h3 style={{ background: 'red', marginRight: '2px' }}>1</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={{ background: 'red', marginRight: '2px' }}>2</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={{ background: 'red', marginRight: '2px' }}>3</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={{ background: 'red', marginRight: '2px' }}>4</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={{ background: 'red', marginRight: '2px' }}>5</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={{ background: 'red', marginRight: '2px' }}>6</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={{ background: 'red', marginRight: '2px' }}>7</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={{ background: 'red', marginRight: '2px' }}>8</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={{ background: 'red', marginRight: '2px' }}>9</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={{ background: 'red', marginRight: '2px' }}>10</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={{ background: 'red', marginRight: '2px' }}>11</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={{ background: 'red', marginRight: '2px' }}>12</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={{ background: 'red', marginRight: '2px' }}>13</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={{ background: 'red', marginRight: '2px' }}>14</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={{ background: 'red', marginRight: '2px' }}>15</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={{ background: 'red', marginRight: '2px' }}>16</h3>
-    //     </div>
-    //   </Slider>
-    // </div>
   );
 }
 export default FeatureSlider;

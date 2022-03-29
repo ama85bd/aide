@@ -37,6 +37,7 @@ function TopCategory() {
     // centerMode: true,
     infinite: true,
     speed: 500,
+    variableWidth: true,
     autoplay: true,
     // slidesToShow: 4,
     slidesToScroll: 5,
@@ -129,7 +130,7 @@ function TopCategory() {
             <Slider
               ref={sliderRef}
               slidesToShow={
-                allTopCategory?.length > 8 ? 8 : allTopCategory?.length
+                allTopCategory?.length > 5 ? 5 : allTopCategory?.length
               }
               {...settings}
               customPaging={(i) => (

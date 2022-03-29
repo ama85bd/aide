@@ -3,7 +3,7 @@
     position: relative;
     // width: 101.7%;
     background: inherit;
-    height: 24vh;
+    height: 25.5vh;
     margin-top: 2rem !important;
     margin-bottom: 2rem !important;
     border-radius: 1rem;
@@ -13,7 +13,7 @@
     overflow: hidden;
   }
   &__secondary {
-    padding: 1.5rem;
+    padding: 1rem;
   }
   &__top {
     display: flex;
@@ -64,12 +64,12 @@
     }
   }
   &__bottom {
-    margin-top: 2rem;
+    margin-top: 1.4rem;
   }
 
   &__topcategorySlider {
     transition: 0.5s all;
-    width: 16rem;
+    width: 20rem;
     position: relative;
     border-radius: 8px;
     box-shadow: $box-shadow-all-around;
@@ -81,11 +81,11 @@
     background: white;
     display: inline-block;
     width: 100%;
-    padding: 3px 1px 3px 2px;
+    padding: 4px 1.5px 4px 2.5px;
     z-index: 10;
     opacity: 0.85;
     color: $color-grey-dark;
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-weight: 500;
     border-bottom-right-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
@@ -96,5 +96,6 @@
     color: #fff !important;
     background-color: #04bebe;
     border-radius: 0 0 0.5rem 0.5rem;
+    opacity: 1;
   }
 }
