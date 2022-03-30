@@ -188,7 +188,7 @@ function FeatureSlider() {
             // )}
           >
             {featureSliderItems.map((item) => (
-              <div>
+              <div key={item.id}>
                 <div className='cardSlide__featurerSlider'>
                   <img
                     style={{

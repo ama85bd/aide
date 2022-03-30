@@ -149,7 +149,7 @@ function TopCategory() {
             >
               {allTopCategory.map((item: any) =>
                 item.LargeIcon.slice(-4) === 'webp' ? (
-                  <div>
+                  <div key={item.Id}>
                     <Link
                       to={`/category/${
                         item.CatName

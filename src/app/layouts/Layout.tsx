@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
+import AllProducts from '../../features/products/AllProducts';
 import FeatureSlider from '../../features/slideCarousel/FeatureSlider';
 import SlideCarousel from '../../features/slideCarousel/SlideCarousel';
 import TopCategory from '../../features/slideCarousel/TopCategory';
@@ -50,8 +51,8 @@ function Layout() {
         <SlideCarousel />
         <FeatureSlider />
         <TopCategory />
+        <AllProducts />
       </div>
-      <div style={{ marginTop: '20rem' }}>{/* <h1>HIIII</h1> */}</div>
       {overlay ? (
         <div ref={overlayRef} className='overlay_on_home_screen'></div>
       ) : (
