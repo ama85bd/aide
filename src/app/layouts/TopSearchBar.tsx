@@ -88,7 +88,7 @@ function TopSearchBar() {
         <div className='topsearch__signinBtn'>
           <FontAwesomeIcon icon={faBell} />
           &nbsp;
-          <a href='#' className='btn topsearch--signinbtn'>
+          <a href='#' className='btnAide topsearch--signinbtn'>
             Sign In
           </a>
         </div>

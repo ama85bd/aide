@@ -1,16 +1,16 @@
-.btn {
+.btnAide {
   &,
   &:link,
   &:visited {
     // text-transform: uppercase;
     text-decoration: none;
-    padding: 0.7rem 1rem;
+    padding: 0.7rem 1.5rem;
     display: inline-block;
     border-radius: 0.4rem;
     transition: all 0.2s;
     position: relative;
     font-size: 1.4rem;
-
+    color: $color-white;
     //Change for the <button> element
     border: none;
     cursor: pointer;
@@ -71,7 +71,7 @@
   }
 }
 
-.btn-text {
+.btnAide-text {
   &:link,
   &:visited {
     font-size: $default-font-size;
