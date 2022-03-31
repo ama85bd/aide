@@ -321,7 +321,7 @@ body {
 
 .btnAide, .btnAide:link, .btnAide:visited {
   text-decoration: none;
-  padding: 0.7rem 1.5rem;
+  padding: 0.7rem 1.4rem;
   display: inline-block;
   border-radius: 0.4rem;
   transition: all 0.2s;
