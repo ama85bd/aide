@@ -21,7 +21,7 @@ function AllProducts() {
   const toggleDropdownGridView = () =>
     setDropdownGridViewOpen(!dropdownGridViewOpen);
   return (
-    <div className='allproducts__mainbody'>
+    <div className='allproducts__mainbody' style={{ marginBottom: '1rem' }}>
       <div className='allproducts__views'>
         <div className='allproducts__viewsbar'></div>
         {/* <IoRepeatOutline
