@@ -906,6 +906,7 @@ body {
 }
 .allproducts__viewselect {
   display: flex;
+  margin-right: 4rem;
 }
 .allproducts__viewheading {
   color: #000;

@@ -3,7 +3,7 @@ import React from 'react';
 import './app/sass/styles.css';
 import './app/lineaIcon/icon-font.css';
 import * as ReactDOM from 'react-dom';
-import { Router } from 'react-router-dom';
+import { BrowserRouter, Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import App from './app/layouts/App';
 import reportWebVitals from './reportWebVitals';
@@ -57,7 +57,9 @@ export const showDismissAlert = (props: { type: string; message: string }) => {
 ReactDOM.render(
   <Router history={history}>
     <ScrollToTop>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
       <ToastContainer
         autoClose={3000}
         newestOnTop

@@ -5,6 +5,7 @@ import SlideCarousel from '../../features/slideCarousel/SlideCarousel';
 import TopCategory from '../../features/slideCarousel/TopCategory';
 import Product from '../api/product';
 import { RootStoreContext } from '../stores/rootStore';
+import RoutesPages from './RoutesPages';
 import Sidebar from './SideBar';
 import SideBarMenuList from './SideBarMenuList';
 import TopSearchBar from './TopSearchBar';
@@ -44,14 +45,11 @@ function Layout() {
         allCat={allCat}
         setAllCategories={setAllCategories}
       />
-      <div>
-        <TopSearchBar />
-      </div>
+      {/* <div> */}
+      <TopSearchBar />
+      {/* </div> */}
       <div className='page_container'>
-        <SlideCarousel />
-        <FeatureSlider />
-        <TopCategory />
-        <AllProducts />
+        <RoutesPages />
       </div>
       {overlay ? (
         <div ref={overlayRef} className='overlay_on_home_screen'></div>

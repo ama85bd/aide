@@ -55,7 +55,7 @@ function TopSearchBar() {
     <div className=' topsearch'>
       {/* <div className='row'> */}
       <div className='topsearch__logobox'>
-        <Link style={{ textDecoration: 'none' }} to='/'>
+        <Link to='/' style={{ textDecoration: 'none' }}>
           <img
             src='../assets/aide-logo.jpeg'
             alt='Logo'

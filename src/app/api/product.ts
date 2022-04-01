@@ -14,6 +14,9 @@ const Product = {
   // get Top Categories
   getTopCategories: (sc: any): Promise<IResponseBase<any[]>> =>
     agent().post('/product/allcategory', sc),
+  // get products for home page
+  getProductsForHomePage: (sc: any): Promise<IResponseBase<any[]>> =>
+    agent().post('/product/getproductsforhomepage', sc),
   // // get all brand
   // getAllBrand: (sc: {}): Promise<IResponseBase<any[]>> =>
   //   agent().post('/product/getbrand', sc),
