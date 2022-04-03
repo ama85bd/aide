@@ -454,12 +454,12 @@ body {
 
 /* the slides */
 .slick-slide {
-  margin-left: 0.5rem;
+  margin-left: 0.9rem;
 }
 
 /* the parent */
 .slick-list {
-  margin-left: -0.5rem;
+  margin-left: -0.9rem;
 }
 
 .slick-prev,
@@ -700,7 +700,7 @@ body {
 .topcategory__mainBOdy {
   position: relative;
   background: inherit;
-  height: 25.5vh;
+  height: 22.5vh;
   margin-top: 2rem !important;
   margin-bottom: 2rem !important;
   border-radius: 1rem;
@@ -907,6 +907,7 @@ body {
 .allproducts__viewselect {
   display: flex;
   margin-right: 4rem;
+  margin-bottom: 0.4rem;
 }
 .allproducts__viewheading {
   color: #000;

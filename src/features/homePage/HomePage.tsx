@@ -16,7 +16,7 @@ import qs from 'qs';
 
 function HomePage() {
   // get grid view number
-  const [gridViewNumber, setGridViewNumber] = useState<number>(6);
+  const [gridViewNumber, setGridViewNumber] = useState<number>(5);
   const [dropdownGridViewOpen, setDropdownGridViewOpen] = useState(false);
   const [allHomeProducts, setAllHomeProducts] = useState<any>(null);
   const [loading, setLoading] = useState(true);

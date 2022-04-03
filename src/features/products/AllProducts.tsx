@@ -9,10 +9,16 @@ function AllProducts({ gridViewNumber, loading, allHomeProducts }: any) {
     <div className='allproducts__mainbody' style={{ marginBottom: '1rem' }}>
       {loading ? (
         <LoadingBox></LoadingBox>
+      ) : gridViewNumber === 5 ? (
+        <ProductLists
+          gridViewNumber={gridViewNumber}
+          homeProducts={allHomeProducts}
+          loading={loading}
+        />
       ) : (
         <Row>
           <Col md={12}>
-            <Row className='g-2'>
+            <Row className='g-3'>
               <ProductLists
                 gridViewNumber={gridViewNumber}
                 homeProducts={allHomeProducts}

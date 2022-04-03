@@ -6,7 +6,7 @@ function ProductLists({ loading, gridViewNumber, homeProducts }: any) {
   return (
     <>
       {gridViewNumber === 5 ? (
-        <div className='row row-cols-5 g-2 '>
+        <div className='row row-cols-5 g-3 '>
           {homeProducts &&
             homeProducts.map((product: any) => {
               return (
@@ -44,7 +44,7 @@ function ProductLists({ loading, gridViewNumber, homeProducts }: any) {
           {homeProducts &&
             homeProducts.map((product: any) => {
               return (
-                <Col lg={2} xl={2}>
+                <Col md={4} lg={2} xl={2}>
                   <ProductContainer
                     key={product.Id}
                     product={product}

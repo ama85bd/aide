@@ -167,9 +167,10 @@ function TopCategory() {
                         <img
                           style={{
                             width: '100%',
+                            maxHeight: '11rem',
                             objectFit: 'none',
                             outline: 'none',
-                            borderRadius: 8,
+                            borderRadius: 5,
                             boxShadow: '0px 4px 8px grb(0 0 0/(25%)',
                           }}
                           src={item.LargeIcon}
