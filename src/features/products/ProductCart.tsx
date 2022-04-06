@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 // import _ from "lodash";
 import { Link } from 'react-router-dom';
+import Rating from '../../app/common/Rating';
 import CartHoverContainer from './CartHoverContainer';
 
 const ProductCart = ({
@@ -17,7 +18,7 @@ const ProductCart = ({
   // const dispatch = useDispatch();
   const [addToCartClick, setAddToCartClick] = useState(false);
   const [openOrderReminderModal, setOpenOrderReminderModal] = useState(false);
-
+  const [rating, setRating] = useState(2.5);
   const [item, setItem] = useState('');
   const [divActive, setDivActive] = useState('');
   const [cartBtn, setCartBtn] = useState('');
@@ -27,8 +28,6 @@ const ProductCart = ({
   const wrapperRef = useRef<HTMLDivElement>(null);
   const details__content = addToCartClick ? '' : 'details__content';
   const hoverOff = menu ? 'hidden' : '';
-  console.log('menu', menu);
-  console.log('hoverOff', hoverOff);
   const imgHoverOff = menu ? '' : 'imgBox';
   const menuColor = menu ? 'text-blue-500' : 'text-gray-400';
   const imgAnim = product.PrimaryImg;
@@ -112,7 +111,7 @@ const ProductCart = ({
             >
               <div
                 className={`${imgHoverOff} py-4 m-2  bg-white flex justify-center`}
-                style={{ height: '55%', width: '100%', transition: 'all 1s' }}
+                style={{ height: '75%', width: '100%', transition: 'all 1s' }}
               >
                 <img src={product.PrimaryImg} alt='' className='h-full' />
               </div>
@@ -127,6 +126,11 @@ const ProductCart = ({
                   {product.ProductName}{' '}
                 </p>
                 <div className='flex justify-center z-0'>
+                  <Rating
+                    rating={rating}
+                    numReviews={product.numReviews}
+                  ></Rating>
+
                   {/* <Rating
                                     value={product.ApprovedRatingAvg}
                                     precision={1}
