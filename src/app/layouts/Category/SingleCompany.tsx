@@ -16,7 +16,6 @@ function SingleCompany({
   handleCategoryExpand,
   handleRemoveFavoriteBrand,
 }: any) {
-  console.log('brandList', brandList);
   return (
     <div
       className='categoryList__singleBrand'
@@ -53,8 +52,11 @@ function SingleCompany({
                     );
                   })}
                   {brandList.length > 0 ? (
-                    <li className='categoryList__brandListText'>
-                      <button>&nbsp;See All</button>
+                    <li className='categoryList__brandListText '>
+                      <button>
+                        &nbsp;
+                        <span className='underline-decoration'>See All</span>
+                      </button>
                     </li>
                   ) : (
                     ''

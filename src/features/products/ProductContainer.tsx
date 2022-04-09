@@ -7,7 +7,9 @@ const ProductContainer = ({
   favorite,
   setFavorite,
   setOpenRemoveSnackbar,
+  gridViewNumber,
 }: any) => {
+  console.log('product', product);
   // const user = getUserInfo();
   // const userId = user?.Id;
   // const [ scheduleShoppingListLoading, setScheduleShoppingListLoading ] = useState(true);
@@ -42,23 +44,24 @@ const ProductContainer = ({
 
   return (
     <>
-      {/* <div className='ml-2 flex flex-wrap mt-3'> */}
-      {/* Product Cart */}
-      {product && (
-        <ProductCart
-          product={product}
-          type={type}
-          key={product.Id}
-          // cartQuantity={cartQuantity}
-          favorite={favorite}
-          setFavorite={setFavorite}
-          setOpenRemoveSnackbar={setOpenRemoveSnackbar}
-          // scheduleShoppingListLoading={scheduleShoppingListLoading}
-          // customerScheduleShoppingList={customerScheduleShoppingList}
-          // scheduleShoppingListError={scheduleShoppingListError}
-        />
-      )}
-      {/* </div> */}
+      <div className='ml-2 flex flex-wrap mt-3'>
+        {/* Product Cart */}
+        {product && (
+          <ProductCart
+            product={product}
+            type={type}
+            key={product.Id}
+            // cartQuantity={cartQuantity}
+            favorite={favorite}
+            gridViewNumber={gridViewNumber}
+            setFavorite={setFavorite}
+            setOpenRemoveSnackbar={setOpenRemoveSnackbar}
+            // scheduleShoppingListLoading={scheduleShoppingListLoading}
+            // customerScheduleShoppingList={customerScheduleShoppingList}
+            // scheduleShoppingListError={scheduleShoppingListError}
+          />
+        )}
+      </div>
     </>
   );
 };

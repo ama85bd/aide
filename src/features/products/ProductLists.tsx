@@ -15,6 +15,7 @@ function ProductLists({ loading, gridViewNumber, homeProducts }: any) {
                     key={product.Id}
                     product={product}
                     loading={loading}
+                    gridViewNumber={gridViewNumber}
                     // favorite={favoriteProduct}
                     // setFavorite={setFavoriteProduct}
                   />
@@ -32,6 +33,7 @@ function ProductLists({ loading, gridViewNumber, homeProducts }: any) {
                     key={product.Id}
                     product={product}
                     loading={loading}
+                    gridViewNumber={gridViewNumber}
                     // favorite={favoriteProduct}
                     // setFavorite={setFavoriteProduct}
                   />
@@ -49,6 +51,7 @@ function ProductLists({ loading, gridViewNumber, homeProducts }: any) {
                     key={product.Id}
                     product={product}
                     loading={loading}
+                    gridViewNumber={gridViewNumber}
                     // favorite={favoriteProduct}
                     // setFavorite={setFavoriteProduct}
                   />

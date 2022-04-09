@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import shoppingSchedule from '../../../photos/shping-schedule-list.png';
+import { IoLocation, IoCartOutline, IoEllipsisVertical } from 'react-icons/io5';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTruck } from '@fortawesome/free-solid-svg-icons';
 
 const CartHoverContainer = ({
   product,
@@ -22,6 +25,11 @@ const CartHoverContainer = ({
   // const img = `${WEBSITE}${product.PrimaryImg}`
   // console.log(img);
 
+  let availableIn = new Array();
+  let availableVariant = new Array();
+  availableIn = product.AvailableOptions.split(',');
+  availableVariant = product.AvailableVariant.split(',');
+
   return (
     <div className='box__items' style={{ transition: 'all 1s' }}>
       <div className=' '>
@@ -37,8 +45,8 @@ const CartHoverContainer = ({
                       : product.ProductName
                   }/${product.Id}`}
                 >
-                  <span className='text_size text-gray-700 font-normal  ml-1 hover:text-blue-600'>
-                    {product.ProductName}
+                  <span className='text_size text-gray-700 font-normal  ml-1 hover-text-blue'>
+                    {product.CompanyName}
                   </span>
                 </Link>
               </p>
@@ -53,35 +61,57 @@ const CartHoverContainer = ({
                       : product.BrandName
                   }/${product.BrandId}`}
                 >
-                  <span className='text_size text-gray-700 font-normal  ml-1 hover:text-blue-600'>
+                  <span className='text_size text-gray-700 font-normal  ml-1 hover-text-blue'>
                     {product.BrandName}
                   </span>
                 </Link>
               </p>
             </div>
             <div className=' flex justify-start'>
-              <span className='text_size  text-black  font-bold mr-1'>
-                Ideal for:{' '}
+              <span className='text_size  text-black  font-bold mr-1 '>
+                Ideal for:&nbsp;
               </span>
-              <span className='text_size text-gray-700 font-normal'>
-                {product.IdealFor}
-              </span>
+              <Link to={'/'}>
+                <span className='text_size text-gray-700 font-bold hover-text-blue'>
+                  {product.IdealFor}
+                </span>
+              </Link>
             </div>
             <div className=' flex justify-start'>
-              <p className='text_size  text-black font-bold mr-1'>
-                Available in:
-                <span className='text_size ml-1 text-gray-700 font-normal '>
-                  {product.AvailableOptions}
-                </span>
+              <p className='text_size text-black font-bold mr-1'>
+                Available in:{' '}
+                <ul id='listlinkelement'>
+                  {availableIn.map((x: any) => {
+                    return (
+                      <li className='listlinksingle'>
+                        <Link to={'/'}>
+                          <span className='text_size  text-gray-700 font-normal '>
+                            {x}
+                          </span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+                {/* {product.AvailableOptions} */}
               </p>
             </div>
             <div className=' flex justify-start'>
               <p className='text_size text-black font-bold mr-1'>
-                {' '}
-                Variant:
-                <span className='text_size  ml-1 text-gray-700 font-normal'>
-                  {product.AvailableVariant}
-                </span>
+                Variant:{' '}
+                <ul id='listlinkelement'>
+                  {availableVariant.map((x: any) => {
+                    return (
+                      <li className='listlinksingle'>
+                        <Link to={'/'}>
+                          <span className='text_size  text-gray-700 font-normal '>
+                            {x}
+                          </span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
               </p>
             </div>
           </div>
@@ -92,7 +122,7 @@ const CartHoverContainer = ({
                   ? product.ProductName.split(' ').join('-')
                   : product.ProductName
               }/${product.Id}`}
-              className='text-blue-500 text-sm'
+              className='text-blue-500 text-sm hover-text-aide'
               style={{ fontSize: 12, fontWeight: 'bold' }}
             >
               View Full Details{' '}
@@ -113,6 +143,73 @@ const CartHoverContainer = ({
                             <img src={shoppingSchedule} alt="" />
                         </button>
                     </div> */}
+        </div>
+      </div>
+      <div className='flex justify-between items-center pt-2 pr-1 pl-3'>
+        <div className='flex flex-col justify-center  '>
+          <div className='flex items-center'>
+            <div>
+              <IoLocation
+                style={{
+                  marginTop: '.5rem',
+                  marginLeft: '.3rem',
+                  marginBottom: '1.1rem',
+                  fontSize: '1.6rem',
+                }}
+              />
+            </div>
+            <p className='text-xs ml-1 mb-1 text-black'>
+              Possible Delivery on{' '}
+            </p>
+            {/* <p className='text-xs ml-1 '>Sign in to know </p>
+                                <p className='text-xs ml-1 '>Confirm your delivery location </p> */}
+          </div>
+          <div className='flex items-center'>
+            <div>
+              <FontAwesomeIcon
+                icon={faTruck}
+                style={{
+                  // marginTop: '.1rem',
+                  marginLeft: '.3rem',
+                  marginBottom: '.5rem',
+                  fontSize: '1.4rem',
+                }}
+              />
+            </div>
+            <p className='text-xs mb-1 ml-1 text-black'>24-48 hours </p>
+            {/* <p className='text-xs mb-1 ml-1'>Exact delivery time </p>
+                                <p className='text-xs mb-1 ml-1'>To get exact delivery time </p> */}
+          </div>
+        </div>
+        <div className='flex items-center justify-end'>
+          <button
+            type='button'
+            className=' text-gray-400 cart_add rounded-full m-0 p-2'
+            // onClick={(e) => handleClick(e)}
+          >
+            <IoCartOutline
+              className=' '
+              style={{
+                marginTop: '.1rem',
+                marginBottom: '.5rem',
+                fontSize: '2.6rem',
+                width: '3.5rem',
+              }}
+            />
+          </button>
+          <button>
+            <IoEllipsisVertical
+              style={{
+                marginTop: '.5rem',
+                // marginLeft: '.1rem',
+                marginRight: '1rem',
+                marginBottom: '1.1rem',
+                fontSize: '1.8rem',
+                color: '#07b6b6',
+              }}
+              // className={`${menuColor} cursor-pointer  m-0 p-0`}
+            />
+          </button>
         </div>
       </div>
     </div>

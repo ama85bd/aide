@@ -3,7 +3,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Rating from '../../app/common/Rating';
 import CartHoverContainer from './CartHoverContainer';
-
 const ProductCart = ({
   product,
   type,
@@ -14,6 +13,7 @@ const ProductCart = ({
   scheduleShoppingListLoading,
   customerScheduleShoppingList,
   scheduleShoppingListError,
+  gridViewNumber,
 }: any) => {
   // const dispatch = useDispatch();
   const [addToCartClick, setAddToCartClick] = useState(false);
@@ -79,7 +79,10 @@ const ProductCart = ({
   return (
     <>
       {!schedule ? (
-        <div className='productCard ' id={`product${product.Id}`}>
+        <div
+          className={gridViewNumber === 4 ? 'productCardGrid4' : 'productCard '}
+          id={`product${product.Id}`}
+        >
           <div className='box'>
             {product.SpecialPrice === 0 ? null : (
               <p
@@ -110,8 +113,12 @@ const ProductCart = ({
               className='text-blue-500 text-sm'
             >
               <div
-                className={`${imgHoverOff} py-4 m-2  bg-white flex justify-center`}
-                style={{ height: '75%', width: '100%', transition: 'all 1s' }}
+                className={`${imgHoverOff} padd-4 m-2  bg-white flex justify-center`}
+                style={
+                  gridViewNumber === 4
+                    ? { height: '70%', width: '100%', transition: 'all 1s' }
+                    : { height: '65%', width: '100%', transition: 'all 1s' }
+                }
               >
                 <img src={product.PrimaryImg} alt='' className='h-full' />
               </div>
@@ -121,15 +128,18 @@ const ProductCart = ({
                 className={`${details__content} py-1 flex flex-col`}
                 style={{ transition: 'all .5s' }}
               >
-                <p className=' px-3 text-center text-sm font-bold'>
+                <p className=' px-3 text-center text-sm font-bold-500 text-black'>
                   {' '}
                   {product.ProductName}{' '}
                 </p>
-                <div className='flex justify-center z-0'>
-                  <Rating
+                <div
+                  style={{ rotate: '180deg' }}
+                  className='flex justify-center z-0'
+                >
+                  {/* <Rating
                     rating={rating}
                     numReviews={product.numReviews}
-                  ></Rating>
+                  ></Rating> */}
 
                   {/* <Rating
                                     value={product.ApprovedRatingAvg}
@@ -190,37 +200,74 @@ const ProductCart = ({
           </div>
           <div className=''>
             {!addToCartClick ? (
-              <div className='flex justify-between items-center pt-2 pr-1 pl-3'>
-                <div className='flex flex-col justify-center  '>
-                  <div className='flex items-center'>
-                    <div>
-                      <img src='' alt='' />
-                    </div>
-                    <p className='text-xs ml-1 '>Possible Delivery on </p>
-                    {/* <p className='text-xs ml-1 '>Sign in to know </p>
-                                <p className='text-xs ml-1 '>Confirm your delivery location </p> */}
-                  </div>
-                  <div className='flex items-center'>
-                    <div>
-                      <img src='' alt='' />
-                    </div>
-                    <p className='text-xs mb-1 ml-1'>24-48 hours </p>
-                    {/* <p className='text-xs mb-1 ml-1'>Exact delivery time </p>
-                                <p className='text-xs mb-1 ml-1'>To get exact delivery time </p> */}
-                  </div>
-                </div>
-                {/* <div className='flex items-center justify-end'>
-                            <button type='button' className=' text-gray-400 cart_add rounded-full m-0 p-2'
-                                onClick={(e) => handleClick(e)}
-                            >
-                                <ShoppingCartOutlinedIcon className=' ' />
-                            </button>
-                            <button onClick={() => setMenu(!menu)}>
-                                <MoreVertOutlinedIcon className={`${menuColor} cursor-pointer  m-0 p-0`} />
-                            </button>
-                        </div> */}
-              </div>
+              ''
             ) : (
+              // <div className='flex justify-between items-center pt-2 pr-1 pl-3'>
+              //   <div className='flex flex-col justify-center  '>
+              //     <div className='flex items-center'>
+              //       <div>
+              //         <IoLocation
+              //           style={{
+              //             marginTop: '.5rem',
+              //             marginLeft: '.3rem',
+              //             marginBottom: '1.1rem',
+              //             fontSize: '1.6rem',
+              //           }}
+              //         />
+              //       </div>
+              //       <p className='text-xs ml-1 mb-1 text-black'>
+              //         Possible Delivery on{' '}
+              //       </p>
+              //       {/* <p className='text-xs ml-1 '>Sign in to know </p>
+              //                   <p className='text-xs ml-1 '>Confirm your delivery location </p> */}
+              //     </div>
+              //     <div className='flex items-center'>
+              //       <div>
+              //         <FontAwesomeIcon
+              //           icon={faTruck}
+              //           style={{
+              //             // marginTop: '.1rem',
+              //             marginLeft: '.3rem',
+              //             marginBottom: '.5rem',
+              //             fontSize: '1.4rem',
+              //           }}
+              //         />
+              //       </div>
+              //       <p className='text-xs mb-1 ml-1 text-black'>24-48 hours </p>
+              //       {/* <p className='text-xs mb-1 ml-1'>Exact delivery time </p>
+              //                   <p className='text-xs mb-1 ml-1'>To get exact delivery time </p> */}
+              //     </div>
+              //   </div>
+              //   <div className='flex items-center justify-end'>
+              //     <button
+              //       type='button'
+              //       className=' text-gray-400 cart_add rounded-full m-0 p-2'
+              //       // onClick={(e) => handleClick(e)}
+              //     >
+              //       <IoCartOutline
+              //         className=' '
+              //         style={{
+              //           marginTop: '.5rem',
+              //           marginBottom: '.5rem',
+              //           fontSize: '2.6rem',
+              //           width: '3.7rem',
+              //         }}
+              //       />
+              //     </button>
+              //     <button onClick={() => setMenu(!menu)}>
+              //       <IoEllipsisVertical
+              //         style={{
+              //           marginTop: '.5rem',
+              //           // marginLeft: '.1rem',
+              //           marginRight: '1rem',
+              //           marginBottom: '1.1rem',
+              //           fontSize: '1.8rem',
+              //         }}
+              //         className={`${menuColor} cursor-pointer  m-0 p-0`}
+              //       />
+              //     </button>
+              //   </div>
+              // </div>
               <div className='flex justify-between items-center pt-2 pr-1 pl-3'>
                 <div className='flex flex-col justify-center  '>
                   <p className='' style={{ fontSize: '9px' }}>
