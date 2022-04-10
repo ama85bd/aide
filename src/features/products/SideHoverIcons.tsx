@@ -59,7 +59,7 @@ const SideHoverIcons = ({
             <Tooltip
               className='favourite-buttom-tooltip'
               isOpen={tooltipOpen}
-              placement='right'
+              placement='left'
               target='Tooltipfavourite'
               toggle={() => {
                 setTooltipOpen(!tooltipOpen);
@@ -82,7 +82,7 @@ const SideHoverIcons = ({
             <Tooltip
               className='favourite-buttom-tooltip'
               isOpen={tooltipOpenSchedule}
-              placement='right'
+              placement='left'
               target='TooltipSchedule'
               toggle={() => {
                 setTooltipOpenSchedule(!tooltipOpenSchedule);
@@ -105,7 +105,7 @@ const SideHoverIcons = ({
             <Tooltip
               className='favourite-buttom-tooltip'
               isOpen={tooltipOpenGiftCart}
-              placement='right'
+              placement='left'
               target='TooltipGiftCart'
               toggle={() => {
                 setTooltipOpenGiftCart(!tooltipOpenGiftCart);

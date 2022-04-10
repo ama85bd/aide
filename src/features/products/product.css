@@ -148,12 +148,20 @@ p {
   font-size: 1rem;
 }
 
-.favourite-buttom-tooltip .tooltip-arrow {
+/* .favourite-buttom-tooltip .tooltip-arrow {
   border-right: 2px solid #009999;
 }
 
 .favourite-buttom-tooltip .tooltip-arrow::before {
   border-right-color: #009999 !important;
+} */
+
+.favourite-buttom-tooltip .tooltip-arrow {
+  border-left: 2px solid #009999;
+}
+
+.favourite-buttom-tooltip .tooltip-arrow::before {
+  border-left-color: #009999 !important;
 }
 
 .productCard:hover .sidehovericons__items {
