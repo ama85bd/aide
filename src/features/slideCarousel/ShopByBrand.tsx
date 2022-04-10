@@ -8,6 +8,7 @@ import qs from 'qs';
 import { trackPromise } from 'react-promise-tracker';
 import { Link } from 'react-router-dom';
 import LoadingBox from '../../app/common/LoadingBox';
+import { IoHeartOutline } from 'react-icons/io5';
 
 function ShopByBrand() {
   const sliderRef = useRef<Slider>(null);
@@ -48,7 +49,7 @@ function ShopByBrand() {
       {
         breakpoint: 1324,
         settings: {
-          slidesToShow: 7,
+          slidesToShow: 6,
           slidesToScroll: 5,
           infinite: true,
           dots: true,
@@ -57,7 +58,7 @@ function ShopByBrand() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 6,
+          slidesToShow: 5,
           slidesToScroll: 4,
           infinite: true,
           dots: true,
@@ -66,7 +67,7 @@ function ShopByBrand() {
       {
         breakpoint: 720,
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 4,
           slidesToScroll: 3,
           infinite: true,
           dots: true,
@@ -103,35 +104,35 @@ function ShopByBrand() {
 
   useEffect(() => {}, []);
   return (
-    <div className='topcategory__mainBOdy'>
+    <div className='shopbyBrand__mainBOdy'>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : (
-        <div className='topcategory__secondary'>
-          <div className='topcategory__top'>
-            <div className='topcategory__left'>
-              <h2 className='topcategory__heading'>Shop By Brand</h2>
+        <div className='shopbyBrand__secondary'>
+          <div className='shopbyBrand__top'>
+            <div className='shopbyBrand__left'>
+              <h2 className='shopbyBrand__heading'>Shop By Brand</h2>
             </div>
-            <div className='topcategory__right'>
+            <div className='shopbyBrand__right'>
               <button>
-                <div className='topcategory__right--buttonSeeAll'>See All</div>
+                <div className='shopbyBrand__right--buttonSeeAll'>See All</div>
               </button>
-              <div className='topcategory__right--nextPreButton'>
+              <div className='shopbyBrand__right--nextPreButton'>
                 <IoChevronBackSharp
-                  className='topcategory__right--arrowButton'
+                  className='shopbyBrand__right--arrowButton'
                   onClick={() => sliderRef?.current?.slickPrev()}
                 />
                 <IoChevronForwardSharp
-                  className='topcategory__right--arrowButton buttons'
+                  className='shopbyBrand__right--arrowButton buttons'
                   onClick={() => sliderRef?.current?.slickNext()}
                 />
               </div>
             </div>
           </div>
-          <div className='topcategory__bottom'>
+          <div className='shopbyBrand__bottom'>
             <Slider
               ref={sliderRef}
-              slidesToShow={allBrands?.length > 5 ? 5 : allBrands?.length}
+              slidesToShow={allBrands?.length > 7 ? 7 : allBrands?.length}
               {...settings}
               customPaging={(i) => (
                 <div
@@ -165,24 +166,44 @@ function ShopByBrand() {
                       // }}
                       className=''
                     >
-                      <div className='topcategory__topcategorySlider'>
-                        <img
-                          style={{
-                            width: '100%',
-                            maxHeight: '11rem',
-                            objectFit: 'none',
-                            outline: 'none',
-                            borderRadius: 5,
-                            boxShadow: '0px 4px 8px grb(0 0 0/(25%)',
-                          }}
-                          src={item.logo}
-                          // alt={item.LargeIcon.slice(-4)}
-                          alt={item.BrandName}
-                        />
-                        <h3
+                      <div className='shopbyBrand__shopbyBrandSlider '>
+                        <div className='flex justify-center'>
+                          <img
+                            style={{
+                              width: '11rem',
+                              height: '10rem',
+                              objectFit: 'contain',
+                              outline: 'none',
+                              borderRadius: 5,
+                            }}
+                            src={item.logo}
+                            // alt={item.LargeIcon.slice(-4)}
+                            alt={item.BrandName}
+                          />
+
+                          {/* <h3
                           className='topcategory__catname'
                           style={{ textAlign: 'center' }}
                         >
+                          {' '}
+                          {item.BrandName}{' '}
+                        </h3> */}
+                        </div>
+                        <div className='shopbyBrand__favourite-buttom-div'>
+                          <button id='Tooltipfavourite'>
+                            <IoHeartOutline
+                              className='favourite-buttom'
+                              style={{
+                                // marginTop: '-.5rem',
+                                // marginLeft: '.3rem',
+                                // marginBottom: '-.5rem',
+                                fontSize: '2.2rem',
+                              }}
+                            />
+                          </button>
+                        </div>
+                        <hr style={{ borderTopWidth: '2px', color: 'grey' }} />
+                        <h3 className='shopbyBrand__brandName'>
                           {' '}
                           {item.BrandName}{' '}
                         </h3>

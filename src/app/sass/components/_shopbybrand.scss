@@ -1,0 +1,130 @@
+.shopbyBrand {
+  &__mainBOdy {
+    position: relative;
+    // width: 101.7%;
+    background: inherit;
+    height: 28vh;
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+    border-radius: 1rem;
+    box-shadow: $box-shadow-all-around;
+    // left: -1.9rem !important;
+    margin-top: -2rem;
+    overflow: hidden;
+  }
+  &__secondary {
+    padding: 1rem;
+  }
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -0.8rem;
+  }
+
+  &__heading {
+    color: $color-black;
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: row;
+    &--buttonSeeAll {
+      background: $color-aide;
+      color: $color-white;
+      font-size: 1.2rem;
+      height: 2.1rem;
+      padding: 0.1rem 2rem;
+      border-radius: 5rem;
+      margin-top: 0.6rem;
+      //   &:hover {
+      //     background: $color-white;
+      //     color: $color-aide;
+      //   }
+    }
+    &--nextPreButton {
+      margin-left: 2rem;
+      margin-right: 1rem;
+      font-size: 1.8rem;
+    }
+    &--arrowButton {
+      box-shadow: $box-shadow-2;
+      height: 2rem;
+
+      transition: all 0.5s;
+      cursor: pointer;
+      &:not(:last-child) {
+        margin-right: 0.5rem;
+      }
+      &:hover {
+        background: $color-aide;
+        color: $color-white;
+      }
+    }
+  }
+  &__bottom {
+    margin-top: 1.4rem;
+  }
+
+  &__shopbyBrandSlider {
+    background-color: white;
+    transition: 0.5s all;
+    width: 20rem;
+    height: 14.5rem;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: $box-shadow;
+  }
+  &__catname {
+    text-align: center;
+    position: absolute;
+    bottom: -5px;
+    background: white;
+    display: inline-block;
+    width: 100%;
+    padding: 4px 1.5px 4px 2.5px;
+    z-index: 10;
+    opacity: 0.85;
+    color: $color-grey-dark;
+    font-size: 1.3rem;
+    font-weight: 500;
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    transition: 0.5s all;
+  }
+
+  &__shopbyBrandSlider:hover &__catname {
+    color: #fff !important;
+    background-color: #04bebe;
+    border-radius: 0 0 0.5rem 0.5rem;
+    opacity: 1;
+  }
+  &__favourite-buttom-div {
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    bottom: 2.3rem;
+    z-index: 10;
+    right: 1.5rem;
+    position: absolute;
+    cursor: pointer;
+  }
+  &__brandName {
+    width: 100%;
+    // height: 25%;
+    text-align: center;
+    background: white;
+    display: inline-block;
+    // padding: 2px 0px;
+    z-index: 10;
+    opacity: 0.85;
+    color: #777;
+    font-size: 135%;
+    font-weight: 700;
+    &:hover {
+      color: $color-aide;
+    }
+  }
+}
