@@ -1419,10 +1419,6 @@ ul#brandListText li {
   display: inline-block;
 }
 
-ul#brandListText li:hover {
-  text-decoration: underline;
-}
-
 .underline-decoration:hover {
   text-decoration: underline !important;
 }

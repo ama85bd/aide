@@ -66,8 +66,8 @@ p {
   color: rgba(156, 163, 175, var(--tw-text-opacity));
 }
 .text-gray-700 {
-  --tw-text-opacity: 1;
-  color: rgba(156, 163, 175, var(--tw-text-opacity));
+  font-weight: 700;
+  color: #777;
 }
 .text-black {
   --tw-text-opacity: 1;
@@ -124,7 +124,55 @@ p {
   box-sizing: border-box;
   transition: all 0.5s;
 }
+
+.sidehovericons__items {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 20%;
+  height: 20%;
+  opacity: 0.5;
+  /* border: 1px solid #DADADA; */
+  /* border-top-left-radius:10px;
+    border-top-right-radius:10px; */
+  box-sizing: border-box;
+  transition: all 0.5s;
+}
 /* #07B6B6 */
+
+.favourite-buttom-tooltip .tooltip-inner {
+  background-color: #009999;
+  color: #fff;
+  border: 1px solid #009999;
+  font-size: 1rem;
+}
+
+.favourite-buttom-tooltip .tooltip-arrow {
+  border-right: 2px solid #009999;
+}
+
+.favourite-buttom-tooltip .tooltip-arrow::before {
+  border-right-color: #009999 !important;
+}
+
+.productCard:hover .sidehovericons__items {
+  left: 85%;
+  opacity: 1;
+}
+
+.productCardGrid4:hover .sidehovericons__items {
+  left: 90%;
+  opacity: 1;
+}
+
+.favourite-buttom:hover {
+  background: white;
+}
+.favourite-buttom:hover path {
+  fill: gold;
+  stroke-width: 0;
+}
 
 .productCard:hover .box__items {
   top: 32%;
@@ -138,9 +186,10 @@ p {
 .productCard:hover .cart_add,
 .productCardGrid4:hover .cart_add {
   color: #07b6b6;
+  margin-right: 0.5rem;
 }
 .cart_add:hover {
-  padding: 0.4rem;
+  padding: 0.6rem 0.4rem 0.4rem 0.7rem !important;
   border-radius: 50%;
   background: #07b6b6;
   color: white !important;
@@ -221,11 +270,11 @@ ul#listlinkelement {
 ul#listlinkelement li {
   display: inline-block;
 }
-ul#listlinkelement li:hover {
+/* ul#listlinkelement li:hover {
   text-decoration: underline;
   --tw-text-opacity: 1;
   color: rgba(59, 130, 246, var(--tw-text-opacity));
-}
+} */
 ul#listlinkelement li:hover .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgba(59, 130, 246, var(--tw-text-opacity));

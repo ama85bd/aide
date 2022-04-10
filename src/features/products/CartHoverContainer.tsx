@@ -86,7 +86,10 @@ const CartHoverContainer = ({
                       <li className='listlinksingle'>
                         <Link to={'/'}>
                           <span className='text_size  text-gray-700 font-normal '>
-                            {x}
+                            &nbsp;
+                            <span className='underline-decoration'>
+                              {x.trim()}
+                            </span>
                           </span>
                         </Link>
                       </li>
@@ -105,7 +108,10 @@ const CartHoverContainer = ({
                       <li className='listlinksingle'>
                         <Link to={'/'}>
                           <span className='text_size  text-gray-700 font-normal '>
-                            {x}
+                            &nbsp;
+                            <span className='underline-decoration'>
+                              {x.trim()}
+                            </span>
                           </span>
                         </Link>
                       </li>
@@ -184,7 +190,7 @@ const CartHoverContainer = ({
         <div className='flex items-center justify-end'>
           <button
             type='button'
-            className=' text-gray-400 cart_add rounded-full m-0 p-2'
+            className=' text-gray-400 cart_add rounded-full  p-2'
             // onClick={(e) => handleClick(e)}
           >
             <IoCartOutline
@@ -192,12 +198,14 @@ const CartHoverContainer = ({
               style={{
                 marginTop: '.1rem',
                 marginBottom: '.5rem',
+                marginRight: '.5rem',
                 fontSize: '2.6rem',
-                width: '3.5rem',
+                width: '2.5rem',
+                height: '2.3rem',
               }}
             />
           </button>
-          <button>
+          {/* <button>
             <IoEllipsisVertical
               style={{
                 marginTop: '.5rem',
@@ -209,7 +217,7 @@ const CartHoverContainer = ({
               }}
               // className={`${menuColor} cursor-pointer  m-0 p-0`}
             />
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

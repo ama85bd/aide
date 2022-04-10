@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Rating from '../../app/common/Rating';
 import CartHoverContainer from './CartHoverContainer';
+import SideHoverIcons from './SideHoverIcons';
 const ProductCart = ({
   product,
   type,
@@ -161,7 +162,7 @@ const ProductCart = ({
                   <span className=' text-blue-500 text-sm font-bold mr-3'>
                     Deal of the Day
                   </span>
-                  <span className='text-sm text-gray-400 font-bold'>
+                  <span className='text-sm text-gray-700 font-bold'>
                     6:10:47
                   </span>
                 </div>
@@ -185,6 +186,16 @@ const ProductCart = ({
             <div className={`${hoverOff}`}>
               {!addToCartClick && (
                 <CartHoverContainer
+                  product={product}
+                  setAddToCartClick={setAddToCartClick}
+                  type={type}
+                  //  addToCart={addToCart}
+                />
+              )}
+            </div>
+            <div className={`${hoverOff}`}>
+              {!addToCartClick && (
+                <SideHoverIcons
                   product={product}
                   setAddToCartClick={setAddToCartClick}
                   type={type}

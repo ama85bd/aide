@@ -47,7 +47,10 @@ function SingleCompany({
                     return (
                       <li className='categoryList__brandListText'>
                         {' '}
-                        &nbsp;{x.BrandName}
+                        &nbsp;
+                        <span className='underline-decoration'>
+                          {x.BrandName}
+                        </span>
                       </li>
                     );
                   })}
