@@ -13,6 +13,7 @@ import {
 } from 'reactstrap';
 import Product from '../../app/api/product';
 import qs from 'qs';
+import ShopByBrand from '../slideCarousel/ShopByBrand';
 
 function HomePage() {
   // get grid view number
@@ -140,7 +141,7 @@ function HomePage() {
         />
       </section>
       <section>
-        <TopCategory />
+        <ShopByBrand />
       </section>
       <section>
         <AllProducts
