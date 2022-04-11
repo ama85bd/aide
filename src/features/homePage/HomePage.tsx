@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import AllProducts from '../products/AllProducts';
 import FeatureSlider from '../slideCarousel/FeatureSlider';
 import SlideCarousel from '../slideCarousel/SlideCarousel';
@@ -14,11 +14,17 @@ import {
 import Product from '../../app/api/product';
 import qs from 'qs';
 import ShopByBrand from '../slideCarousel/ShopByBrand';
+import ShopByCompany from '../slideCarousel/ShopByCompany';
 
 function HomePage() {
   // get grid view number
   const [gridViewNumber, setGridViewNumber] = useState<number>(5);
   const [dropdownGridViewOpen, setDropdownGridViewOpen] = useState(false);
+  const [lazyLoaderPage, setLazyLoaderPage] = useState<number>(
+    gridViewNumber === 4 ? 67 : 62
+  );
+  console.log('gridViewNumber', gridViewNumber);
+  console.log('lazyLoaderPage', lazyLoaderPage);
   const [allHomeProducts, setAllHomeProducts] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const toggleDropdownGridView = () =>
@@ -39,9 +45,12 @@ function HomePage() {
     }
   };
 
-  useEffect(() => {
+  useMemo(() => {
     getallHomeProducts();
   }, []);
+  // useEffect(() => {
+  //   getallHomeProducts();
+  // }, []);
 
   return (
     <>
@@ -155,6 +164,40 @@ function HomePage() {
             )
           }
         />
+      </section>
+      <section>
+        <ShopByCompany />
+      </section>
+      <section>
+        <AllProducts
+          gridViewNumber={gridViewNumber}
+          loading={loading}
+          allHomeProducts={
+            allHomeProducts &&
+            allHomeProducts.OBJ.slice(
+              gridViewNumber === 5 ? 52 : 50,
+              lazyLoaderPage
+            )
+          }
+        />
+        {allHomeProducts && lazyLoaderPage < allHomeProducts.OBJ.length && (
+          <>
+            <div className=' flex justify-center my-5'>
+              <button
+                className=' custom-loadbtn loadbtn '
+                onClick={() => {
+                  if (lazyLoaderPage + 10 > allHomeProducts.OBJ.length) {
+                    setLazyLoaderPage(allHomeProducts.OBJ.length);
+                  } else {
+                    setLazyLoaderPage(lazyLoaderPage + 12);
+                  }
+                }}
+              >
+                Load More
+              </button>
+            </div>
+          </>
+        )}
       </section>
     </>
   );

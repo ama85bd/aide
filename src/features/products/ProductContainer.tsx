@@ -9,7 +9,6 @@ const ProductContainer = ({
   setOpenRemoveSnackbar,
   gridViewNumber,
 }: any) => {
-  console.log('product', product);
   // const user = getUserInfo();
   // const userId = user?.Id;
   // const [ scheduleShoppingListLoading, setScheduleShoppingListLoading ] = useState(true);

@@ -13,7 +13,6 @@ import { IoHeartOutline } from 'react-icons/io5';
 function ShopByBrand() {
   const sliderRef = useRef<Slider>(null);
   const [allBrands, setAllBrands] = useState<any>(null);
-  console.log('allBrands', allBrands);
   // console.log('allTopCategory', allTopCategory);
   const [loading, setLoading] = useState<boolean>(false);
   const clientId = window.localStorage.getItem('client_id');

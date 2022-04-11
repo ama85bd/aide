@@ -285,6 +285,29 @@
       }
     }
   }
+  &__shopbyComfavorite {
+    position: absolute;
+    bottom: 5rem;
+    font-size: 2rem;
+    right: 2px;
+    width: 3.6rem;
+    height: 3.6rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  &__shopbyComfavoriteIcon {
+    path {
+      stroke-width: 2rem;
+    }
+    &:hover {
+      background: $color-white;
+      path {
+        fill: gold;
+        stroke-width: 0;
+      }
+    }
+  }
 }
 
 .sidebar_details_body {

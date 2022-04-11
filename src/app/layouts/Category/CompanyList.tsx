@@ -8,7 +8,6 @@ import LoadingBox from '../../common/LoadingBox';
 function CompanyList({ handleCategoryExpand }: any) {
   const [companyTitle, setCompanyTitle] = useState('');
   const [allCompany, setAllCompanies] = useState<any>(null);
-  console.log('allCompany', allCompany);
   const [loading, setLoading] = useState(true);
   //   const companyId = window.localStorage.getItem('company_id');
   //   const compId: any = {
