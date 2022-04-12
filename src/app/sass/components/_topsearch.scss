@@ -8,7 +8,7 @@
   width: 93.5%;
   margin: 0.5rem auto;
   box-shadow: $box-shadow;
-  background-color: rgba($color-white, 0.5);
+  background-color: rgba($color-white, 1);
   // border-radius: 6px;
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
@@ -16,6 +16,7 @@
   //   padding-left: 9rem;
   font-size: $default-font-size;
   z-index: 3;
+  // overflow: hidden;
 
   // @include respond(small-desktop) {
   //   width: 88% !important;

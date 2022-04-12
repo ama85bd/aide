@@ -302,6 +302,31 @@ ul#listlinkelement li:not(:last-child):after {
 .hover-text-aide:hover {
   color: #009999;
 }
+
+.custom-loadbtn {
+  background: #009999;
+  font-size: 2rem;
+  font-weight: 300;
+  padding: 0.5rem 2rem;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 50%,
+    white 50%
+  );
+  background-size: 230%;
+  transition: all 0.4s;
+}
+
+.custom-loadbtn:hover,
+.custom-loadbtn:active {
+  background-position: 98%;
+  color: #009999;
+  transform: translateX(1rem);
+}
 /* .productCard::before {
     content: "";
     position: absolute;

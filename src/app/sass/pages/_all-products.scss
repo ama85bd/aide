@@ -23,10 +23,11 @@
   &__dropdownview {
   }
   &__viewheading {
-    color: $color-black;
+    color: $color-aide;
     font-size: 1.7rem;
     padding: 0.1rem 0 0 0;
     margin-bottom: -0.1rem;
+    font-weight: 500;
   }
 
   //   &__viewselect:hover &__dropdownview {
@@ -125,11 +126,13 @@
 }
 
 .btn-outline-primary {
-  color: $color-aide;
-  background-color: transparent;
+  color: $color-aide !important;
+  background-color: $color-white !important;
   background-image: none;
+  border: 2px solid $color-aide !important;
   border-color: $color-aide;
   padding: 0;
+  font-weight: 700 !important;
 }
 
 .dropdown-item.active,
@@ -152,4 +155,18 @@
   color: #fff;
   background-color: $color-aide;
   border-color: $color-aide;
+}
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7.8%;
+  padding-top: 0.7rem;
+  z-index: 1;
+  background-color: $color-grey-light-2;
+}
+.stickyProduct {
+  // top: 10%;
+  // height: 105vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

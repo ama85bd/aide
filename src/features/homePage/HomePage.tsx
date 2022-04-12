@@ -20,11 +20,9 @@ function HomePage() {
   // get grid view number
   const [gridViewNumber, setGridViewNumber] = useState<number>(5);
   const [dropdownGridViewOpen, setDropdownGridViewOpen] = useState(false);
-  const [lazyLoaderPage, setLazyLoaderPage] = useState<number>(
-    gridViewNumber === 4 ? 67 : 62
-  );
-  console.log('gridViewNumber', gridViewNumber);
-  console.log('lazyLoaderPage', lazyLoaderPage);
+  const [lazyLoaderPage, setLazyLoaderPage] = useState<number>(67);
+  // console.log('gridViewNumber', gridViewNumber);
+  // console.log('lazyLoaderPage', lazyLoaderPage);
   const [allHomeProducts, setAllHomeProducts] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const toggleDropdownGridView = () =>
@@ -58,7 +56,7 @@ function HomePage() {
       <FeatureSlider />
       <TopCategory />
 
-      <div className='productpage'>
+      <div className='productpage sticky'>
         <div className='allproducts__views'>
           <div className='allproducts__viewsbar'></div>
           {/* <IoRepeatOutline
@@ -94,19 +92,28 @@ function HomePage() {
               <DropdownMenu left>
                 <DropdownItem
                   className={gridViewNumber === 4 ? 'active' : ''}
-                  onClick={() => setGridViewNumber(4)}
+                  onClick={() => {
+                    setGridViewNumber(4);
+                    setLazyLoaderPage(62);
+                  }}
                 >
                   Four
                 </DropdownItem>
                 <DropdownItem
                   className={gridViewNumber === 5 ? 'active' : ''}
-                  onClick={() => setGridViewNumber(5)}
+                  onClick={() => {
+                    setGridViewNumber(5);
+                    setLazyLoaderPage(67);
+                  }}
                 >
                   Five
                 </DropdownItem>
                 <DropdownItem
                   className={gridViewNumber === 6 ? 'active' : ''}
-                  onClick={() => setGridViewNumber(6)}
+                  onClick={() => {
+                    setGridViewNumber(6);
+                    setLazyLoaderPage(62);
+                  }}
                 >
                   Six
                 </DropdownItem>
@@ -139,66 +146,72 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <section>
-        <AllProducts
-          gridViewNumber={gridViewNumber}
-          loading={loading}
-          allHomeProducts={
-            allHomeProducts &&
-            allHomeProducts.OBJ.slice(0, gridViewNumber === 5 ? 25 : 24)
-          }
-        />
-      </section>
-      <section>
-        <ShopByBrand />
-      </section>
-      <section>
-        <AllProducts
-          gridViewNumber={gridViewNumber}
-          loading={loading}
-          allHomeProducts={
-            allHomeProducts &&
-            allHomeProducts.OBJ.slice(
-              gridViewNumber === 5 ? 26 : 25,
-              gridViewNumber === 5 ? 51 : 49
-            )
-          }
-        />
-      </section>
-      <section>
-        <ShopByCompany />
-      </section>
-      <section>
-        <AllProducts
-          gridViewNumber={gridViewNumber}
-          loading={loading}
-          allHomeProducts={
-            allHomeProducts &&
-            allHomeProducts.OBJ.slice(
-              gridViewNumber === 5 ? 52 : 50,
-              lazyLoaderPage
-            )
-          }
-        />
-        {allHomeProducts && lazyLoaderPage < allHomeProducts.OBJ.length && (
-          <>
-            <div className=' flex justify-center my-5'>
-              <button
-                className=' custom-loadbtn loadbtn '
-                onClick={() => {
-                  if (lazyLoaderPage + 10 > allHomeProducts.OBJ.length) {
-                    setLazyLoaderPage(allHomeProducts.OBJ.length);
-                  } else {
-                    setLazyLoaderPage(lazyLoaderPage + 12);
-                  }
-                }}
-              >
-                Load More
-              </button>
-            </div>
-          </>
-        )}
-      </section>
+      <div className='stickyProduct'>
+        <section>
+          <AllProducts
+            gridViewNumber={gridViewNumber}
+            loading={loading}
+            allHomeProducts={
+              allHomeProducts &&
+              allHomeProducts.OBJ.slice(0, gridViewNumber === 5 ? 25 : 24)
+            }
+          />
+        </section>
+        <section>
+          <ShopByBrand />
+        </section>
+        <section>
+          <AllProducts
+            gridViewNumber={gridViewNumber}
+            loading={loading}
+            allHomeProducts={
+              allHomeProducts &&
+              allHomeProducts.OBJ.slice(
+                gridViewNumber === 5 ? 26 : 25,
+                gridViewNumber === 5 ? 51 : 49
+              )
+            }
+          />
+        </section>
+        <section>
+          <ShopByCompany />
+        </section>
+        <section>
+          <AllProducts
+            gridViewNumber={gridViewNumber}
+            loading={loading}
+            allHomeProducts={
+              allHomeProducts &&
+              allHomeProducts.OBJ.slice(
+                gridViewNumber === 5 ? 52 : 50,
+                lazyLoaderPage
+              )
+            }
+          />
+          {allHomeProducts && lazyLoaderPage < allHomeProducts.OBJ.length && (
+            <>
+              <div className=' flex justify-center my-2'>
+                <button
+                  className=' custom-loadbtn'
+                  onClick={() => {
+                    if (lazyLoaderPage + 10 > allHomeProducts.OBJ.length) {
+                      setLazyLoaderPage(allHomeProducts.OBJ.length);
+                    } else {
+                      setLazyLoaderPage(
+                        gridViewNumber === 5
+                          ? lazyLoaderPage + 15
+                          : lazyLoaderPage + 12
+                      );
+                    }
+                  }}
+                >
+                  Load More
+                </button>
+              </div>
+            </>
+          )}
+        </section>
+      </div>
     </>
   );
 }

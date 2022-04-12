@@ -701,6 +701,8 @@ body {
   position: relative;
   background: inherit;
   height: 28vh;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
   margin-top: 2rem !important;
   margin-bottom: 2rem !important;
   border-radius: 1rem;
@@ -817,6 +819,8 @@ body {
   position: relative;
   background: inherit;
   height: 22vh;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
   margin-top: 2rem !important;
   margin-bottom: 2rem !important;
   border-radius: 1rem;
@@ -1028,7 +1032,7 @@ body {
   width: 93.5%;
   margin: 0.5rem auto;
   box-shadow: 0 2px 10px rgba(58, 53, 65, 0.1);
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: white;
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
   padding: 0.6rem;
@@ -1142,10 +1146,11 @@ body {
   margin-bottom: 0.4rem;
 }
 .allproducts__viewheading {
-  color: #000;
+  color: #009999;
   font-size: 1.7rem;
   padding: 0.1rem 0 0 0;
   margin-bottom: -0.1rem;
+  font-weight: 500;
 }
 
 .dropdown-company > div,
@@ -1180,11 +1185,13 @@ body {
 }
 
 .btn-outline-primary {
-  color: #009999;
-  background-color: transparent;
+  color: #009999 !important;
+  background-color: #fff !important;
   background-image: none;
+  border: 2px solid #009999 !important;
   border-color: #009999;
   padding: 0;
+  font-weight: 700 !important;
 }
 
 .dropdown-item.active,
@@ -1209,6 +1216,20 @@ body {
   color: #fff;
   background-color: #009999;
   border-color: #009999;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7.8%;
+  padding-top: 0.7rem;
+  z-index: 1;
+  background-color: #eee;
+}
+
+.stickyProduct {
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .mainBody {

@@ -178,7 +178,7 @@ function ShopByCompany() {
                           alt=''
                           style={{
                             height: '8rem',
-                            width: '15rem',
+                            width: '12rem',
                             paddingTop: '.3rem',
                           }}
                         />

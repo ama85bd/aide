@@ -48,7 +48,7 @@ function ShopByBrand() {
       {
         breakpoint: 1324,
         settings: {
-          slidesToShow: 6,
+          slidesToShow: 5,
           slidesToScroll: 5,
           infinite: true,
           dots: true,
@@ -131,7 +131,7 @@ function ShopByBrand() {
           <div className='shopbyBrand__bottom'>
             <Slider
               ref={sliderRef}
-              slidesToShow={allBrands?.length > 7 ? 7 : allBrands?.length}
+              slidesToShow={allBrands?.length > 6 ? 6 : allBrands?.length}
               {...settings}
               customPaging={(i) => (
                 <div
