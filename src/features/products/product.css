@@ -235,6 +235,12 @@ p {
   color: white;
 }
 
+.bottom-items {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+}
+
 .addShoppingList {
   overflow-y: scroll;
   position: relative;
