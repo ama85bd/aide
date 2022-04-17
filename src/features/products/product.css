@@ -310,6 +310,9 @@ ul#listlinkelement li:not(:last-child):after {
 }
 
 .custom-loadbtn {
+  border-radius: 0.5rem;
+  margin: 1rem;
+  box-shadow: 0.1rem 0.1rem 0.6rem rgb(0 0 0 / 20%);
   background: #009999;
   font-size: 2rem;
   font-weight: 300;

@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+.footer-main {
+  padding: 2rem 2rem 3rem 4rem;
+}
+
+.footer_bg {
+  background-image: url(../photos/landingSlideebg.png);
+  background-repeat: no-repeat;
+  background-size: 900px;
+  background-position: 80px 2px;
+}
+.footer_icon {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+}
+.instagram_icon {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+  background: linear-gradient(to top, #7b4397, #dc2430);
+}
+.instagram_icon:hover {
+  background: linear-gradient(to bottom, #7b4397, #dc2430);
+}
+.footer_icon_text {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 145.23%;
+  color: #676767;
+  align-items: center;
+}
+.footer_credit {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #676767;
+}
+.footer_text {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 145.23%;
+  align-items: center;
+  color: #676767;
+}
+.footer_app_text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 82.73%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.05em;
+  color: #676767;
+}
+
+/* ------------------------------- */
+
+.custom-footer_signupbtn {
+  /* width: 130px;
+    height: 40px; */
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  /* font-family: 'Lato', sans-serif; */
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.8s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+/* 3 */
+.footer_signupbtn {
+  background: rgb(0, 172, 238);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 172, 238, 1) 0%,
+    rgba(2, 126, 251, 1) 100%
+  );
+  width: 60%;
+  /*height: 40px; */
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+
+.footer_signupbtn span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.footer_signupbtn:before,
+.footer_signupbtn:after {
+  position: absolute;
+  content: '';
+  right: 0;
+  top: 0;
+  background: rgba(2, 126, 251, 1);
+  transition: all 0.8s ease;
+}
+.footer_signupbtn:before {
+  height: 0%;
+  width: 2px;
+}
+.footer_signupbtn:after {
+  width: 0%;
+  height: 2px;
+}
+.footer_signupbtn:hover {
+  background: transparent;
+  box-shadow: none;
+}
+.footer_signupbtn:hover:before {
+  height: 100%;
+}
+.footer_signupbtn:hover:after {
+  width: 100%;
+}
+.footer_signupbtn span:hover {
+  color: rgba(2, 126, 251, 1);
+}
+.footer_signupbtn span:before,
+.footer_signupbtn span:after {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0;
+  background: rgba(2, 126, 251, 1);
+  transition: all 0.8s ease;
+}
+.footer_signupbtn span:before {
+  width: 2px;
+  height: 0%;
+}
+.footer_signupbtn span:after {
+  width: 0%;
+  height: 2px;
+}
+.footer_signupbtn span:hover:before {
+  height: 100%;
+}
+.footer_signupbtn span:hover:after {
+  width: 100%;
+}
+.text-2xl {
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+.bg-blue-800 {
+  background-color: rgba(23, 58, 176);
+}
+.bg-blue-800:hover {
+  background-color: rgba(7, 35, 130);
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.bg-blue-400 {
+  background-color: rgba(96, 165, 250);
+}
+.bg-blue-400:hover {
+  background-color: rgba(59, 130, 246);
+}
+.bg-blue-500 {
+  background-color: rgba(59, 130, 246);
+}
+.bg-blue-500:hover {
+  background-color: rgba(39, 113, 232);
+}
+.bg-red-600 {
+  background-color: rgba(220, 38, 38);
+}
+.bg-red-600:hover {
+  background-color: rgba(186, 17, 17);
+}
+.blink_me {
+  animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.5;
+  }
+}
+.text-base {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}

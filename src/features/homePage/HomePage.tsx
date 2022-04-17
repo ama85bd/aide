@@ -15,6 +15,7 @@ import Product from '../../app/api/product';
 import qs from 'qs';
 import ShopByBrand from '../slideCarousel/ShopByBrand';
 import ShopByCompany from '../slideCarousel/ShopByCompany';
+import Footer from '../footer/Footer';
 
 function HomePage() {
   // get grid view number
@@ -210,6 +211,9 @@ function HomePage() {
               </div>
             </>
           )}
+        </section>
+        <section>
+          <Footer />
         </section>
       </div>
     </>
