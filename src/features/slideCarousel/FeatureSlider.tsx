@@ -3,9 +3,9 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { IoChevronBackSharp, IoChevronForwardSharp } from 'react-icons/io5';
-import offer1 from '../images/of3.jpg';
-import offer2 from '../images/of3.jpg';
-import offer3 from '../images/of3.jpg';
+import offer1 from '../photos/images/of3.jpg';
+import offer2 from '../photos/images/of3.jpg';
+import offer3 from '../photos/images/of3.jpg';
 
 export const featureSliderItems = [
   {

@@ -334,7 +334,8 @@ ul#listlinkelement li:not(:last-child):after {
 .custom-loadbtn:active {
   background-position: 98%;
   color: #009999;
-  transform: translateX(1rem);
+  font-weight: 500;
+  /* transform: translateX(1rem); */
 }
 /* .productCard::before {
     content: "";

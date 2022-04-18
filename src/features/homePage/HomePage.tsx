@@ -192,6 +192,15 @@ function HomePage() {
           {allHomeProducts && lazyLoaderPage < allHomeProducts.OBJ.length && (
             <>
               <div className=' flex justify-center my-2'>
+                <div
+                  style={{
+                    backgroundColor: '#009999',
+                    height: '1px',
+                    width: '30%',
+                    marginTop: '3rem',
+                    marginRight: '2rem',
+                  }}
+                ></div>
                 <button
                   className=' custom-loadbtn'
                   onClick={() => {
@@ -208,6 +217,15 @@ function HomePage() {
                 >
                   Load More
                 </button>
+                <div
+                  style={{
+                    backgroundColor: '#009999',
+                    height: '1px',
+                    width: '30%',
+                    marginTop: '3rem',
+                    marginLeft: '2rem',
+                  }}
+                ></div>
               </div>
             </>
           )}
