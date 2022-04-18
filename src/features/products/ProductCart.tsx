@@ -189,6 +189,7 @@ const ProductCart = ({
                   product={product}
                   setAddToCartClick={setAddToCartClick}
                   type={type}
+                  gridViewNumber={gridViewNumber}
                   //  addToCart={addToCart}
                 />
               )}

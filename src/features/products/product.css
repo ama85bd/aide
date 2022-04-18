@@ -241,6 +241,12 @@ p {
   top: 50%;
 }
 
+.bottom-items-grid-4 {
+  position: absolute;
+  width: 100%;
+  top: 42%;
+}
+
 .addShoppingList {
   overflow-y: scroll;
   position: relative;

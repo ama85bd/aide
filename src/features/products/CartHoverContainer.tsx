@@ -7,6 +7,7 @@ import { faTruck } from '@fortawesome/free-solid-svg-icons';
 
 const CartHoverContainer = ({
   product,
+  gridViewNumber,
   setAddToCartClick,
   addToCart,
   type,
@@ -152,7 +153,13 @@ const CartHoverContainer = ({
         </div>
       </div>
       {/* <div style={{ position: 'relative' }}> */}
-      <div className='flex justify-between items-center pt-2 pr-1 pl-3 bottom-items'>
+      <div
+        className={
+          gridViewNumber === 4
+            ? 'flex justify-between items-center pt-2 pr-1 pl-3 bottom-items-grid-4 '
+            : 'flex justify-between items-center pt-2 pr-1 pl-3 bottom-items'
+        }
+      >
         <div className='flex flex-col justify-center  '>
           <div className='flex items-center'>
             <div>
