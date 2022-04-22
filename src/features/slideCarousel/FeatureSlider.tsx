@@ -3,9 +3,14 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { IoChevronBackSharp, IoChevronForwardSharp } from 'react-icons/io5';
-import offer1 from '../photos/images/of3.jpg';
-import offer2 from '../photos/images/of3.jpg';
-import offer3 from '../photos/images/of3.jpg';
+import offer1 from '../photos/images/offeraide1.webp';
+import offer2 from '../photos/images/offeraide2.png';
+import offer3 from '../photos/images/offeraide3.png';
+import offer4 from '../photos/images/offeraide4.jpg';
+import offer5 from '../photos/images/offeraide5.png';
+import offer6 from '../photos/images/offeraide6.png';
+import offer7 from '../photos/images/offeraide6.png';
+import offer8 from '../photos/images/offeraide8.jpg';
 
 export const featureSliderItems = [
   {
@@ -29,30 +34,30 @@ export const featureSliderItems = [
   {
     id: 4,
     title: 'Title 4',
-    image: offer1,
+    image: offer4,
   },
 
   {
     id: 5,
     title: 'Title 5',
-    image: offer3,
+    image: offer5,
   },
   {
     id: 6,
     title: 'Title 6',
-    image: offer2,
+    image: offer6,
   },
 
   {
     id: 7,
     title: 'Title 7',
-    image: offer1,
+    image: offer7,
   },
 
   {
     id: 8,
     title: 'Title 8',
-    image: offer3,
+    image: offer8,
   },
 
   {
