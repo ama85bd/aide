@@ -1,5 +1,6 @@
 .mainSlider {
   &__body {
+    display: flex;
     // width: 101.7%;
     height: 45vh;
     margin-top: 7rem;
@@ -12,12 +13,23 @@
     width: 25% !important;
     background-image: url(../../../public/assets/aide-slide-bg.png) !important;
     background-repeat: no-repeat !important;
+    box-shadow: 0.1rem 0.1rem 0.5rem rgb(0 0 0 / 50%);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+  &__slideTextLegend {
+    background: transparent !important;
+    height: 40vh;
+    width: 25% !important;
+    // background-image: url(../../../public/assets/aide-slide-bg.png) !important;
+    // background-repeat: no-repeat !important;
   }
 }
 
 .carousel .slider-wrapper {
   width: inherit;
-  border-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 
   //   border: 1px solid $color-aide;
 }
@@ -40,7 +52,8 @@
 }
 .carousel.carousel-slider {
   // left: -1.9rem !important;
-  border-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
   box-shadow: 0.1rem 0.1rem 0.5rem rgb(0 0 0 / 50%);
 }
 .opacity-70 {
@@ -54,7 +67,7 @@
 }
 .mt-16 {
   margin-top: 5.2rem;
-  width: 110%;
+  width: 100%;
 }
 .relative {
   position: relative;
@@ -104,7 +117,7 @@
 }
 .add-location {
   display: block !important;
-  margin-left: 65rem !important;
+  margin-left: 45rem !important;
   background: none !important;
   width: 150% !important;
   height: 40vh;
@@ -122,7 +135,7 @@
   padding: 0.3rem 1.2rem;
   font-size: 2.2rem;
   font-weight: bold;
-  margin-top: 5rem;
+  margin-top: 2rem;
   border-radius: 1rem;
   transition: all 0.5s;
   &:hover {
