@@ -41,23 +41,7 @@ function Sidebar({
   const [showDisplayThree, setShowDisplayThree] = useState('none');
   const [allCategoriesLoading, setAllCategoriesLoading] = useState(false);
   const [selecter, setSelecter] = useState('Category');
-  // const [allCategories, setAllCategories] = useState<any>([]);
 
-  // const clickEventReducer = useSelector((state) => state.clickEventReducer)
-  // const isShoppingOpen = clickEventReducer.isShoppingOpen
-  // const isMyFavOpen = clickEventReducer.isMyFavOpen
-  // const isShoppingBagOpen = clickEventReducer.isShoppingBagOpen
-  // const registerInfoStorage = localStorage.getItem('UserRegistration') ? JSON.parse(localStorage.getItem('UserRegistration')) : null
-  // const loginInfoStorage = localStorage.getItem('UserLogin') ? JSON.parse(localStorage.getItem('UserLogin')) : null
-  // const registerUserInfo = useSelector((state) => state.registerUserInfo)
-  // const userRegister = registerUserInfo.userRegister
-  // const loginUserInfo = useSelector((state) => state.loginUserInfo)
-  // const userLogin = loginUserInfo.userLogin
-  // const modalReducer = useSelector((state) => state.modalReducer)
-  // const modalStatus = modalReducer.openModal
-  // const userInfo = (userRegister ? userRegister.OBJ : null) || (userLogin) || (loginInfoStorage) || (registerInfoStorage ? registerInfoStorage.OBJ : null)
-
-  // const [closeBtn, setCloseBtn] = useState(true);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const categoryRef = useRef<HTMLDivElement>(null);
   const filterRef = useRef<HTMLDivElement>(null);
@@ -105,14 +89,6 @@ function Sidebar({
   }
   document.addEventListener('mousedown', handleClickOutside);
 
-  // const getAllCat = async () => {
-  //   setAllCategoriesLoading(true);
-  //   await Product.getAllCategory({}).then((e) => {
-  //     setAllCategories(e.OBJ);
-  //   });
-  //   setAllCategoriesLoading(false);
-  // };
-
   const handleCategoryExpand = () => {
     if (categoryExpand) {
       setCategoryExpand(false);
@@ -131,10 +107,6 @@ function Sidebar({
       setContactUsExpand(false);
       setMoreServiceExpand(false);
       setShoppingBagExpand(false);
-
-      // dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
-      // dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
-      // dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
 
       setMyFavoriteExpand(false);
       setScheduleShoppingExpand(false);
@@ -159,10 +131,6 @@ function Sidebar({
       setMyFavoriteExpand(false);
       setScheduleShoppingExpand(false);
       setProfileExpand(false);
-
-      // dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
-      // dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
-      // dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
     }
   };
   const handleOfferZoneExpand = () => {
@@ -183,10 +151,6 @@ function Sidebar({
       setMyFavoriteExpand(false);
       setScheduleShoppingExpand(false);
       setProfileExpand(false);
-
-      // dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
-      // dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
-      // dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
     }
   };
   const handleShoppingBagExpand = () => {
@@ -207,9 +171,6 @@ function Sidebar({
       setScheduleShoppingExpand(false);
       setProfileExpand(false);
       setMyFavoriteExpand(false);
-
-      // dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
-      // dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
     }
   };
   const handleContactUsExpand = () => {
@@ -230,10 +191,6 @@ function Sidebar({
       setMyFavoriteExpand(false);
       setScheduleShoppingExpand(false);
       setProfileExpand(false);
-
-      // dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
-      // dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
-      // dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
     }
   };
   const handleLiveChatExpand = () => {
@@ -254,10 +211,6 @@ function Sidebar({
       setMyFavoriteExpand(false);
       setScheduleShoppingExpand(false);
       setProfileExpand(false);
-
-      // dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
-      // dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
-      // dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
     }
   };
   const handleMoreServiceExpand = () => {
@@ -278,10 +231,6 @@ function Sidebar({
       setMyFavoriteExpand(false);
       setScheduleShoppingExpand(false);
       setProfileExpand(false);
-
-      // dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
-      // dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
-      // dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
     }
   };
   const handleMyFavoriteExpand = () => {
@@ -302,9 +251,6 @@ function Sidebar({
       setLiveChatExpand(false);
       setShoppingBagExpand(false);
       setProfileExpand(false);
-
-      // dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
-      // dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
     }
   };
   const handleScheduleShoppingExpand = () => {
@@ -325,9 +271,6 @@ function Sidebar({
       setShoppingBagExpand(false);
       setMyFavoriteExpand(false);
       setProfileExpand(false);
-
-      // dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
-      // dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
     }
   };
   const handleProfileExpand = () => {
@@ -336,40 +279,8 @@ function Sidebar({
       setOverlay(false);
       setMenuActive('');
     } else {
-      // if (userInfo) {
-      //     setOverlay(true)
-      //     setMenuActive('profile')
-      //     setProfileExpand(true)
-      //     setScheduleShoppingExpand(false)
-      //     setMoreServiceExpand(false)
-      //     setOfferZoneExpand(false)
-      //     setFilterExpand(false)
-      //     setCategoryExpand(false)
-      //     setContactUsExpand(false)
-      //     setLiveChatExpand(false)
-      //     setShoppingBagExpand(false)
-      //     setMyFavoriteExpand(false)
-      //     dispatch(handleTheClickEvent(CLOSE_SHOPPING_BAG))
-      //     dispatch(handleTheClickEvent(CLOSE_MY_FAVOURITE))
-      //     dispatch(handleTheClickEvent(CLOSE_SCHEDULE_SHOPPING))
-      // } else {
-      //     if (modalStatus) {
-      //         dispatch(setOpenModal(false))
-      //     } else {
-      //         dispatch(setOpenModal(true))
-      //     }
-      // }
     }
   };
-  //console.log(isShoppingOpen)
-
-  // useEffect(() => {
-
-  //     isShoppingOpen && handleScheduleShoppingExpand()
-  //     isMyFavOpen && handleMyFavoriteExpand()
-  //     isShoppingBagOpen && handleShoppingBagExpand()
-
-  // }, [isShoppingOpen, isMyFavOpen, isShoppingBagOpen])
 
   return (
     <div

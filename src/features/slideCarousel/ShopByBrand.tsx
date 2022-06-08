@@ -158,11 +158,6 @@ function ShopByBrand() {
                           ? item.BrandName.split(' ').join('-')
                           : item.BrandName
                       }/${item.Id}`}
-                      // style={{
-                      //   background: '#ffffff',
-                      //   border: '1px solid #f0f0f0',
-                      //   cursor: 'pointer',
-                      // }}
                       className=''
                     >
                       <div className='shopbyBrand__shopbyBrandSlider '>

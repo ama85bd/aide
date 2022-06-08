@@ -10,8 +10,6 @@ const SubCategoryThree = ({
   setShowDisplayTwo,
   setShowDisplayThree,
 }: any) => {
-  // const listAllCategory = useSelector((state) => state.listAllCategory)
-  // const allCategories = listAllCategory.allCategories
   return (
     <div
       className={`sidebar_details_body mx-1 mr-0  ${marginRightThree}  `}

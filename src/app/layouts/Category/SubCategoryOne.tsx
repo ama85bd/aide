@@ -62,14 +62,6 @@ any) => {
                           ? 'categoryList__color'
                           : 'categoryList__colorNormal'
                       }
-                      // onMouseOver={() => {
-                      //   setOpenDropRightTwo(!openDropRightTwo);
-                      //   setSelectedFirstChildCatId(category.Id);
-                      //   setSelectedFirstChildCatName(category.CatName);
-                      //   // colorFixed(category.Id)
-                      //   setShowDisplayTwo('flex');
-                      //   // handleSubCategoryOne()
-                      // }}
                     >
                       {category.HasChild ? (
                         <div

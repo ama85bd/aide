@@ -88,25 +88,7 @@ function CategoryList({
                     setShowDisplayTwo('none');
                   }}
                 >
-                  <li
-
-                  // onMouseOver={() => {
-                  //   setOpenDropRightOne(!openDropRightOne);
-                  //   setSelectedParentCatId(category.Id);
-                  //   setSelectedParentCatName(category.CatName);
-                  //   setIsCategorySelected(!isCategorySelected);
-                  //   colorFixed(category.Id);
-                  //   setShowDisplay('flex');
-                  // }}
-
-                  // onMouseLeave={() => {
-                  //   setOpenDropRightOne(false);
-                  //   setSelectedParentCatId(null);
-                  //   setSelectedParentCatName('');
-                  //   setIsCategorySelected(false);
-                  //   colorFixed(null);
-                  // }}
-                  >
+                  <li>
                     {category.HasChild ? (
                       <div
                         className='categoryList__innerDiv'
@@ -158,8 +140,6 @@ function CategoryList({
               </>
             );
           })}
-        {/* {allCategoriesLoading &&
-          [...Array(20)].map((el, index) => <CategorySkeleton key={el} />)} */}
       </ul>
     </div>
   );

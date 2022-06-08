@@ -139,33 +139,6 @@ any) => {
     }
   };
 
-  // useEffect(() => {
-  //   getAllCat();
-  // }, []);
-
-  // useEffect(() => {
-  //   const getAllCat = async () => {
-  //     setAllCategoriesLoading(true);
-  //     await Product.getAllCategory({}).then((e) => {
-  //       setAllCategories(e.OBJ);
-  //     });
-  //     setAllCategoriesLoading(false);
-  //   };
-  //   const getAllsetBrand = async () => {
-  //     // setAllCategoriesLoading(true);
-  //     await Product.getAllBrand({}).then((e) => {
-  //       setBrand(e.OBJ);
-  //     });
-  //     // await Product.getAllBrand(qs.stringify(cusId)).then((e) => {
-  //     //   setBrand(e.OBJ);
-  //     // });
-  //     // setAllCategoriesLoading(false);
-  //   };
-
-  //   trackPromise(getAllsetBrand());
-  //   trackPromise(getAllCat());
-  // }, []);
-
   const margin =
     openDropRightOne || openDropRightTwo || openDropRightThree ? 'mr-0' : '';
   const width =

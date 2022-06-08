@@ -90,17 +90,6 @@ function TopCategory() {
       },
     ],
   };
-  // const settings = {
-  //   // className: 'center',
-  //   // centerMode: true,
-  //   infinite: true,
-  //   // centerPadding: '60px',
-  //   slidesToShow: 4,
-  //   speed: 500,
-  //   rows: 1,
-  //   // slidesPerRow: 1,
-  //   autoplay: true,
-  // };
 
   useEffect(() => {}, []);
   return (
@@ -159,11 +148,6 @@ function TopCategory() {
                           ? item.CatName.split(' ').join('-')
                           : item.CatName
                       }/${item.Id}`}
-                      // style={{
-                      //   background: '#ffffff',
-                      //   border: '1px solid #f0f0f0',
-                      //   cursor: 'pointer',
-                      // }}
                       className=''
                     >
                       <div className='topcategory__topcategorySlider'>

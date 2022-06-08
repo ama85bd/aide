@@ -12,20 +12,6 @@ const CartHoverContainer = ({
   addToCart,
   type,
 }: any) => {
-  // const dispatch = useDispatch()
-  // const cartItem = useSelector(state => state.cartReducer.cartItem)
-
-  // const productDetails = useSelector((state) => state.productDetails)
-
-  // const productInfo = productDetails.productInfo
-
-  // const productCartIndex = findInArray(cartItem, product.Id, 'Id')
-
-  // const cartQuantity = cartItem[productCartIndex]?.cartQuantity
-
-  // const img = `${WEBSITE}${product.PrimaryImg}`
-  // console.log(img);
-
   let availableIn = new Array();
   let availableVariant = new Array();
   availableIn = product.AvailableOptions.split(',');
@@ -135,24 +121,8 @@ const CartHoverContainer = ({
               View Full Details{' '}
             </Link>
           </div>
-
-          {/* <div className='flex justify-around mt-1'>
-                        <div className=' flex items-center justify-between w-48 rounded-md px-3' style={{ backgroundColor: ' #07B6B6' }}>
-                            <span className='text-xs font-bold'>৳{product.SellPrice} </span>
-                            <button className='text-xs font-bold'
-                                onClick={() => {
-                                    setAddToCartClick(true)
-                                    dispatch(addItemToCart(product))
-                                    addToCart(img)
-                                }}>ADD TO CART</button>
-                        </div>
-                        <button className='flex items-center'>
-                            <img src={shoppingSchedule} alt="" />
-                        </button>
-                    </div> */}
         </div>
       </div>
-      {/* <div style={{ position: 'relative' }}> */}
       <div
         className={
           gridViewNumber === 4
@@ -175,8 +145,6 @@ const CartHoverContainer = ({
             <p className='text-xs ml-1 mb-1 text-black'>
               Possible Delivery on{' '}
             </p>
-            {/* <p className='text-xs ml-1 '>Sign in to know </p>
-                                <p className='text-xs ml-1 '>Confirm your delivery location </p> */}
           </div>
           <div className='flex items-center'>
             <div>
@@ -213,19 +181,6 @@ const CartHoverContainer = ({
               }}
             />
           </button>
-          {/* <button>
-            <IoEllipsisVertical
-              style={{
-                marginTop: '.5rem',
-                // marginLeft: '.1rem',
-                marginRight: '1rem',
-                marginBottom: '1.1rem',
-                fontSize: '1.8rem',
-                color: '#07b6b6',
-              }}
-              // className={`${menuColor} cursor-pointer  m-0 p-0`}
-            />
-          </button> */}
         </div>
       </div>
       {/* </div> */}

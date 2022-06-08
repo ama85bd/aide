@@ -47,9 +47,6 @@ function HomePage() {
   useMemo(() => {
     getallHomeProducts();
   }, []);
-  // useEffect(() => {
-  //   getallHomeProducts();
-  // }, []);
 
   return (
     <>
@@ -120,30 +117,6 @@ function HomePage() {
                 </DropdownItem>
               </DropdownMenu>
             </Dropdown>
-            {/* </Col>
-        </Row> */}
-            {/* <div className='custom-select'>
-          <select
-            name='viewselect'
-            id='viewselect'
-            onChange={(e) => {
-              setGridViewNumber(Number(e.target.value));
-            }}
-            // className='allproducts__dropdownview'
-            // title='Select'
-          >
-            <option key={4} value='4'>
-              4
-            </option>
-            <option key={5} value='5'>
-              5
-            </option>
-            <option selected key={6} value='6'>
-              6
-            </option>
-          </select>
-          <span className='custom-arrow'></span>
-        </div> */}
           </div>
         </div>
       </div>

@@ -20,9 +20,6 @@ function Layout() {
   const { getCommonToken } = rootStore.userStore;
   const { allCategories, getAllCat } = rootStore.commonStore;
 
-  // useEffect(() => {
-  //   setAllCategories('');
-  // }, [!overlay]);
   useEffect(() => {
     setAllCategories(allCategories);
     getAllCat();
@@ -32,12 +29,6 @@ function Layout() {
     getAllCat();
     getCommonToken();
   }, []);
-  // function handleClickOutside(event: any) {
-  //   if (!overlayRef.current?.contains(event.target)) {
-  //     setAllCategories('');
-  //   }
-  // }
-  // document.addEventListener('mousedown', handleClickOutside);
   return (
     <div className={`mainBody ${overlayScreen}`}>
       <Sidebar
@@ -45,9 +36,7 @@ function Layout() {
         allCat={allCat}
         setAllCategories={setAllCategories}
       />
-      {/* <div> */}
       <TopSearchBar />
-      {/* </div> */}
       <div className='page_container'>
         <RoutesPages />
       </div>

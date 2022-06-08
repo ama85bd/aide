@@ -53,16 +53,6 @@ function SideBarMenuList({
   setShowDisplayTwo,
   setShowDisplayThree,
 }: ISidebarMenuList) {
-  //   // //modal controller
-  //   const [modal, setModal] = useState(false);
-  //   const toggle = () => {
-  //     setModal(!modal);
-  //   };
-  //   // //click add new call back
-  //   const onClickAddNew = () => {
-  //     setModal(true);
-  //   };
-
   return (
     <div className='sidebar__mainbox' ref={sidebarRef}>
       <button
@@ -78,18 +68,9 @@ function SideBarMenuList({
           setShowDisplayThree('none');
         }}
       >
-        {/* <div
-            className={
-              menuActive === 'category'
-                ? 'sidebar__box  sidebar__box--active'
-                : ' sidebar__box  '
-            }
-          > */}
         <IoReorderFourOutline className='sidebar__icon' />
 
-        {/* <FontAwesomeIcon className='sidebar__icon' icon={faList} /> */}
         <p className='sidebar__text'>Category</p>
-        {/* </div> */}
       </button>
       <a href='#' className='sidebar--iconbtn'>
         <div className='sidebar__box'>

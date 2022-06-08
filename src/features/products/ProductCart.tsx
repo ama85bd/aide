@@ -33,9 +33,6 @@ const ProductCart = ({
   const menuColor = menu ? 'text-blue-500' : 'text-gray-400';
   const imgAnim = product.PrimaryImg;
 
-  // const successMessage = useSelector(state => state.favouriteProducts.successMessage);
-  // const checkoutDetails = useSelector(state => state.checkout.checkoutDetails);
-
   function handleClickOutside(event: any) {
     if (wrapperRef.current && !wrapperRef.current?.contains(event.target)) {
       setCloseBtn(!closeBtn);
@@ -43,39 +40,7 @@ const ProductCart = ({
     }
   }
 
-  // const handleAddToFavourite = () => {
-  //     dispatch(addToFavouriteProduct(product.Id));
-  //     setFavorite(!favorite);
-  // }
-
-  // const handleRemoveFavoriteProduct = () => {
-  //     dispatch(removeFavoriteProduct(product.Id));
-  //     setFavorite(!favorite);
-  //     setOpenRemoveSnackbar(true);
-  // }
-
   document.addEventListener('mousedown', handleClickOutside);
-
-  // const addToCart = (id) => {
-  //     setItem(document.getElementById(id).getBoundingClientRect());
-  //     setDivActive(id)
-  // }
-
-  // const handleClick = (e) => {
-  //     e.preventDefault();
-  //     if (_.isEmpty(checkoutDetails) === false) {
-  //         dispatch(handleTheClickEvent(OPEN_ORDER_REMINDER_MODAL));
-  //     }
-  //     if (_.isEmpty(checkoutDetails) === true) {
-  //         setAddToCartClick(true)
-  //         dispatch(addItemToCart(product))
-  //         addToCart(`product${product.Id}`)
-  //     }
-  // }
-
-  // useEffect(() => {
-  //     setCartBtn(document.getElementById('my-shopping').getBoundingClientRect())
-  // }, []);
 
   return (
     <>
@@ -93,18 +58,7 @@ const ProductCart = ({
                 22% Off
               </p>
             )}
-            {/* {!favorite ?
-                        <button className=' absolute top-1 right-2 text-gray-400  w-9 h-9  z-10'
-                            onClick={() => handleRemoveFavoriteProduct(product.Id)}
-                        >
-                            <FavoriteOutlinedIcon style={{ fill: "#EDA464" }} />
-                        </button> :
-                        <button className=' absolute top-1 right-2 text-gray-400 w-9 h-9 rounded-full hover:bg-gray-100  z-10'
-                            onClick={handleAddToFavourite}
-                        >
-                            <FavoriteBorderOutlinedIcon />
-                        </button>
-                    } */}
+
             <Link
               to={`/product/${
                 product.ProductName
@@ -136,19 +90,7 @@ const ProductCart = ({
                 <div
                   style={{ rotate: '180deg' }}
                   className='flex justify-center z-0'
-                >
-                  {/* <Rating
-                    rating={rating}
-                    numReviews={product.numReviews}
-                  ></Rating> */}
-
-                  {/* <Rating
-                                    value={product.ApprovedRatingAvg}
-                                    precision={1}
-                                    readOnly
-                                    size="small"
-                                /> */}
-                </div>
+                ></div>
                 <div className=' flex justify-center items-center '>
                   <span className=' text-lg font-bold text-green-700 mr-2'>
                     ৳ {product.SellPrice}{' '}
@@ -214,72 +156,6 @@ const ProductCart = ({
             {!addToCartClick ? (
               ''
             ) : (
-              // <div className='flex justify-between items-center pt-2 pr-1 pl-3'>
-              //   <div className='flex flex-col justify-center  '>
-              //     <div className='flex items-center'>
-              //       <div>
-              //         <IoLocation
-              //           style={{
-              //             marginTop: '.5rem',
-              //             marginLeft: '.3rem',
-              //             marginBottom: '1.1rem',
-              //             fontSize: '1.6rem',
-              //           }}
-              //         />
-              //       </div>
-              //       <p className='text-xs ml-1 mb-1 text-black'>
-              //         Possible Delivery on{' '}
-              //       </p>
-              //       {/* <p className='text-xs ml-1 '>Sign in to know </p>
-              //                   <p className='text-xs ml-1 '>Confirm your delivery location </p> */}
-              //     </div>
-              //     <div className='flex items-center'>
-              //       <div>
-              //         <FontAwesomeIcon
-              //           icon={faTruck}
-              //           style={{
-              //             // marginTop: '.1rem',
-              //             marginLeft: '.3rem',
-              //             marginBottom: '.5rem',
-              //             fontSize: '1.4rem',
-              //           }}
-              //         />
-              //       </div>
-              //       <p className='text-xs mb-1 ml-1 text-black'>24-48 hours </p>
-              //       {/* <p className='text-xs mb-1 ml-1'>Exact delivery time </p>
-              //                   <p className='text-xs mb-1 ml-1'>To get exact delivery time </p> */}
-              //     </div>
-              //   </div>
-              //   <div className='flex items-center justify-end'>
-              //     <button
-              //       type='button'
-              //       className=' text-gray-400 cart_add rounded-full m-0 p-2'
-              //       // onClick={(e) => handleClick(e)}
-              //     >
-              //       <IoCartOutline
-              //         className=' '
-              //         style={{
-              //           marginTop: '.5rem',
-              //           marginBottom: '.5rem',
-              //           fontSize: '2.6rem',
-              //           width: '3.7rem',
-              //         }}
-              //       />
-              //     </button>
-              //     <button onClick={() => setMenu(!menu)}>
-              //       <IoEllipsisVertical
-              //         style={{
-              //           marginTop: '.5rem',
-              //           // marginLeft: '.1rem',
-              //           marginRight: '1rem',
-              //           marginBottom: '1.1rem',
-              //           fontSize: '1.8rem',
-              //         }}
-              //         className={`${menuColor} cursor-pointer  m-0 p-0`}
-              //       />
-              //     </button>
-              //   </div>
-              // </div>
               <div className='flex justify-between items-center pt-2 pr-1 pl-3'>
                 <div className='flex flex-col justify-center  '>
                   <p className='' style={{ fontSize: '9px' }}>
@@ -304,19 +180,6 @@ const ProductCart = ({
                         style={{
                           border: '.8px solid rgba(255, 255, 255, 0.623)',
                         }}
-                        // onClick={() => {
-                        //     if (cartQuantity > 0) {
-                        //         dispatch(updateCartItem(product.Id, DECREASE))
-
-                        //     }
-                        //     if (cartQuantity < 2) {
-
-                        //         setAddToCartClick(false)
-                        //         setCloseBtn(closeBtn)
-                        //         dispatch(removeItemFromCart(product.Id))
-                        //     }
-
-                        // }}
                       >
                         -
                       </button>
@@ -360,16 +223,7 @@ const ProductCart = ({
           </div>
         </div>
       ) : (
-        <div className='productCard '>
-          {/* <ProductShedule
-                        setMenu={setMenu}
-                        setSchedule={setSchedule}
-                        productId={product}
-                        scheduleShoppingListLoading={scheduleShoppingListLoading}
-                        customerScheduleShoppingList={customerScheduleShoppingList}
-                        scheduleShoppingListError={scheduleShoppingListError}
-                    /> */}
-        </div>
+        <div className='productCard '></div>
       )}
     </>
   );

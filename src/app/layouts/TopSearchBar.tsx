@@ -14,46 +14,8 @@ import { toJS } from 'mobx';
 import { Link } from 'react-router-dom';
 
 function TopSearchBar() {
-  // const [remainingLifeData, setRemainingLifeData] = useState([] as any[]);
-  // const [tokens, setToken] = useState<any>();
-  // const rootStore = useContext(RootStoreContext);
-  // const { getCommonToken } = rootStore.userStore;
-  // const { commonToken } = rootStore.commonStore;
-
-  // console.log('all cat', remainingLifeData);
-  // console.log('commonToken', toJS(commonToken));
-  // // console.log('token', tokens);
-
-  // let general_user: any = {
-  //   Username: process.env.REACT_APP_GENERAL_USERNAME,
-  //   Password: process.env.REACT_APP_GENERAL_PASSWORD,
-  //   grant_type: process.env.REACT_APP_GENERAL_GRANT_TYPE,
-  // };
-  // useEffect(() => {
-  //   //call API to get remaining life data
-  //   // const getRemainingLifeData = async () => {
-  //   //   await Product.getProductCategoryMenu({}).then((e) => {
-  //   //     setRemainingLifeData(e.OBJ);
-  //   //   });
-  //   // };
-  //   const getToken = async () => {
-  //     await Auth.getGeneralUserToken(qs.stringify(general_user)).then((e) => {
-  //       setToken(e.access_token);
-  //     });
-  //   };
-  //   const getAllCat = async () => {
-  //     await Product.getAllCategory({}).then((e) => {
-  //       setRemainingLifeData(e.OBJ);
-  //     });
-  //   };
-  //   getCommonToken();
-  //   trackPromise(getAllCat());
-  //   // trackPromise(getToken());
-  // }, []);
-
   return (
     <div className=' topsearch'>
-      {/* <div className='row'> */}
       <div className='topsearch__logobox'>
         <Link to='/' style={{ textDecoration: 'none' }}>
           <img
@@ -97,18 +59,7 @@ function TopSearchBar() {
           <FontAwesomeIcon icon={faUserCircle} />
         </div>
       </div>
-      {/* </div> */}
     </div>
-    // <div className='topsearch'>
-    //   {/* <Navbar className='navbar-expand-lg fixed-top bg-primary topsearch--card topsearch--navbar'> */}
-    //   <div className='topsearch__left'>
-    //     <div className='topsearch__logo'>
-    //       <h2>Test</h2>
-    //     </div>
-    //   </div>
-    //   <div className='topsearch__right'></div>
-    //   {/* </Navbar> */}
-    // </div>
   );
 }
 

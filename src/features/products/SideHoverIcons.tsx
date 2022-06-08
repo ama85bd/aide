@@ -18,20 +18,6 @@ const SideHoverIcons = ({
   addToCart,
   type,
 }: any) => {
-  // const dispatch = useDispatch()
-  // const cartItem = useSelector(state => state.cartReducer.cartItem)
-
-  // const productDetails = useSelector((state) => state.productDetails)
-
-  // const productInfo = productDetails.productInfo
-
-  // const productCartIndex = findInArray(cartItem, product.Id, 'Id')
-
-  // const cartQuantity = cartItem[productCartIndex]?.cartQuantity
-
-  // const img = `${WEBSITE}${product.PrimaryImg}`
-  // console.log(img);
-
   let availableIn = new Array();
   let availableVariant = new Array();
   availableIn = product.AvailableOptions.split(',');
@@ -115,36 +101,6 @@ const SideHoverIcons = ({
             </Tooltip>
           </div>
         </div>
-        {/* <div className='flex items-center justify-end'>
-          <button
-            type='button'
-            className=' text-gray-400 cart_add rounded-full m-0 p-2'
-            // onClick={(e) => handleClick(e)}
-          >
-            <IoCartOutline
-              className=' '
-              style={{
-                marginTop: '.1rem',
-                marginBottom: '.5rem',
-                fontSize: '2.6rem',
-                width: '3.5rem',
-              }}
-            />
-          </button>
-          <button>
-            <IoEllipsisVertical
-              style={{
-                marginTop: '.5rem',
-                // marginLeft: '.1rem',
-                marginRight: '1rem',
-                marginBottom: '1.1rem',
-                fontSize: '1.8rem',
-                color: '#07b6b6',
-              }}
-              // className={`${menuColor} cursor-pointer  m-0 p-0`}
-            />
-          </button>
-        </div> */}
       </div>
     </div>
   );
