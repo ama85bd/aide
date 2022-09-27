@@ -14,6 +14,14 @@ export interface IResponseBase<T extends object> {
   OutputRowCount: number;
   OBJ: T;
 }
+
+export interface IResponseBasess<T extends object> {
+  version: string;
+  statusCode: number;
+  message: string;
+  count: number;
+  result: T;
+}
 export interface IGeneralUser {
   Username: string | undefined;
   Password: string | undefined;

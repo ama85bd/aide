@@ -16,12 +16,114 @@ import qs from 'qs';
 import ShopByBrand from '../slideCarousel/ShopByBrand';
 import ShopByCompany from '../slideCarousel/ShopByCompany';
 import Footer from '../footer/Footer';
+import { read } from 'fs';
+import axios from 'axios';
+import { Guid } from 'guid-typescript';
+
+const defaultImageSrc = '/assets/nat-1.jpg';
+
+const initialFieldValues = {
+  empId: Guid.EMPTY,
+  empName: '',
+  imageName: '',
+  imageSrc: defaultImageSrc,
+  imageFile: null,
+};
 
 function HomePage() {
   // get grid view number
   const [gridViewNumber, setGridViewNumber] = useState<number>(5);
   const [dropdownGridViewOpen, setDropdownGridViewOpen] = useState(false);
   const [lazyLoaderPage, setLazyLoaderPage] = useState<number>(67);
+
+  const [values, setValues] = useState<any>(initialFieldValues);
+  console.log('values', values);
+  const [errors, setErrors] = useState<any>({});
+
+  const testAPIUrl = (
+    url = 'https://localhost:5001/api/student-image/addstudentimage'
+  ) => {
+    return {
+      fetchAll: () => axios.get(url),
+      create: (newRecord: any) => axios.post(url, newRecord),
+      update: (id: any, updatedRecord: any) =>
+        axios.put(url + id, updatedRecord),
+      delete: (id: any) => axios.delete(url + id),
+    };
+  };
+
+  const addOrEdit = (formData: any, onSuccess: any) => {
+    testAPIUrl()
+      .create(formData)
+      .then((res) => {
+        onSuccess();
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleInputChange = (e: any) => {
+    const { name, value } = e.target;
+    console.log('name', name);
+    console.log('value', value);
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  };
+
+  const showPreview = (e: any) => {
+    if (e.target.files && e.target.files[0]) {
+      let imageFile = e.target.files[0];
+      console.log('imageFile', imageFile);
+      const reader = new FileReader();
+      reader.onload = (x: any) => {
+        setValues({
+          ...values,
+          imageName: imageFile.name,
+          imageFile,
+          imageSrc: x.target.result,
+        });
+      };
+      reader.readAsDataURL(imageFile);
+    } else {
+      setValues({
+        ...values,
+        imageFile: null,
+        imageSrc: defaultImageSrc,
+      });
+    }
+  };
+
+  const validate = () => {
+    let temp: any = {};
+    temp.empName = values.empName === '' ? false : true;
+    temp.imageSrc = values.imageSrc === defaultImageSrc ? false : true;
+    setErrors(temp);
+    return Object.values(temp).every((x) => x === true);
+  };
+
+  const resetForm = () => {
+    setValues(initialFieldValues);
+    (document.getElementById('image-uploader') as HTMLInputElement).value = '';
+    setErrors({});
+  };
+
+  const handleFormSubmit = (e: any) => {
+    e.preventDefault();
+    if (validate()) {
+      const formData = new FormData();
+      formData.append('empId', values.empId);
+      formData.append('empName', values.empName);
+      formData.append('imageFile', values.imageFile);
+      formData.append('imageName', values.imageName);
+      addOrEdit(formData, resetForm);
+      console.log('formData', formData);
+    }
+  };
+
+  const applyErrorClass = (field: any) =>
+    field in errors && errors[field] === false ? ' invalid-field' : '';
+
   // console.log('gridViewNumber', gridViewNumber);
   // console.log('lazyLoaderPage', lazyLoaderPage);
   const [allHomeProducts, setAllHomeProducts] = useState<any>(null);
@@ -53,6 +155,50 @@ function HomePage() {
 
   return (
     <>
+      <section>
+        <Row>
+          <Col md={6}>
+            <form autoComplete='off' noValidate onSubmit={handleFormSubmit}>
+              <div className='card'>
+                <img
+                  src={values.imageSrc}
+                  alt='imagesforemp'
+                  className='card-img-top'
+                />
+                <div className='card-body'>
+                  <div className='form-group'>
+                    <input
+                      type='file'
+                      accept='image/*'
+                      className={
+                        'form-control-file' + applyErrorClass('imageSrc')
+                      }
+                      onChange={showPreview}
+                      id='image-uploader'
+                      name='imageName'
+                    />
+                  </div>
+                  <div className='form-group'>
+                    <input
+                      type='text'
+                      className={'form-control' + applyErrorClass('empName')}
+                      placeholder='Emp Name'
+                      name='empName'
+                      value={values.empName}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                  <div className='form-group text-center'>
+                    <button type='submit' className='btn btn-primary'>
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </Col>
+        </Row>
+      </section>
       <SlideCarousel />
       <FeatureSlider />
       <TopCategory />
@@ -158,6 +304,7 @@ function HomePage() {
             }
           />
         </section>
+
         <section>
           <ShopByBrand />
         </section>

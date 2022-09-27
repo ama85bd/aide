@@ -154,7 +154,7 @@ body {
   box-sizing: border-box;
   padding: 0;
   -webkit-animation: animShow 1s forwards;
-          animation: animShow 1s forwards;
+  animation: animShow 1s forwards;
 }
 body button {
   border: none;
@@ -167,7 +167,7 @@ body button {
 }
 
 body {
-  font-family: "Roboto", "Lato", sans-serif;
+  font-family: 'Roboto', 'Lato', sans-serif;
   font-weight: 400;
   /* font-size: 16px; */
   line-height: 1.7;
@@ -178,7 +178,7 @@ body {
   color: #fff;
   text-transform: uppercase;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   margin-bottom: 6rem;
 }
 .heading-primary--main {
@@ -187,11 +187,11 @@ body {
   font-weight: 700;
   letter-spacing: 3.1rem;
   -webkit-animation-name: moveInLeft;
-          animation-name: moveInLeft;
+  animation-name: moveInLeft;
   -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  animation-duration: 1s;
   -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
 }
 @media (max-width: 93.75em) {
   .heading-primary--main {
@@ -223,7 +223,7 @@ body {
   font-weight: 700;
   letter-spacing: 2.2rem;
   -webkit-animation: moveInRight 1s ease-out;
-          animation: moveInRight 1s ease-out;
+  animation: moveInRight 1s ease-out;
 }
 @media (max-width: 93.75em) {
   .heading-primary--sub {
@@ -319,7 +319,9 @@ body {
   margin-top: 10rem !important;
 }
 
-.btnAide, .btnAide:link, .btnAide:visited {
+.btnAide,
+.btnAide:link,
+.btnAide:visited {
   text-decoration: none;
   padding: 0.7rem 1.4rem;
   display: inline-block;
@@ -352,7 +354,7 @@ body {
   background-color: #55c57a;
 }
 .btnAide::after {
-  content: "";
+  content: '';
   display: inline-block;
   height: 100%;
   width: 100%;
@@ -365,12 +367,13 @@ body {
 }
 .btnAide--animated {
   -webkit-animation: moveInBottom 0.5s ease-out 0.75s;
-          animation: moveInBottom 0.5s ease-out 0.75s;
+  animation: moveInBottom 0.5s ease-out 0.75s;
   -webkit-animation-fill-mode: backwards;
-          animation-fill-mode: backwards;
+  animation-fill-mode: backwards;
 }
 
-.btnAide-text:link, .btnAide-text:visited {
+.btnAide-text:link,
+.btnAide-text:visited {
   font-size: 1.6rem;
   color: #55c57a;
   display: inline-block;
@@ -645,7 +648,9 @@ body {
   padding: 1rem;
   z-index: 99;
 }
-.sidebar--iconbtn, .sidebar--iconbtn:link, .sidebar--iconbtn:visited {
+.sidebar--iconbtn,
+.sidebar--iconbtn:link,
+.sidebar--iconbtn:visited {
   text-decoration: none;
   border-radius: 1rem;
   border: 1.5px solid #009999;
@@ -658,10 +663,17 @@ body {
   background: #fff;
   transition: all 0.2s;
 }
-.sidebar--iconbtn:not(:last-child), .sidebar--iconbtn:link:not(:last-child), .sidebar--iconbtn:visited:not(:last-child) {
+.sidebar--iconbtn:not(:last-child),
+.sidebar--iconbtn:link:not(:last-child),
+.sidebar--iconbtn:visited:not(:last-child) {
   margin-bottom: 0.5rem;
 }
-.sidebar--iconbtn:hover, .sidebar--iconbtn:active, .sidebar--iconbtn:link:hover, .sidebar--iconbtn:link:active, .sidebar--iconbtn:visited:hover, .sidebar--iconbtn:visited:active {
+.sidebar--iconbtn:hover,
+.sidebar--iconbtn:active,
+.sidebar--iconbtn:link:hover,
+.sidebar--iconbtn:link:active,
+.sidebar--iconbtn:visited:hover,
+.sidebar--iconbtn:visited:active {
   color: #fff;
   background: #009999;
 }
@@ -1387,7 +1399,7 @@ a:active {
   border-right: 0.6rem solid #009999;
   box-shadow: 0.3rem 0.2rem 0.6rem rgba(0, 0, 0, 0.3);
   -webkit-animation: 0.6s ease-in alternate swingRight;
-          animation: 0.6s ease-in alternate swingRight;
+  animation: 0.6s ease-in alternate swingRight;
 }
 .sidebarDrawer__container--out {
   position: fixed;
@@ -1398,7 +1410,7 @@ a:active {
   height: 100vh;
   border-right: 8px solid #009999;
   -webkit-animation: 0.7s ease-in alternate swingLeft;
-          animation: 0.7s ease-in alternate swingLeft;
+  animation: 0.7s ease-in alternate swingLeft;
 }
 .sidebarDrawer__title {
   display: flex;
@@ -1698,7 +1710,12 @@ ul#brandListText li {
 }
 
 ul#brandListText li:not(:last-child):after {
-  content: ", ";
+  content: ', ';
 }
 
-/*# sourceMappingURL=styles.css.map *//*# sourceMappingURL=styles.css.map */
+.invalid-field {
+  border-color: #dc3545;
+  color: #dc3545;
+  background-color: #fff;
+}
+/*# sourceMappingURL=styles.css.map */ /*# sourceMappingURL=styles.css.map */
