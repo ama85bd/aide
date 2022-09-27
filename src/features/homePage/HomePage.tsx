@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import AllProducts from '../products/AllProducts';
 import FeatureSlider from '../slideCarousel/FeatureSlider';
 import SlideCarousel from '../slideCarousel/SlideCarousel';
@@ -35,6 +35,10 @@ function HomePage() {
   const [gridViewNumber, setGridViewNumber] = useState<number>(5);
   const [dropdownGridViewOpen, setDropdownGridViewOpen] = useState(false);
   const [lazyLoaderPage, setLazyLoaderPage] = useState<number>(67);
+
+  let videoRef = useRef(null);
+
+  let photoRef = useRef(null);
 
   const [values, setValues] = useState<any>(initialFieldValues);
   console.log('values', values);
@@ -153,6 +157,95 @@ function HomePage() {
   //   getallHomeProducts();
   // }, []);
 
+  const getVideo = () => {
+    navigator.mediaDevices
+      .getUserMedia({
+        video: true,
+      })
+      .then((stream) => {
+        let video: any = videoRef.current;
+        video.srcObject = stream;
+        video.play();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+  const [drawing, setDrawing] = useState();
+  console.log('drawing', drawing);
+
+  function dataURLtoFile(dataurl: any, filename: any) {
+    var arr = dataurl.split(','),
+      mime = arr[0].match(/:(.*?);/)[1],
+      bstr = atob(arr[1]),
+      n = bstr.length,
+      u8arr = new Uint8Array(n);
+
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
+    }
+
+    return new File([u8arr], filename, { type: mime });
+  }
+
+  const takePicture = () => {
+    const width = 400;
+    const height = width / (16 / 9);
+
+    let video: any = videoRef.current;
+
+    let photo: any = photoRef.current;
+
+    photo.width = width;
+
+    photo.height = height;
+
+    let ctx = photo.getContext('2d');
+
+    let image = ctx.drawImage(video, 0, 0, width, height);
+    const imageSrc = video.current?.getScreenshot();
+    console.log('imageSrc', imageSrc);
+
+    const base64 = photo?.toDataURL('image/jpeg', 1.0);
+
+    var file = dataURLtoFile(base64, 'hello.jpeg');
+    console.log('file', file);
+
+    // const points = photo?.getSaveData();
+    setDrawing(base64);
+    console.log(base64);
+    // console.log(points);
+    // const imageGet = photo?.canvasContainer?.childNodes[1]?.toDataURL();
+    // const imageGet = photo?.toDataURL('image/png');
+    // const imageGet = photo.domElement?.toDataURL('image/png');
+    // const imageGet = document.getElementById('getphoto') as HTMLCanvasElement;
+    // console.log('imageGet', imageGet);
+
+    const formData = new FormData();
+    formData.append('empId', Guid.EMPTY);
+    formData.append('empName', 'My name');
+    formData.append('imageFile', file);
+    formData.append('imageName', 'image Name');
+    addOrEdit(formData, resetForm);
+
+    console.log('formData', formData);
+    console.log('ctx', ctx);
+    console.log('photo', photo);
+    console.log('video', video);
+  };
+
+  const clearImage = () => {
+    let photo: any = photoRef.current;
+
+    let ctx = photo.getContext('2d');
+
+    ctx.clearRect(0, 0, photo.width, photo.height);
+  };
+
+  useEffect(() => {
+    getVideo();
+  }, [videoRef]);
+
   return (
     <>
       <section>
@@ -196,6 +289,21 @@ function HomePage() {
                 </div>
               </div>
             </form>
+          </Col>
+          <Col md={6}>
+            <h1 className='text-center'>Camera Selfie App in React</h1>
+
+            <video ref={videoRef} className='container'></video>
+
+            <button onClick={takePicture} className='btn btn-danger container'>
+              Take Picture
+            </button>
+
+            <canvas className='container' ref={photoRef} id='getphoto'></canvas>
+
+            <button onClick={clearImage} className='btn btn-primary container'>
+              Clear Image
+            </button>
           </Col>
         </Row>
       </section>
