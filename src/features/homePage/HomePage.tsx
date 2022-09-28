@@ -19,6 +19,7 @@ import Footer from '../footer/Footer';
 import { read } from 'fs';
 import axios from 'axios';
 import { Guid } from 'guid-typescript';
+import { url } from 'inspector';
 
 const defaultImageSrc = '/assets/nat-1.jpg';
 
@@ -41,8 +42,14 @@ function HomePage() {
   let photoRef = useRef(null);
 
   const [values, setValues] = useState<any>(initialFieldValues);
-  console.log('values', values);
+
   const [errors, setErrors] = useState<any>({});
+  const [studentList, setStudentList] = useState<any>([]);
+  console.log(
+    'studentList',
+    studentList[0]?.empName
+    // studentList.map((e: any) => e.imageSrc)
+  );
 
   const testAPIUrl = (
     url = 'https://localhost:5001/api/student-image/addstudentimage'
@@ -56,11 +63,19 @@ function HomePage() {
     };
   };
 
+  const refreshStudentList = () => {
+    testAPIUrl()
+      .fetchAll()
+      .then((res) => setStudentList(res.data.result))
+      .catch((err) => console.log(err));
+  };
+
   const addOrEdit = (formData: any, onSuccess: any) => {
     testAPIUrl()
       .create(formData)
       .then((res) => {
         onSuccess();
+        refreshStudentList();
       })
       .catch((err) => console.log(err));
   };
@@ -125,6 +140,22 @@ function HomePage() {
     }
   };
 
+  const imageCard = (data: any) => {
+    console.log('data', data.empName);
+    return (
+      <div className='card'>
+        <img
+          src={data.imageSrc}
+          alt='student img'
+          className='card-img-top rounded-circle'
+        />
+        <div className='card-body'>
+          <h5>{data.empName}</h5>
+        </div>
+      </div>
+    );
+  };
+
   const applyErrorClass = (field: any) =>
     field in errors && errors[field] === false ? ' invalid-field' : '';
 
@@ -172,7 +203,7 @@ function HomePage() {
       });
   };
   const [drawing, setDrawing] = useState();
-  console.log('drawing', drawing);
+  // console.log('drawing', drawing);
 
   function dataURLtoFile(dataurl: any, filename: any) {
     var arr = dataurl.split(','),
@@ -245,6 +276,9 @@ function HomePage() {
   useEffect(() => {
     getVideo();
   }, [videoRef]);
+  // useEffect(() => {
+  //   refreshStudentList();
+  // }, []);
 
   return (
     <>
@@ -268,7 +302,7 @@ function HomePage() {
                       }
                       onChange={showPreview}
                       id='image-uploader'
-                      name='imageName'
+                      // name='imageName'
                     />
                   </div>
                   <div className='form-group'>
@@ -295,15 +329,48 @@ function HomePage() {
 
             <video ref={videoRef} className='container'></video>
 
-            <button onClick={takePicture} className='btn btn-danger container'>
+            <button
+              type='button'
+              onClick={takePicture}
+              className='btn btn-danger container'
+            >
               Take Picture
             </button>
 
             <canvas className='container' ref={photoRef} id='getphoto'></canvas>
 
-            <button onClick={clearImage} className='btn btn-primary container'>
+            <button
+              type='button'
+              onClick={clearImage}
+              className='btn btn-primary container'
+            >
               Clear Image
             </button>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <h1>Images</h1>
+            <table>
+              <tbody>
+                {[...Array(Math.ceil(studentList.length / 3))].map((e, i) => (
+                  <tr>
+                    <td>{imageCard(studentList[3 * i])}</td>
+                    <td>
+                      {studentList[3 * i + 1]
+                        ? imageCard(studentList[3 * i + 1])
+                        : null}
+                    </td>
+                    <td>
+                      {studentList[3 * i + 2]
+                        ? imageCard(studentList[3 * i + 2])
+                        : null}
+                    </td>
+                    <td></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </Col>
         </Row>
       </section>
