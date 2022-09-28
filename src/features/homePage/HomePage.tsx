@@ -51,9 +51,7 @@ function HomePage() {
     // studentList.map((e: any) => e.imageSrc)
   );
 
-  const testAPIUrl = (
-    url = 'https://localhost:5001/api/student-image/addstudentimage'
-  ) => {
+  const testAPIUrl = (url: any) => {
     return {
       fetchAll: () => axios.get(url),
       create: (newRecord: any) => axios.post(url, newRecord),
@@ -64,14 +62,14 @@ function HomePage() {
   };
 
   const refreshStudentList = () => {
-    testAPIUrl()
+    testAPIUrl('https://localhost:5001/api/student-image/getstudentimage')
       .fetchAll()
       .then((res) => setStudentList(res.data.result))
       .catch((err) => console.log(err));
   };
 
   const addOrEdit = (formData: any, onSuccess: any) => {
-    testAPIUrl()
+    testAPIUrl('https://localhost:5001/api/student-image/addstudentimage')
       .create(formData)
       .then((res) => {
         onSuccess();
@@ -276,9 +274,9 @@ function HomePage() {
   useEffect(() => {
     getVideo();
   }, [videoRef]);
-  // useEffect(() => {
-  //   refreshStudentList();
-  // }, []);
+  useEffect(() => {
+    refreshStudentList();
+  }, []);
 
   return (
     <>
@@ -337,7 +335,12 @@ function HomePage() {
               Take Picture
             </button>
 
-            <canvas className='container' ref={photoRef} id='getphoto'></canvas>
+            <canvas
+              hidden
+              className='container'
+              ref={photoRef}
+              id='getphoto'
+            ></canvas>
 
             <button
               type='button'
